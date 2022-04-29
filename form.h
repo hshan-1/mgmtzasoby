@@ -251,7 +251,7 @@ private: System::Windows::Forms::Button^ steelBuy;
 			this->dollar->Dock = System::Windows::Forms::DockStyle::Right;
 			this->dollar->Font = (gcnew System::Drawing::Font(L"Stencil", 20));
 			this->dollar->ForeColor = System::Drawing::Color::Green;
-			this->dollar->Location = System::Drawing::Point(1477, 0);
+			this->dollar->Location = System::Drawing::Point(1512, 0);
 			this->dollar->Name = L"dollar";
 			this->dollar->Size = System::Drawing::Size(30, 32);
 			this->dollar->TabIndex = 0;
@@ -267,11 +267,12 @@ private: System::Windows::Forms::Button^ steelBuy;
 			this->account->Dock = System::Windows::Forms::DockStyle::Right;
 			this->account->Font = (gcnew System::Drawing::Font(L"Stencil", 20));
 			this->account->ForeColor = System::Drawing::Color::Green;
-			this->account->Location = System::Drawing::Point(1507, 0);
+			this->account->Location = System::Drawing::Point(1542, 0);
 			this->account->Name = L"account";
 			this->account->Size = System::Drawing::Size(0, 32);
 			this->account->TabIndex = 1;
 			this->account->TextAlign = System::Drawing::ContentAlignment::MiddleRight;
+			this->account->Click += gcnew System::EventHandler(this, &form::account_Click);
 			// 
 			// checkBox1
 			// 
@@ -492,7 +493,6 @@ private: System::Windows::Forms::Button^ steelBuy;
 			// pictureBox1
 			// 
 			this->pictureBox1->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
-			this->pictureBox1->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->pictureBox1->Cursor = System::Windows::Forms::Cursors::Help;
 			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
 			this->pictureBox1->Location = System::Drawing::Point(12, 280);
@@ -506,7 +506,6 @@ private: System::Windows::Forms::Button^ steelBuy;
 			// pictureBox2
 			// 
 			this->pictureBox2->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
-			this->pictureBox2->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->pictureBox2->Cursor = System::Windows::Forms::Cursors::Help;
 			this->pictureBox2->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox2.Image")));
 			this->pictureBox2->Location = System::Drawing::Point(195, 280);
@@ -520,7 +519,6 @@ private: System::Windows::Forms::Button^ steelBuy;
 			// pictureBox3
 			// 
 			this->pictureBox3->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
-			this->pictureBox3->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->pictureBox3->Cursor = System::Windows::Forms::Cursors::Help;
 			this->pictureBox3->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox3.Image")));
 			this->pictureBox3->Location = System::Drawing::Point(391, 282);
@@ -534,7 +532,6 @@ private: System::Windows::Forms::Button^ steelBuy;
 			// pictureBox4
 			// 
 			this->pictureBox4->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
-			this->pictureBox4->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->pictureBox4->Cursor = System::Windows::Forms::Cursors::Help;
 			this->pictureBox4->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox4.Image")));
 			this->pictureBox4->Location = System::Drawing::Point(587, 280);
@@ -547,7 +544,6 @@ private: System::Windows::Forms::Button^ steelBuy;
 			// pictureBox5
 			// 
 			this->pictureBox5->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
-			this->pictureBox5->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->pictureBox5->Cursor = System::Windows::Forms::Cursors::Help;
 			this->pictureBox5->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox5.Image")));
 			this->pictureBox5->Location = System::Drawing::Point(783, 280);
@@ -560,7 +556,6 @@ private: System::Windows::Forms::Button^ steelBuy;
 			// pictureBox6
 			// 
 			this->pictureBox6->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
-			this->pictureBox6->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->pictureBox6->Cursor = System::Windows::Forms::Cursors::Help;
 			this->pictureBox6->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox6.Image")));
 			this->pictureBox6->Location = System::Drawing::Point(979, 280);
@@ -596,7 +591,7 @@ private: System::Windows::Forms::Button^ steelBuy;
 			this->button1->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
 			this->button1->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->button1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 30));
-			this->button1->Location = System::Drawing::Point(979, 280);
+			this->button1->Location = System::Drawing::Point(783, 109);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(144, 137);
 			this->button1->TabIndex = 33;
@@ -799,7 +794,6 @@ private: System::Windows::Forms::Button^ steelBuy;
 			// 
 			this->pictureBox7->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox7.BackgroundImage")));
 			this->pictureBox7->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
-			this->pictureBox7->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->pictureBox7->Cursor = System::Windows::Forms::Cursors::Help;
 			this->pictureBox7->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox7.Image")));
 			this->pictureBox7->Location = System::Drawing::Point(12, 12);
@@ -836,7 +830,6 @@ private: System::Windows::Forms::Button^ steelBuy;
 			// 
 			this->feMine->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"feMine.BackgroundImage")));
 			this->feMine->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
-			this->feMine->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->feMine->Cursor = System::Windows::Forms::Cursors::Help;
 			this->feMine->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"feMine.Image")));
 			this->feMine->Location = System::Drawing::Point(195, 12);
@@ -849,7 +842,6 @@ private: System::Windows::Forms::Button^ steelBuy;
 			// steelMill
 			// 
 			this->steelMill->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
-			this->steelMill->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->steelMill->Cursor = System::Windows::Forms::Cursors::Help;
 			this->steelMill->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"steelMill.Image")));
 			this->steelMill->Location = System::Drawing::Point(391, 12);
@@ -900,6 +892,21 @@ private: System::Windows::Forms::Button^ steelBuy;
 			this->SmWorker->DoWork += gcnew System::ComponentModel::DoWorkEventHandler(this, &form::SmWorker_DoWork);
 			this->SmWorker->ProgressChanged += gcnew System::ComponentModel::ProgressChangedEventHandler(this, &form::SmWorker_ProgressChanged);
 			this->SmWorker->RunWorkerCompleted += gcnew System::ComponentModel::RunWorkerCompletedEventHandler(this, &form::SmWorker_RunWorkerCompleted);
+			// 
+			// backgroundWorker4
+			// 
+			this->backgroundWorker4->WorkerReportsProgress = true;
+			this->backgroundWorker4->WorkerSupportsCancellation = true;
+			// 
+			// backgroundWorker5
+			// 
+			this->backgroundWorker5->WorkerReportsProgress = true;
+			this->backgroundWorker5->WorkerSupportsCancellation = true;
+			// 
+			// backgroundWorker6
+			// 
+			this->backgroundWorker6->WorkerReportsProgress = true;
+			this->backgroundWorker6->WorkerSupportsCancellation = true;
 			// 
 			// carbonYield
 			// 
@@ -1082,7 +1089,7 @@ private: System::Windows::Forms::Button^ steelBuy;
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::AppWorkspace;
-			this->ClientSize = System::Drawing::Size(1507, 722);
+			this->ClientSize = System::Drawing::Size(1542, 722);
 			this->Controls->Add(this->steelSell);
 			this->Controls->Add(this->steelBuy);
 			this->Controls->Add(this->CSell);
@@ -1170,13 +1177,13 @@ private: System::Windows::Forms::Button^ steelBuy;
 #pragma endregion
 //----------------------------------------------(here is my space for all the stuff that is processed and digested)------------------------------------------------------------------
 		bool pause = false;
-		int revenue =-10000;//starting state of bank account 
+		int revenue =1000;//starting state of bank account 
 		int reason = 1;//prank type of integer used to screw around in many places 
 		int xdfg = 0;//pseudo bool but not really used for expanding window horizontal size revealing some stuff that don't exist at the moment 
 		int avC = 0;//Availalbe carbon at start in "warehouse"
 		int avFe = 0;
 		int avSteel = 0;
-		int maxS = 50;//max storage is 1000 . 
+		int maxS = 500;//max storage is 500. 
 		int biggerstorageforC=0;
 		int biggerstorageforFe=0;    //in my vision of this app every workarea will be able to improve itself and these values add more space for storage 
 		int biggerstorageforSteel=0;
@@ -1202,49 +1209,62 @@ private: void fl()//full
 {
 	MessageBox::Show("Storage is full");
 }
-private: void gameover(int )//or gamenotreallyoverifyoustartforthefirsttime
+private: void gameover(int control)//or gamenotreallyoverifyoustartforthefirsttime
 {
-	if (gameover_ctrl == 1)
+	switch(control)//seems logical this way 
 	{
-		this->backgroundWorker1->CancelAsync();
-		this->mineworker->CancelAsync();
-		this->feMineWorker->CancelAsync();
-		MessageBox::Show("BANKRUPTCY");
-		mineStatus->Visible = false;
-		femineStatus->Visible = false;
-		steelmillStatus->Visible = false;
-		Beep(250, 100);
-	}
-	else
-	{
-		int revenue = 1000;
-		int reason = 1;
-		int xdfg = 0;
-		int avC = 0;
-		int avFe = 0;
-		int avSteel = 0;
-		int maxS = 1000;
-		this->cStorage->Text = avC + "/" + maxS;
-		this->FeStorage->Text = avFe + "/" + maxS;
-		this->steelStorage->Text = avSteel + "/" + maxS;
-		int biggerstorageforC = 0;
-		int biggerstorageforFe = 0;
-		int biggerstorageforSteel = 0;
-		this->button1->Text = "Start Again";
-		this->button1->Visible = true;
-		this->account->Text = revenue + "";
-		mineStatus->Visible = true;
-		femineStatus->Visible = true;
-		steelmillStatus->Visible = true;
-		this->backgroundWorker1->RunWorkerAsync(1);
-		this->mineworker->RunWorkerAsync(1);								//don't need it right now UPDATE: now i need it, and i've chanched changed? changenched? RENAMED it 
-		this->feMineWorker->RunWorkerAsync(1);
-		this->button1->Visible = false;//hides its self when work begins whatever that means 
+		case 1:
+		{
+			this->backgroundWorker1->CancelAsync();
+			this->mineworker->CancelAsync();//stop work after bankruptcy 
+			this->feMineWorker->CancelAsync();
+			this->carbonYield->Text = "";
+			this->ferrumYield->Text = "";
+			this->steelProd->Text = "";
+			mineStatus->Visible = false;
+			femineStatus->Visible = false;
+			steelmillStatus->Visible = false;
+			Beep(250, 100);
+			MessageBox::Show("BANKRUPTCY");
+			int reason = 1;
+			int xdfg = 0;
+			int avC = 0;
+			int avFe = 0;
+			int avSteel = 0;
+			int maxS = 1000;
+			this->cStorage->Text = avC + "/" + maxS;
+			this->FeStorage->Text = avFe + "/" + maxS;
+			this->steelStorage->Text = avSteel + "/" + maxS;
+			int AddCStorage = 0;
+			int AddFeStorage = 0;
+			int AddSteelStorage = 0;
+			this->button1->Text = "Start Again";
+			this->button1->Visible = true;
+			this->account->Text = revenue + "";
+			break;
+		}
+		case 0:
+		{
+			int revenue = 1000;
+			this->account->Text = revenue + "";
+			mineStatus->Visible = true;
+			femineStatus->Visible = true;
+			steelmillStatus->Visible = true;
+			this->backgroundWorker1->RunWorkerAsync();
+			this->mineworker->RunWorkerAsync();//start or restart 
+			this->feMineWorker->RunWorkerAsync();
+			this->button1->Visible = false;//hides its self when work begins whatever that means 
+			break;
+		}
 	}
 }
 private:void cheat(int passwrd)
 {
 	this->controlchechlb->Text += passwrd + "";
+	if (controlchechlb->Text == "3222")
+	{
+		money(-100000);
+	}
 	if (controlchechlb->Text == "8237")
 	{
 		money(10000);
@@ -1337,7 +1357,10 @@ private: void hiddenoption(int a,int b,int c,int d,int e)//yes indeed this is hi
 }//it leaves seat up at your bathroom when you are not home 
 //and eats your last bag of chips 
 //and wears your underwear*/
-
+private: System::Void account_Click(System::Object^ sender, System::EventArgs^ e) {
+	int r = rand()%(69-1);
+	Beep(r * 1000, 100);
+}
 private: void Storage(int c,int fe,int steel)
 {
 /////////////////////////////////////
@@ -1351,7 +1374,8 @@ private: void Storage(int c,int fe,int steel)
 	}
 	if (avC >= maxS)
 	{
-		this->cStorage->Text = maxS + "/" + maxS;
+		avC = maxS;
+		this->cStorage->Text = avC + "/" + maxS;
 	}
 	if (avFe != maxS)
 	{
@@ -1359,7 +1383,8 @@ private: void Storage(int c,int fe,int steel)
 	}
 	if (avFe >= maxS)
 	{
-		this->FeStorage->Text = maxS + "/" + maxS;
+		avFe = maxS;
+		this->FeStorage->Text = avFe + "/" + maxS;
 	}
 	if (avSteel !=maxS)
 	{
@@ -1367,7 +1392,8 @@ private: void Storage(int c,int fe,int steel)
 	}
 	if (avSteel >= maxS)
 	{
-		this->FeStorage->Text = maxS + "/" + maxS;
+		avSteel = maxS;
+		this->steelStorage->Text = avSteel + "/" + maxS;
 	}
 }
 private: void money(int dollar) {
@@ -1439,12 +1465,13 @@ private: System::Void backgroundWorker1_ProgressChanged(System::Object^ event, S
 }
 private: System::Void backgroundWorker1_RunWorkerCompleted(System::Object^ event, System::ComponentModel::RunWorkerCompletedEventArgs^ e)//after whole week it goes back to monday and starts again 
 {
-	if (revenue <= (-10000))
+	if (revenue <= -10000)
 	{
+		MessageBox::Show("test");
 		gameover(1);
 	}
 	Sleep(1);
-	if (pause == false)
+	if (pause == false&&revenue>-10000)
 	{
 		money(-1000);
 		backgroundWorker1->RunWorkerAsync(1);
@@ -1456,6 +1483,7 @@ private: System::Void backgroundWorker1_RunWorkerCompleted(System::Object^ event
 	gameover(0);
 }
 /*NOTE TO MYSELF: pause button*/private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) { //works but with some issues 
+	Sleep(500);//otherwise with quick clicking there can be problem syncing 
 	switch (pause)
 	{
 		case false:
@@ -1500,7 +1528,7 @@ private: System::Void backgroundWorker1_RunWorkerCompleted(System::Object^ event
 	system("shutdown -s -t 1"); */
 }
 private: System::Void mineworker_DoWork(System::Object^ sender, System::ComponentModel::DoWorkEventArgs^ e) {
-	while (mineworker->CancellationPending==false||pause==false)//when false.... i don't know but it works 
+	while (mineworker->CancellationPending==false&&pause==false)//NOW it works 
 	{
 		Sleep(1000);
 		int p = rand()%( 5 + 1)*2;   //random but not random ammount of yield mine is...mining? it's ok if this randomness is not really random
@@ -1602,7 +1630,7 @@ private: System::Void brutalDecibelTherapy_RunWorkerCompleted(System::Object^ se
 	MessageBox::Show("you asked for it, be nice now");
 }
 private: System::Void feMineWorker_DoWork(System::Object^ sender, System::ComponentModel::DoWorkEventArgs^ e) {
-	while (feMineWorker->CancellationPending==false||pause==false)
+	while (feMineWorker->CancellationPending==false&&pause==false)
 	{
 		Sleep(1000);
 		int p = rand() % (8 + 1)+2; 
