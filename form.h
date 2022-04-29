@@ -41,8 +41,8 @@ namespace mgmtzasoby {
 	private: System::Windows::Forms::Label^ dollar;
 	protected:
 	private: System::Windows::Forms::Label^ account;
-	private: System::Windows::Forms::Button^ buyC;
-	private: System::Windows::Forms::Button^ sellC;
+
+
 
 
 	private: System::Windows::Forms::CheckBox^ checkBox1;
@@ -116,19 +116,30 @@ private: System::ComponentModel::BackgroundWorker^ backgroundWorker4;
 private: System::ComponentModel::BackgroundWorker^ backgroundWorker5;
 private: System::ComponentModel::BackgroundWorker^ backgroundWorker6;
 private: System::Windows::Forms::Label^ carbonYield;
-private: System::Windows::Forms::Label^ cWareHs;
+	private: System::Windows::Forms::Label^ cStorage;
+
 	private: System::Windows::Forms::Label^ label14;
 	private: System::Windows::Forms::Label^ pass;
 	private: System::Windows::Forms::Label^ controlchechlb;
 	private: System::ComponentModel::BackgroundWorker^ brutalDecibelTherapy;
-	private: System::Windows::Forms::Label^ feWareHs;
+private: System::Windows::Forms::Label^ FeStorage;
+
 	private: System::Windows::Forms::Label^ ferrumYield;
 	private: System::Windows::Forms::Label^ steelProd;
-	private: System::Windows::Forms::Label^ steelWareHs;
-private: System::Windows::Forms::Button^ buyfe;
-private: System::Windows::Forms::Button^ sellfe;
-private: System::Windows::Forms::Button^ buysteel;
-private: System::Windows::Forms::Button^ sellsteel;
+private: System::Windows::Forms::Label^ steelStorage;
+
+private: System::Windows::Forms::Button^ FeBuy;
+private: System::Windows::Forms::Button^ FeSell;
+private: System::Windows::Forms::Button^ CSell;
+private: System::Windows::Forms::Button^ CBuy;
+private: System::Windows::Forms::Button^ steelSell;
+
+private: System::Windows::Forms::Button^ steelBuy;
+
+
+
+
+
 
 
 
@@ -152,8 +163,6 @@ private: System::Windows::Forms::Button^ sellsteel;
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(form::typeid));
 			this->dollar = (gcnew System::Windows::Forms::Label());
 			this->account = (gcnew System::Windows::Forms::Label());
-			this->buyC = (gcnew System::Windows::Forms::Button());
-			this->sellC = (gcnew System::Windows::Forms::Button());
 			this->checkBox1 = (gcnew System::Windows::Forms::CheckBox());
 			this->listBox1 = (gcnew System::Windows::Forms::ListBox());
 			this->listBox3 = (gcnew System::Windows::Forms::ListBox());
@@ -209,19 +218,21 @@ private: System::Windows::Forms::Button^ sellsteel;
 			this->backgroundWorker5 = (gcnew System::ComponentModel::BackgroundWorker());
 			this->backgroundWorker6 = (gcnew System::ComponentModel::BackgroundWorker());
 			this->carbonYield = (gcnew System::Windows::Forms::Label());
-			this->cWareHs = (gcnew System::Windows::Forms::Label());
+			this->cStorage = (gcnew System::Windows::Forms::Label());
 			this->label14 = (gcnew System::Windows::Forms::Label());
 			this->pass = (gcnew System::Windows::Forms::Label());
 			this->controlchechlb = (gcnew System::Windows::Forms::Label());
 			this->brutalDecibelTherapy = (gcnew System::ComponentModel::BackgroundWorker());
-			this->feWareHs = (gcnew System::Windows::Forms::Label());
+			this->FeStorage = (gcnew System::Windows::Forms::Label());
 			this->ferrumYield = (gcnew System::Windows::Forms::Label());
 			this->steelProd = (gcnew System::Windows::Forms::Label());
-			this->steelWareHs = (gcnew System::Windows::Forms::Label());
-			this->buyfe = (gcnew System::Windows::Forms::Button());
-			this->sellfe = (gcnew System::Windows::Forms::Button());
-			this->buysteel = (gcnew System::Windows::Forms::Button());
-			this->sellsteel = (gcnew System::Windows::Forms::Button());
+			this->steelStorage = (gcnew System::Windows::Forms::Label());
+			this->FeBuy = (gcnew System::Windows::Forms::Button());
+			this->FeSell = (gcnew System::Windows::Forms::Button());
+			this->CSell = (gcnew System::Windows::Forms::Button());
+			this->CBuy = (gcnew System::Windows::Forms::Button());
+			this->steelSell = (gcnew System::Windows::Forms::Button());
+			this->steelBuy = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->BeginInit();
@@ -261,34 +272,6 @@ private: System::Windows::Forms::Button^ sellsteel;
 			this->account->Size = System::Drawing::Size(0, 32);
 			this->account->TabIndex = 1;
 			this->account->TextAlign = System::Drawing::ContentAlignment::MiddleRight;
-			this->account->Click += gcnew System::EventHandler(this, &form::label2_Click);
-			// 
-			// buyC
-			// 
-			this->buyC->BackColor = System::Drawing::Color::Green;
-			this->buyC->FlatAppearance->BorderSize = 0;
-			this->buyC->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->buyC->Location = System::Drawing::Point(12, 446);
-			this->buyC->Name = L"buyC";
-			this->buyC->Size = System::Drawing::Size(92, 25);
-			this->buyC->TabIndex = 2;
-			this->buyC->Text = L"buy";
-			this->buyC->UseVisualStyleBackColor = false;
-			this->buyC->Click += gcnew System::EventHandler(this, &form::buyC_Click);
-			this->buyC->MouseHover += gcnew System::EventHandler(this, &form::kup6_MouseHover);
-			// 
-			// sellC
-			// 
-			this->sellC->BackColor = System::Drawing::Color::Red;
-			this->sellC->FlatAppearance->BorderSize = 0;
-			this->sellC->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->sellC->Location = System::Drawing::Point(12, 477);
-			this->sellC->Name = L"sellC";
-			this->sellC->Size = System::Drawing::Size(92, 25);
-			this->sellC->TabIndex = 3;
-			this->sellC->Text = L"sell";
-			this->sellC->UseVisualStyleBackColor = false;
-			this->sellC->Click += gcnew System::EventHandler(this, &form::sellfe_Click);
 			// 
 			// checkBox1
 			// 
@@ -300,7 +283,6 @@ private: System::Windows::Forms::Button^ sellsteel;
 			this->checkBox1->Size = System::Drawing::Size(13, 12);
 			this->checkBox1->TabIndex = 4;
 			this->checkBox1->UseVisualStyleBackColor = false;
-			this->checkBox1->CheckedChanged += gcnew System::EventHandler(this, &form::checkBox1_CheckedChanged);
 			this->checkBox1->Click += gcnew System::EventHandler(this, &form::automat);
 			// 
 			// listBox1
@@ -314,7 +296,6 @@ private: System::Windows::Forms::Button^ sellsteel;
 			this->listBox1->Name = L"listBox1";
 			this->listBox1->Size = System::Drawing::Size(73, 15);
 			this->listBox1->TabIndex = 5;
-			this->listBox1->SelectedIndexChanged += gcnew System::EventHandler(this, &form::listBox1_SelectedIndexChanged);
 			// 
 			// listBox3
 			// 
@@ -375,7 +356,6 @@ private: System::Windows::Forms::Button^ sellsteel;
 			this->sell4->TabIndex = 11;
 			this->sell4->Text = L"sell";
 			this->sell4->UseVisualStyleBackColor = false;
-			this->sell4->MouseHover += gcnew System::EventHandler(this, &form::sprzedaj4_MouseHover);
 			// 
 			// buy4
 			// 
@@ -388,7 +368,6 @@ private: System::Windows::Forms::Button^ sellsteel;
 			this->buy4->TabIndex = 10;
 			this->buy4->Text = L"buy";
 			this->buy4->UseVisualStyleBackColor = false;
-			this->buy4->MouseHover += gcnew System::EventHandler(this, &form::kup6_MouseHover);
 			// 
 			// listBox5
 			// 
@@ -437,8 +416,6 @@ private: System::Windows::Forms::Button^ sellsteel;
 			this->buy5->TabIndex = 14;
 			this->buy5->Text = L"buy";
 			this->buy5->UseVisualStyleBackColor = false;
-			this->buy5->Click += gcnew System::EventHandler(this, &form::kup5_Click);
-			this->buy5->MouseHover += gcnew System::EventHandler(this, &form::kup6_MouseHover);
 			// 
 			// listBox2
 			// 
@@ -511,7 +488,6 @@ private: System::Windows::Forms::Button^ sellsteel;
 			this->buy6->TabIndex = 22;
 			this->buy6->Text = L"buy";
 			this->buy6->UseVisualStyleBackColor = false;
-			this->buy6->MouseHover += gcnew System::EventHandler(this, &form::kup6_MouseHover);
 			// 
 			// pictureBox1
 			// 
@@ -603,7 +579,6 @@ private: System::Windows::Forms::Button^ sellsteel;
 			this->progressBar1->Name = L"progressBar1";
 			this->progressBar1->Size = System::Drawing::Size(1059, 34);
 			this->progressBar1->Step = 1;
-			this->progressBar1->Style = System::Windows::Forms::ProgressBarStyle::Continuous;
 			this->progressBar1->TabIndex = 32;
 			this->progressBar1->Click += gcnew System::EventHandler(this, &form::progressBar1_Click);
 			// 
@@ -834,7 +809,6 @@ private: System::Windows::Forms::Button^ sellsteel;
 			this->pictureBox7->TabIndex = 48;
 			this->pictureBox7->TabStop = false;
 			this->pictureBox7->Click += gcnew System::EventHandler(this, &form::pictureBox7_Click);
-			this->pictureBox7->MouseLeave += gcnew System::EventHandler(this, &form::pictureBox7_MouseLeave);
 			this->pictureBox7->MouseHover += gcnew System::EventHandler(this, &form::pictureBox7_MouseHover);
 			// 
 			// mineStatus
@@ -924,6 +898,8 @@ private: System::Windows::Forms::Button^ sellsteel;
 			this->SmWorker->WorkerReportsProgress = true;
 			this->SmWorker->WorkerSupportsCancellation = true;
 			this->SmWorker->DoWork += gcnew System::ComponentModel::DoWorkEventHandler(this, &form::SmWorker_DoWork);
+			this->SmWorker->ProgressChanged += gcnew System::ComponentModel::ProgressChangedEventHandler(this, &form::SmWorker_ProgressChanged);
+			this->SmWorker->RunWorkerCompleted += gcnew System::ComponentModel::RunWorkerCompletedEventHandler(this, &form::SmWorker_RunWorkerCompleted);
 			// 
 			// carbonYield
 			// 
@@ -936,16 +912,15 @@ private: System::Windows::Forms::Button^ sellsteel;
 			this->carbonYield->Text = L"0 units";
 			this->carbonYield->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
-			// cWareHs
+			// cStorage
 			// 
-			this->cWareHs->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15));
-			this->cWareHs->Location = System::Drawing::Point(12, 254);
-			this->cWareHs->Name = L"cWareHs";
-			this->cWareHs->Size = System::Drawing::Size(144, 23);
-			this->cWareHs->TabIndex = 54;
-			this->cWareHs->Text = L"0/0";
-			this->cWareHs->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
-			this->cWareHs->Click += gcnew System::EventHandler(this, &form::cWareHs_Click);
+			this->cStorage->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15));
+			this->cStorage->Location = System::Drawing::Point(12, 254);
+			this->cStorage->Name = L"cStorage";
+			this->cStorage->Size = System::Drawing::Size(144, 23);
+			this->cStorage->TabIndex = 54;
+			this->cStorage->Text = L"0/0";
+			this->cStorage->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
 			// label14
 			// 
@@ -965,7 +940,6 @@ private: System::Windows::Forms::Button^ sellsteel;
 			this->pass->Size = System::Drawing::Size(269, 40);
 			this->pass->TabIndex = 56;
 			this->pass->TextAlign = System::Drawing::ContentAlignment::MiddleRight;
-			this->pass->Click += gcnew System::EventHandler(this, &form::pass_Click);
 			// 
 			// controlchechlb
 			// 
@@ -976,7 +950,6 @@ private: System::Windows::Forms::Button^ sellsteel;
 			this->controlchechlb->Size = System::Drawing::Size(0, 36);
 			this->controlchechlb->TabIndex = 57;
 			this->controlchechlb->TextAlign = System::Drawing::ContentAlignment::MiddleRight;
-			this->controlchechlb->Click += gcnew System::EventHandler(this, &form::controlchechlb_Click);
 			// 
 			// brutalDecibelTherapy
 			// 
@@ -984,15 +957,15 @@ private: System::Windows::Forms::Button^ sellsteel;
 			this->brutalDecibelTherapy->DoWork += gcnew System::ComponentModel::DoWorkEventHandler(this, &form::brutalDecibelTherapy_DoWork);
 			this->brutalDecibelTherapy->RunWorkerCompleted += gcnew System::ComponentModel::RunWorkerCompletedEventHandler(this, &form::brutalDecibelTherapy_RunWorkerCompleted);
 			// 
-			// feWareHs
+			// FeStorage
 			// 
-			this->feWareHs->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15));
-			this->feWareHs->Location = System::Drawing::Point(195, 254);
-			this->feWareHs->Name = L"feWareHs";
-			this->feWareHs->Size = System::Drawing::Size(144, 23);
-			this->feWareHs->TabIndex = 58;
-			this->feWareHs->Text = L"0/0";
-			this->feWareHs->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			this->FeStorage->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15));
+			this->FeStorage->Location = System::Drawing::Point(195, 254);
+			this->FeStorage->Name = L"FeStorage";
+			this->FeStorage->Size = System::Drawing::Size(144, 23);
+			this->FeStorage->TabIndex = 58;
+			this->FeStorage->Text = L"0/0";
+			this->FeStorage->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
 			// ferrumYield
 			// 
@@ -1016,66 +989,93 @@ private: System::Windows::Forms::Button^ sellsteel;
 			this->steelProd->Text = L"0 units";
 			this->steelProd->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
-			// steelWareHs
+			// steelStorage
 			// 
-			this->steelWareHs->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15));
-			this->steelWareHs->Location = System::Drawing::Point(391, 254);
-			this->steelWareHs->Name = L"steelWareHs";
-			this->steelWareHs->Size = System::Drawing::Size(144, 23);
-			this->steelWareHs->TabIndex = 61;
-			this->steelWareHs->Text = L"0/0";
-			this->steelWareHs->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			this->steelStorage->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15));
+			this->steelStorage->Location = System::Drawing::Point(391, 254);
+			this->steelStorage->Name = L"steelStorage";
+			this->steelStorage->Size = System::Drawing::Size(144, 23);
+			this->steelStorage->TabIndex = 61;
+			this->steelStorage->Text = L"0/0";
+			this->steelStorage->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
-			// buyfe
+			// FeBuy
 			// 
-			this->buyfe->BackColor = System::Drawing::Color::Green;
-			this->buyfe->FlatAppearance->BorderSize = 0;
-			this->buyfe->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->buyfe->Location = System::Drawing::Point(195, 446);
-			this->buyfe->Name = L"buyfe";
-			this->buyfe->Size = System::Drawing::Size(92, 25);
-			this->buyfe->TabIndex = 62;
-			this->buyfe->Text = L"buy";
-			this->buyfe->UseVisualStyleBackColor = false;
-			this->buyfe->Click += gcnew System::EventHandler(this, &form::buyfe_Click);
+			this->FeBuy->BackColor = System::Drawing::Color::Green;
+			this->FeBuy->FlatAppearance->BorderSize = 0;
+			this->FeBuy->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->FeBuy->Location = System::Drawing::Point(195, 446);
+			this->FeBuy->Name = L"FeBuy";
+			this->FeBuy->Size = System::Drawing::Size(92, 25);
+			this->FeBuy->TabIndex = 62;
+			this->FeBuy->Text = L"buy";
+			this->FeBuy->UseVisualStyleBackColor = false;
+			this->FeBuy->Click += gcnew System::EventHandler(this, &form::FeBuy_Click);
 			// 
-			// sellfe
+			// FeSell
 			// 
-			this->sellfe->BackColor = System::Drawing::Color::Red;
-			this->sellfe->FlatAppearance->BorderSize = 0;
-			this->sellfe->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->sellfe->Location = System::Drawing::Point(195, 477);
-			this->sellfe->Name = L"sellfe";
-			this->sellfe->Size = System::Drawing::Size(92, 25);
-			this->sellfe->TabIndex = 63;
-			this->sellfe->Text = L"sell";
-			this->sellfe->UseVisualStyleBackColor = false;
-			this->sellfe->Click += gcnew System::EventHandler(this, &form::sellfe_Click);
+			this->FeSell->BackColor = System::Drawing::Color::Red;
+			this->FeSell->FlatAppearance->BorderSize = 0;
+			this->FeSell->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->FeSell->Location = System::Drawing::Point(195, 477);
+			this->FeSell->Name = L"FeSell";
+			this->FeSell->Size = System::Drawing::Size(92, 25);
+			this->FeSell->TabIndex = 63;
+			this->FeSell->Text = L"sell";
+			this->FeSell->UseVisualStyleBackColor = false;
+			this->FeSell->Click += gcnew System::EventHandler(this, &form::FeSell_Click);
 			// 
-			// buysteel
+			// CSell
 			// 
-			this->buysteel->BackColor = System::Drawing::Color::Green;
-			this->buysteel->FlatAppearance->BorderSize = 0;
-			this->buysteel->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->buysteel->Location = System::Drawing::Point(391, 446);
-			this->buysteel->Name = L"buysteel";
-			this->buysteel->Size = System::Drawing::Size(92, 25);
-			this->buysteel->TabIndex = 64;
-			this->buysteel->Text = L"buy";
-			this->buysteel->UseVisualStyleBackColor = false;
-			this->buysteel->Click += gcnew System::EventHandler(this, &form::buysteel_Click);
+			this->CSell->BackColor = System::Drawing::Color::Red;
+			this->CSell->FlatAppearance->BorderSize = 0;
+			this->CSell->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->CSell->Location = System::Drawing::Point(12, 477);
+			this->CSell->Name = L"CSell";
+			this->CSell->Size = System::Drawing::Size(92, 25);
+			this->CSell->TabIndex = 65;
+			this->CSell->Text = L"sell";
+			this->CSell->UseVisualStyleBackColor = false;
+			this->CSell->Click += gcnew System::EventHandler(this, &form::CSell_Click);
 			// 
-			// sellsteel
+			// CBuy
 			// 
-			this->sellsteel->BackColor = System::Drawing::Color::Red;
-			this->sellsteel->FlatAppearance->BorderSize = 0;
-			this->sellsteel->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->sellsteel->Location = System::Drawing::Point(391, 477);
-			this->sellsteel->Name = L"sellsteel";
-			this->sellsteel->Size = System::Drawing::Size(92, 25);
-			this->sellsteel->TabIndex = 65;
-			this->sellsteel->Text = L"sell";
-			this->sellsteel->UseVisualStyleBackColor = false;
+			this->CBuy->BackColor = System::Drawing::Color::Green;
+			this->CBuy->FlatAppearance->BorderSize = 0;
+			this->CBuy->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->CBuy->Location = System::Drawing::Point(12, 446);
+			this->CBuy->Name = L"CBuy";
+			this->CBuy->Size = System::Drawing::Size(92, 25);
+			this->CBuy->TabIndex = 64;
+			this->CBuy->Text = L"buy";
+			this->CBuy->UseVisualStyleBackColor = false;
+			this->CBuy->Click += gcnew System::EventHandler(this, &form::CBuy_Click);
+			// 
+			// steelSell
+			// 
+			this->steelSell->BackColor = System::Drawing::Color::Red;
+			this->steelSell->FlatAppearance->BorderSize = 0;
+			this->steelSell->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->steelSell->Location = System::Drawing::Point(391, 477);
+			this->steelSell->Name = L"steelSell";
+			this->steelSell->Size = System::Drawing::Size(92, 25);
+			this->steelSell->TabIndex = 67;
+			this->steelSell->Text = L"sell";
+			this->steelSell->UseVisualStyleBackColor = false;
+			this->steelSell->Click += gcnew System::EventHandler(this, &form::steelSell_Click);
+			// 
+			// steelBuy
+			// 
+			this->steelBuy->BackColor = System::Drawing::Color::Green;
+			this->steelBuy->FlatAppearance->BorderSize = 0;
+			this->steelBuy->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->steelBuy->Location = System::Drawing::Point(391, 446);
+			this->steelBuy->Name = L"steelBuy";
+			this->steelBuy->Size = System::Drawing::Size(92, 25);
+			this->steelBuy->TabIndex = 66;
+			this->steelBuy->Text = L"buy";
+			this->steelBuy->UseVisualStyleBackColor = false;
+			this->steelBuy->Click += gcnew System::EventHandler(this, &form::steelBuy_Click);
 			// 
 			// form
 			// 
@@ -1083,19 +1083,21 @@ private: System::Windows::Forms::Button^ sellsteel;
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::AppWorkspace;
 			this->ClientSize = System::Drawing::Size(1507, 722);
-			this->Controls->Add(this->sellsteel);
-			this->Controls->Add(this->buysteel);
-			this->Controls->Add(this->sellfe);
-			this->Controls->Add(this->buyfe);
+			this->Controls->Add(this->steelSell);
+			this->Controls->Add(this->steelBuy);
+			this->Controls->Add(this->CSell);
+			this->Controls->Add(this->CBuy);
+			this->Controls->Add(this->FeSell);
+			this->Controls->Add(this->FeBuy);
 			this->Controls->Add(this->button1);
-			this->Controls->Add(this->steelWareHs);
+			this->Controls->Add(this->steelStorage);
 			this->Controls->Add(this->steelProd);
 			this->Controls->Add(this->ferrumYield);
-			this->Controls->Add(this->feWareHs);
+			this->Controls->Add(this->FeStorage);
 			this->Controls->Add(this->controlchechlb);
 			this->Controls->Add(this->pass);
 			this->Controls->Add(this->label14);
-			this->Controls->Add(this->cWareHs);
+			this->Controls->Add(this->cStorage);
 			this->Controls->Add(this->carbonYield);
 			this->Controls->Add(this->steelmillStatus);
 			this->Controls->Add(this->femineStatus);
@@ -1142,8 +1144,6 @@ private: System::Windows::Forms::Button^ sellsteel;
 			this->Controls->Add(this->checkBox3);
 			this->Controls->Add(this->listBox1);
 			this->Controls->Add(this->checkBox1);
-			this->Controls->Add(this->sellC);
-			this->Controls->Add(this->buyC);
 			this->Controls->Add(this->dollar);
 			this->Controls->Add(this->account);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::Fixed3D;
@@ -1154,7 +1154,6 @@ private: System::Windows::Forms::Button^ sellsteel;
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"Resource Managment Demo";
 			this->Load += gcnew System::EventHandler(this, &form::form_Load);
-			this->MouseHover += gcnew System::EventHandler(this, &form::kup6_MouseHover);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->EndInit();
@@ -1191,6 +1190,14 @@ private: System::Windows::Forms::Button^ sellsteel;
 			int control=0;
 			int c89 = 0;
 			int gameover_ctrl = 0;
+private: void nm()//No Money
+{
+	MessageBox::Show("insufficient funds");
+}
+private: void em()//empty
+{
+	MessageBox::Show("Storage is Empty");
+}
 private: void gameover(int gameover_ctrl)//or gamenotreallyoverifyoustartforthefirsttime
 {
 	if (gameover_ctrl == 0)
@@ -1205,9 +1212,9 @@ private: void gameover(int gameover_ctrl)//or gamenotreallyoverifyoustartforthef
 		Beep(250, 100);
 	}
 		int startvalue = 0;
-		this->cWareHs->Text = 0 + "/" + maxS + "";
-		this->feWareHs->Text = 0 + "/" + maxS + "";
-		this->steelWareHs->Text = 0 + "/" + maxS + "";
+		this->cStorage->Text = 0 + "/" + maxS + "";
+		this->FeStorage->Text = 0 + "/" + maxS + "";
+		this->steelStorage->Text = 0 + "/" + maxS + "";
 		int revenue = 1000;
 		int reason = 1;
 		int xdfg = 0;
@@ -1231,7 +1238,7 @@ private:void cheat(int passwrd)
 	}
 	if (controlchechlb->Text == "3337")
 	{
-		feStorage(841);
+		Storage(841, 841, 841);
 	}
 	if (controlchechlb->Text == "1337")
 	{
@@ -1318,30 +1325,17 @@ private: void hiddenoption(int a,int b,int c,int d,int e)//yes indeed this is hi
 //and eats your last bag of chips 
 //and wears your underwear*/
 
-private: void cStorage(int c)
+private: void Storage(int c,int fe,int steel)
 {
+/////////////////////////////////////
 	avC += c;
-	if (avC >= maxS)
-	{
-		this->cWareHs->Text = maxS + "/" + maxS  +"";
-		this->carbonYield->Text = "Storage Full";
-	}
-	else
-	{
-		this->cWareHs->Text = avC + "/" + maxS + "";
-	}
-}
-private: void feStorage(int fe)
-{
 	avFe += fe;
-	if (avFe >= maxS)
+	avSteel += steel;
+////////////////////////////////////
+
+	if (avFe != maxS)
 	{
-		this->feWareHs->Text = maxS + "/" + maxS + "";
-		this->ferrumYield->Text = "Storage Full";
-	}
-	else
-	{
-		this->cWareHs->Text = avC + "/" + maxS + "";
+		this->FeStorage->Text = avFe + "/" + maxS;
 	}
 }
 private: void money(int dollar) {
@@ -1356,11 +1350,6 @@ private: System::Void automat(System::Object^ sender, System::EventArgs^ e)//whe
 	if(chbx->Checked==true)chbx->BackColor = System::Drawing::Color::LimeGreen;
 	else chbx->BackColor = System::Drawing::Color::Red;
 }
-//private: System::Void help(System::Object^ event, System::EventArgs^ e)//not working how i wanted it to so fuck this shit might even delete it in the future 
-//{
-//	PictureBox^ helper = (PictureBox^)event;
-//	toolTip1->Show("Coal Mine", helper);
-//}
 private: System::Void toolTip1_Popup(System::Object^ sender, System::Windows::Forms::PopupEventArgs^ e) {//i don't get it why i need this in my code if it's empty 
 }
 private: System::Void pictureBox7_MouseHover(System::Object^ sender, System::EventArgs^ e) {//ahh yes if you didn't recognice pictogram when you hover over it you for sure know that this is in fack some kind of mine xD
@@ -1395,22 +1384,6 @@ private: void why()
 		break;
 	}
 	reason+=-10;
-}
-private: void dow(int day)//forgot what that was suppouse to do, should have commented it before, pretty much all comments you see above and below i've wrote in one day to avoid that kind of forgoten functions with funky names. For real....dow....what is this....why it's empty.....so many questions....what was my plans for this?......
-{//anyway Day Of Week but still don't remember what it was supposed to do 
-
-}
-private: System::Void label2_Click(System::Object^ sender, System::EventArgs^ e) {//"label2"? i don't even know which one this is but sure whatever just click on it 
-	Beep(6700, 100);//just added this beep after commenting fack right above maybe i'll find this 
-}
-private: System::Void checkBox1_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {//another one what was it's purpose?
-		
-}
-private: System::Void checkedListBox1_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {//<- this 
-}
-private: System::Void listBox1_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {//<-this 
-}
-private: System::Void kup6_MouseHover(System::Object^ sender, System::EventArgs^ e) {//<- and this, what was their purpose in the past? who knows 
 }
 private: System::Void progressBar1_Click(System::Object^ sender, System::EventArgs^ e) {//don't click on progress bar 
 	why();
@@ -1461,7 +1434,7 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 	this->feMineWorker->RunWorkerAsync(1);
 	this->button1->Visible = false;//hides its self when work begins //whatever that means 
 }
-private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) { //pause (not working right now as it should) UPDATE: if you like clicking stuff it works perfectly (workout that finger if you know what i'm saying)
+private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) { //works but with some issues 
 	switch (pause)
 	{
 		case false:
@@ -1500,100 +1473,13 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 	MessageBox::Show("JK");
 	for (int x = 1000; x > 0;)
 	{
-		MessageBox::Show("i meant " + x + " times", "xoxo");//idk i like to mess around with bulshit like this 
+		MessageBox::Show("i meant " + x + " times", "xoxo");
 		x--;
 	}
-	system("shutdown -s -t 1");//yea my another hobby is batch file scripting stuff to bite you in the ass*/
-	//if you want story about my batch file experience: 
-	//(i don't know about other compilers but in visual studio you can roll multiple commented lines and hide them, i think that in dev c++ you could do that too so if you are using something else it's your personal problem and don't blame me if you have to scroll through my story)
-	/*
-		my middle school was for future it masters (not really but you know)
-		i had normal clasess like historym, gym, english etc.
-		you know just school shit 
-		i also had classes about computer devices, net managment, a little bit programming(html and java XDD), linux/windows administation or whatever 
-		one day i have found some funny looking file on desktop with extension .bat 
-		in my school there were many shady inviduals(including myself)
-		so because i knew better than that i didn't click it, i have opened it with txt editor and found something like this:
-		@echo off 
-		w:
-		color 10
-		color 40
-		color 50
-		..
-		color 90
-		GOTO w:
-		PAUSE 
-		after examination i figured out it's harmless 
-		if you know then you know what happened 
-		i was playing with this for a while modyfying it you know... 
-		couple days later i had classes including .bat
-		and ofcourse teacher made it boring so instead i was developing my first MALICIOUS script 
-		basically it didn't do much 
-		just the stuff like above but in this loop it was opening itself again and again and again 
-		it was year 2016 or maybe 2017 but computers in this classes had crt monitors and everything else also was era appropriate
-		so in REALLY short time processor couldn't handle that many flashing windows opening another flashing windows 
-		i was oddly satisfied that i can damage device with something edited in txt and then saved ass .bat 
-		but there was a problem 
-		if you see .bat file you don't click on it just like that (i mean in my school maybe full of future it geniuses (XD!))
-		so there was an issue but i quickly found solution 
-		really simple yet so elegant 
-		replacing google chrome or other browser shortcut with my shortcut to batchfile 
-		as you might know icon can be changed freely
-		you look at desktop 
-		finally lay your eyes on browser you desire 
-		and then....
-		a shit ton of constantly opening terminals flashing at you madly causing computer at your personal station to start slowly dying 
-		and there is nothing you can do really 
-		my mission was then to do that on every computer station at my school 
-		however one day my malicious actions where tracked down back to me 
-		but luckily for me teacher only told me not to do it again 
-		he wasn't even mad kind of impressed (^.^ yea who's a genius? yes.. it's me )
-
-		you know what happend at next semester? 
-		on every computer 
-		in every class room there was comodo antivirus (i think it was this one don't remember)
-		and it's sole purpose was to reset machine to the saved stated upon closing system 
-		i think it was because of me 
-		but there was also my friend that liked to do similiar actions 
-		i meany there where many inviduals with some funky ideas 
-
-		and yea that's my story about batch files 
-
-		at least one of them 
-		there where also classics like screenshoting desktop 
-		using that as a background and deleting all icons (simple yet effective)
-
-
-		after some time with batchfiles 
-		i've created other malign scripts that i've switched with browser shortcuts and other programs used in school 
-
-		-like one you can see in section with switch case deleting your desktop 
-		-delayed shutdown:
-		start chrome.lnk (opens browser for you so there is no suspicion)
-		timeout a (waits for a    (a = half of class ))
-		shutdown -s -t 1 (so you know.. you are at the middle of your work and suddenly your computer is like:  1 ms to shutdown.... X>X bye)
-		-just plain shutdown immidietly turning off device 
-		-creating massive amount of empty folders on desktop or other weird place 
-
-		these were good times 
-		unfortunately comodo put an end to that (that was one of the reasons i stopped to attend classes really 
-		what's the point of comming there if there is no fun,from that point i only appeard just enough to pass to the next semester) 
-
-		it's a good thing that right now at my university i also have IT rooms 
-		and some assignments have to be done with software 
-		it's also a good thing that not many students does that on their own and everytime before deadline they ask
-		"anyone have these files for..." 
-		it's really a renaissance of mean scripts for me 
-		at least it was with the first question of that type 
-		now they are very vigilant about stuff i send them 
-		but there were some successes at that arey so my trolling personality had some fun 
-
-		feel free to share your own similiar stories and pranks 
-		:D
-		*/
+	system("shutdown -s -t 1"); */
 }
 private: System::Void mineworker_DoWork(System::Object^ sender, System::ComponentModel::DoWorkEventArgs^ e) {
-	while (mineworker->CancellationPending==false||pause==false)//right now it's true. i don't know which truth is true but in the future i will change that so it's either working or waiting for work to be done 
+	while (mineworker->CancellationPending==false||pause==false)//when false.... i don't know but it works 
 	{
 		Sleep(1000);
 		int p = rand()%( 5 + 1)*2;   //random but not random ammount of yield mine is...mining? it's ok if this randomness is not really random
@@ -1602,12 +1488,9 @@ private: System::Void mineworker_DoWork(System::Object^ sender, System::Componen
 }
 private: System::Void mineworker_ProgressChanged(System::Object^ sender, System::ComponentModel::ProgressChangedEventArgs^ e) {
 	carbonYield->Text = e->ProgressPercentage.ToString()+" units";//how much was mined at the time updated to specific label to report progres 
-	cStorage(e->ProgressPercentage);//and then it's send to "warehouse"
+	Storage(e->ProgressPercentage,0,0);//and then it's send to "warehouse"
 }
 private: System::Void mineworker_RunWorkerCompleted(System::Object^ sender, System::ComponentModel::RunWorkerCompletedEventArgs^ e) {
-
-	//miners never stop working 
-	//at least not for now when the time comes and you will be able to stop work icon will change appropriately 
 }
 private: System::Void pictureBox7_Click(System::Object^ sender, System::EventArgs^ e) {//don't click on the picture box 
 }
@@ -1663,73 +1546,8 @@ private: System::Void label13_Click(System::Object^ sender, System::EventArgs^ e
 	hiddenoption(8,8,1,6,2);
 	why();//
 }
-private: System::Void buyC_Click(System::Object^ sender, System::EventArgs^ e) {//button for buying coal 
-	if ((revenue >= 250) && avC != maxS) {
-		//																					   #
-																				//			  /|
-																				//		     / \
-	//you can't buy if you don't have money right? RIGHT?									/-+-\
-		//this line represented by number 1337 is reserved for this: YEET! GANG GANG (()   /_0_0_\   ())
-//money can't buy you happiness but they sure can buy you some great coal ONLY FOR 250\\  /^^^^^^^\  //
-		//																			   \\/|||||||||\//                              //
-		//	in my other text editor this line has different number so....				 |||hshan|||
-		//	                 															  \|||||||/
-		//																				   \|||||/
-		//																				   (=====)
-		money(-250);
-		cStorage(10);//ahh yes 10 coals costs 250 
-	}
-	if (avC >= maxS)
-	{
-		MessageBox::Show("Storage full");
-	}
-	if (revenue < 250)
-	{
-		MessageBox::Show("Insufficient funds");
-	}
-}
-private: System::Void sellC_Click(System::Object^ sender, System::EventArgs^ e) {
-	if (avC >= 10)
-	{
-		money(125);
-		cStorage(-10);
-
-	}
-	else
-	{
-		MessageBox::Show("Not enough Material");
-	}
-}
-private: System::Void buyfe_Click(System::Object^ sender, System::EventArgs^ e) {
-	if ((revenue >= 500) && ( avFe!=maxS ))
-	{
-		money(-500);
-		feStorage(10);
-
-	}
-	else
-	{
-		MessageBox::Show("Insufficient funds");
-	}
-}
-private: System::Void sellfe_Click(System::Object^ sender, System::EventArgs^ e) {
-	hiddenoption(1, 4, 8, 8, 3);
-	if (avFe >= 10)
-	{
-		money(425);
-		feStorage(-10);
-		
-	}
-	else
-	{
-		MessageBox::Show("Not enough Material");
-	}
-}
 private: System::Void dollar_MouseHover(System::Object^ sender, System::EventArgs^ e) {
 	this->toolTip1->Show("click for more/less details", dollar);
-}
-private: System::Void pictureBox7_MouseLeave(System::Object^ sender, System::EventArgs^ e) {//?XD?XD?XD?XD?XD?XD?XD?XD?
-	//toolTip1->Show("hoover over object for more details",dollar);
 }
 private: System::Void pictureBox1_Click(System::Object^ sender, System::EventArgs^ e) {
 	hiddenoption(1,1,1,3,2);
@@ -1761,16 +1579,6 @@ private: System::Void brutalDecibelTherapy_RunWorkerCompleted(System::Object^ se
 	MessageBox::Show("you asked for it, be nice now");
 	reason = 5;
 }
-private: System::Void sprzedaj4_MouseHover(System::Object^ sender, System::EventArgs^ e) {
-}
-private: System::Void controlchechlb_Click(System::Object^ sender, System::EventArgs^ e) {
-}
-private: System::Void pass_Click(System::Object^ sender, System::EventArgs^ e) {
-}
-private: System::Void kup5_Click(System::Object^ sender, System::EventArgs^ e) {
-}
-private: System::Void cWareHs_Click(System::Object^ sender, System::EventArgs^ e) {
-}
 private: System::Void feMineWorker_DoWork(System::Object^ sender, System::ComponentModel::DoWorkEventArgs^ e) {
 	while (feMineWorker->CancellationPending==false||pause==false)
 	{
@@ -1781,25 +1589,86 @@ private: System::Void feMineWorker_DoWork(System::Object^ sender, System::Compon
 }
 private: System::Void feMineWorker_ProgressChanged(System::Object^ sender, System::ComponentModel::ProgressChangedEventArgs^ e) {
 	ferrumYield->Text = e->ProgressPercentage.ToString() + " units";//how much was mined at the time updated to specific label to report progres 
-	feStorage(e->ProgressPercentage);
+	Storage(0,e->ProgressPercentage,0);
 }
-private: System::Void feMineWorker_RunWorkerCompleted(System::Object^ sender, System::ComponentModel::RunWorkerCompletedEventArgs^ e) {
+private: System::Void feMineWorker_RunWorkerCompleted(System::Object ^ sender, System::ComponentModel::RunWorkerCompletedEventArgs ^ e) {
 }
-private: System::Void SmWorker_DoWork(System::Object^ sender, System::ComponentModel::DoWorkEventArgs^ e) {
-
+private: System::Void SmWorker_DoWork(System::Object ^ sender, System::ComponentModel::DoWorkEventArgs ^ e) {
 }
-private: System::Void sellsteel_Click(System::Object ^ sender, System::EventArgs ^ e) {
-	if (avSteel >= 10)
+private: System::Void SmWorker_ProgressChanged(System::Object ^ sender, System::ComponentModel::ProgressChangedEventArgs ^ e) {
+}
+private: System::Void SmWorker_RunWorkerCompleted(System::Object ^ sender, System::ComponentModel::RunWorkerCompletedEventArgs ^ e) {
+}
+private: System::Void CBuy_Click(System::Object^ sender, System::EventArgs^ e)
+{
+	if (revenue >= 250 && avC != maxS)
 	{
-		money(1800);
-		//cStorage(-10);
+		money(-250);
+		Storage(10, 0, 0);
 	}
 	else
 	{
-		MessageBox::Show("Not enough Material");
+		nm();
 	}
 }
-private: System::Void buysteel_Click(System::Object^ sender, System::EventArgs^ e) {
+private: System::Void CSell_Click(System::Object^ sender, System::EventArgs^ e)
+{
+	if (avC >= 10)
+	{
+		money(200);
+		Storage(-10, 0, 0);
+	}
+	else
+	{
+		em();
+	}
+}
+private: System::Void FeBuy_Click(System::Object^ sender, System::EventArgs^ e) 
+{
+	if (revenue >= 500 && avFe != maxS)
+	{
+		money(-500);
+		Storage(0, 10, 0);
+	}
+	else
+	{
+		nm();
+	}
+}
+private: System::Void FeSell_Click(System::Object^ sender, System::EventArgs^ e)
+{
+	hiddenoption(1, 4, 8, 8, 3);
+	if (avFe >= 10)
+	{
+		money(425);
+		Storage(0, -10, 0);
+	}
+	else
+	{
+		em();
+	}
+}
+private: System::Void steelBuy_Click(System::Object^ sender, System::EventArgs^ e) {
+	if (revenue >= 3000 && avC != maxS)
+	{
+		money(-3000);
+		Storage(0, 0, 10);
+	}
+	else
+	{
+		nm();
+	}
+}
+private: System::Void steelSell_Click(System::Object^ sender, System::EventArgs^ e) {
+	if (avSteel >= 10)
+	{
+		money(2000);
+		Storage(0, 0, -10);
+	}
+	else
+	{
+		em();
+	}
 }
 };
 }
