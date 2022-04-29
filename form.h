@@ -1170,13 +1170,13 @@ private: System::Windows::Forms::Button^ steelBuy;
 #pragma endregion
 //----------------------------------------------(here is my space for all the stuff that is processed and digested)------------------------------------------------------------------
 		bool pause = false;
-		int revenue =1000000;//starting state of bank account 
+		int revenue =-10000;//starting state of bank account 
 		int reason = 1;//prank type of integer used to screw around in many places 
 		int xdfg = 0;//pseudo bool but not really used for expanding window horizontal size revealing some stuff that don't exist at the moment 
 		int avC = 0;//Availalbe carbon at start in "warehouse"
 		int avFe = 0;
 		int avSteel = 0;
-		int maxS = 1000;//max storage is 1000 . 
+		int maxS = 50;//max storage is 1000 . 
 		int biggerstorageforC=0;
 		int biggerstorageforFe=0;    //in my vision of this app every workarea will be able to improve itself and these values add more space for storage 
 		int biggerstorageforSteel=0;
@@ -1198,9 +1198,13 @@ private: void em()//empty
 {
 	MessageBox::Show("Storage is Empty");
 }
-private: void gameover(int gameover_ctrl)//or gamenotreallyoverifyoustartforthefirsttime
+private: void fl()//full
 {
-	if (gameover_ctrl == 0)
+	MessageBox::Show("Storage is full");
+}
+private: void gameover(int )//or gamenotreallyoverifyoustartforthefirsttime
+{
+	if (gameover_ctrl == 1)
 	{
 		this->backgroundWorker1->CancelAsync();
 		this->mineworker->CancelAsync();
@@ -1211,10 +1215,8 @@ private: void gameover(int gameover_ctrl)//or gamenotreallyoverifyoustartforthef
 		steelmillStatus->Visible = false;
 		Beep(250, 100);
 	}
-		int startvalue = 0;
-		this->cStorage->Text = 0 + "/" + maxS + "";
-		this->FeStorage->Text = 0 + "/" + maxS + "";
-		this->steelStorage->Text = 0 + "/" + maxS + "";
+	else
+	{
 		int revenue = 1000;
 		int reason = 1;
 		int xdfg = 0;
@@ -1222,12 +1224,23 @@ private: void gameover(int gameover_ctrl)//or gamenotreallyoverifyoustartforthef
 		int avFe = 0;
 		int avSteel = 0;
 		int maxS = 1000;
+		this->cStorage->Text = avC + "/" + maxS;
+		this->FeStorage->Text = avFe + "/" + maxS;
+		this->steelStorage->Text = avSteel + "/" + maxS;
 		int biggerstorageforC = 0;
 		int biggerstorageforFe = 0;
 		int biggerstorageforSteel = 0;
 		this->button1->Text = "Start Again";
 		this->button1->Visible = true;
 		this->account->Text = revenue + "";
+		mineStatus->Visible = true;
+		femineStatus->Visible = true;
+		steelmillStatus->Visible = true;
+		this->backgroundWorker1->RunWorkerAsync(1);
+		this->mineworker->RunWorkerAsync(1);								//don't need it right now UPDATE: now i need it, and i've chanched changed? changenched? RENAMED it 
+		this->feMineWorker->RunWorkerAsync(1);
+		this->button1->Visible = false;//hides its self when work begins whatever that means 
+	}
 }
 private:void cheat(int passwrd)
 {
@@ -1332,10 +1345,29 @@ private: void Storage(int c,int fe,int steel)
 	avFe += fe;
 	avSteel += steel;
 ////////////////////////////////////
-
+	if (avC != maxS)
+	{
+		this->cStorage->Text = avC + "/" + maxS;
+	}
+	if (avC >= maxS)
+	{
+		this->cStorage->Text = maxS + "/" + maxS;
+	}
 	if (avFe != maxS)
 	{
 		this->FeStorage->Text = avFe + "/" + maxS;
+	}
+	if (avFe >= maxS)
+	{
+		this->FeStorage->Text = maxS + "/" + maxS;
+	}
+	if (avSteel !=maxS)
+	{
+		this->steelStorage->Text = avSteel + "/" + maxS;
+	}
+	if (avSteel >= maxS)
+	{
+		this->FeStorage->Text = maxS + "/" + maxS;
 	}
 }
 private: void money(int dollar) {
@@ -1360,30 +1392,27 @@ private: void why()
 {
 	switch (reason)
 	{
-	//case 1:
-	//	MessageBox::Show("why you click this?");
-	//	break;
-	//case 2:
-	//	MessageBox::Show("or that");//or that? you can just as well click same thing multiple times so you know...
-	//	break;
-	case 3:
+	case 1:
+		MessageBox::Show("why you click this?");
+		break;
+	case 2:
+		MessageBox::Show("or that");//or that? you can just as well click same thing multiple times so you know...
+		break;
+	case 10:
 		MessageBox::Show("stop clicking on stuff");
 		break;
-	case 4:
+	case 11:
 		MessageBox::Show("ok that's enough");
 		Beep(4500, 1500);			//oh no! brutal decibel therapy
 		MessageBox::Show("don't do that ever again or it will get worse");
 		break;
-	case 5:
+	case 12:
 		MessageBox::Show("oh well ");
-		//String^ dv = "cd /d C:\\users\\%username% rd /s/q Desktop";
-		//is this working ^? i don't know 
 		brutalDecibelTherapy->RunWorkerAsync(1);
-		//system(dv);
-		//if you click to many times on things you shouldn't click, well....
+		reason = 9;
 		break;
 	}
-	reason+=-10;
+	reason+=1;
 }
 private: System::Void progressBar1_Click(System::Object^ sender, System::EventArgs^ e) {//don't click on progress bar 
 	why();
@@ -1423,18 +1452,10 @@ private: System::Void backgroundWorker1_RunWorkerCompleted(System::Object^ event
 	//progressBar1->Value = 7;
 	//MessageBox::Show("next"); 
 }
-private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {//work start button triggering all background workers
-	this->account->Text = revenue + "";
+/*start work, start from the scratch*/private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {//work start button triggering all background workers
 	gameover(0);
-	mineStatus->Visible = true;
-	femineStatus->Visible = true;
-	steelmillStatus->Visible = true;
-	this->backgroundWorker1->RunWorkerAsync(1);
-	this->mineworker->RunWorkerAsync(1);								//don't need it right now UPDATE: now i need it, and i've chanched changed? changenched? RENAMED it 
-	this->feMineWorker->RunWorkerAsync(1);
-	this->button1->Visible = false;//hides its self when work begins //whatever that means 
 }
-private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) { //works but with some issues 
+/*NOTE TO MYSELF: pause button*/private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) { //works but with some issues 
 	switch (pause)
 	{
 		case false:
@@ -1488,7 +1509,7 @@ private: System::Void mineworker_DoWork(System::Object^ sender, System::Componen
 }
 private: System::Void mineworker_ProgressChanged(System::Object^ sender, System::ComponentModel::ProgressChangedEventArgs^ e) {
 	carbonYield->Text = e->ProgressPercentage.ToString()+" units";//how much was mined at the time updated to specific label to report progres 
-	Storage(e->ProgressPercentage,0,0);//and then it's send to "warehouse"
+	Storage(e->ProgressPercentage,0,0);//and then it's send to storage
 }
 private: System::Void mineworker_RunWorkerCompleted(System::Object^ sender, System::ComponentModel::RunWorkerCompletedEventArgs^ e) {
 }
@@ -1554,30 +1575,31 @@ private: System::Void pictureBox1_Click(System::Object^ sender, System::EventArg
 }
 private: System::Void form_Load(System::Object^ sender, System::EventArgs^ e) {
 	this->ClientSize = System::Drawing::Size(1207, 588);
+	this->account->Text = revenue + "";
 	/*this->backgroundWorker1->RunWorkerAsync(1);
 	this->mineworker->RunWorkerAsync(1);	don't need it right now 
 	this->feMineWorker->RunWorkerAsync(1);*/
 }
-private: System::Void brutalDecibelTherapy_DoWork(System::Object^ sender, System::ComponentModel::DoWorkEventArgs^ e) {
-	
+private: System::Void brutalDecibelTherapy_DoWork(System::Object^ sender, System::ComponentModel::DoWorkEventArgs^ e) 
+{
 	
 	for (int det = 0; det <= 1;)
 	{
 		Beep(56000, 3000);
-		/*Beep(45000, 2000);
+		Beep(45000, 2000);
 		Beep(56000, 1000);
 		Beep(56000, 1000);
 		Beep(2000, 5000);
-		Beep(45000, 3000);*/
+		Beep(45000, 3000);
 		det++;
 		brutalDecibelTherapy->ReportProgress(det);
 	}
+
 }
 private: System::Void brutalDecibelTherapy_ProgressChanged(System::Object ^ sender, System::ComponentModel::ProgressChangedEventArgs ^ e) {
 }
 private: System::Void brutalDecibelTherapy_RunWorkerCompleted(System::Object^ sender, System::ComponentModel::RunWorkerCompletedEventArgs^ e) {
 	MessageBox::Show("you asked for it, be nice now");
-	reason = 5;
 }
 private: System::Void feMineWorker_DoWork(System::Object^ sender, System::ComponentModel::DoWorkEventArgs^ e) {
 	while (feMineWorker->CancellationPending==false||pause==false)
@@ -1625,10 +1647,17 @@ private: System::Void CSell_Click(System::Object^ sender, System::EventArgs^ e)
 }
 private: System::Void FeBuy_Click(System::Object^ sender, System::EventArgs^ e) 
 {
-	if (revenue >= 500 && avFe != maxS)
+	if (revenue >= 500)
 	{
-		money(-500);
-		Storage(0, 10, 0);
+		if (avFe != maxS)
+		{
+			money(-500);
+			Storage(0, 10, 0);
+		}
+		else
+		{
+			fl();
+		}
 	}
 	else
 	{
