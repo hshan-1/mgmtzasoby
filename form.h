@@ -1218,6 +1218,7 @@ private: void gameover(int control)//or gamenotreallyoverifyoustartforthefirstti
 			this->backgroundWorker1->CancelAsync();
 			this->mineworker->CancelAsync();//stop work after bankruptcy 
 			this->feMineWorker->CancelAsync();
+			this->SmWorker->CancelAsync();
 			this->carbonYield->Text = "";
 			this->ferrumYield->Text = "";
 			this->steelProd->Text = "";
@@ -1235,17 +1236,20 @@ private: void gameover(int control)//or gamenotreallyoverifyoustartforthefirstti
 			this->cStorage->Text = avC + "/" + maxS;
 			this->FeStorage->Text = avFe + "/" + maxS;
 			this->steelStorage->Text = avSteel + "/" + maxS;
+			this->account->Text = revenue + "";
 			int AddCStorage = 0;
 			int AddFeStorage = 0;
 			int AddSteelStorage = 0;
 			this->button1->Text = "Start Again";
 			this->button1->Visible = true;
-			this->account->Text = revenue + "";
 			break;
 		}
 		case 0:
 		{
 			int revenue = 1000;
+			this->cStorage->Text = avC + "/" + maxS;
+			this->FeStorage->Text = avFe + "/" + maxS;
+			this->steelStorage->Text = avSteel + "/" + maxS;
 			this->account->Text = revenue + "";
 			mineStatus->Visible = true;
 			femineStatus->Visible = true;
@@ -1253,6 +1257,7 @@ private: void gameover(int control)//or gamenotreallyoverifyoustartforthefirstti
 			this->backgroundWorker1->RunWorkerAsync();
 			this->mineworker->RunWorkerAsync();//start or restart 
 			this->feMineWorker->RunWorkerAsync();
+			this->SmWorker->RunWorkerAsync();
 			this->button1->Visible = false;//hides its self when work begins whatever that means 
 			break;
 		}
@@ -1476,14 +1481,15 @@ private: System::Void backgroundWorker1_RunWorkerCompleted(System::Object^ event
 		money(-1000);
 		backgroundWorker1->RunWorkerAsync(1);
 	}
+	this->steelProd->Text = 0 + "Steel Produced";
 	//progressBar1->Value = 7;
 	//MessageBox::Show("next"); 
 }
 /*start work, start from the scratch*/private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {//work start button triggering all background workers
 	gameover(0);
 }
-/*NOTE TO MYSELF: pause button*/private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) { //works but with some issues 
-	Sleep(500);//otherwise with quick clicking there can be problem syncing 
+/*NOTE TO MYSELF: pause button*/private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) { 
+	
 	switch (pause)
 	{
 		case false:
@@ -1501,6 +1507,7 @@ private: System::Void backgroundWorker1_RunWorkerCompleted(System::Object^ event
 		}
 		case true:
 		{
+			Sleep(1000);//otherwise with quick clicking there can be problem syncing   //works just fine now 
 			this->mineStatus->Style = System::Windows::Forms::ProgressBarStyle::Marquee;
 			this->femineStatus->Style = System::Windows::Forms::ProgressBarStyle::Marquee;
 			this->steelmillStatus->Style = System::Windows::Forms::ProgressBarStyle::Marquee;
@@ -1530,7 +1537,7 @@ private: System::Void backgroundWorker1_RunWorkerCompleted(System::Object^ event
 private: System::Void mineworker_DoWork(System::Object^ sender, System::ComponentModel::DoWorkEventArgs^ e) {
 	while (mineworker->CancellationPending==false&&pause==false)//NOW it works 
 	{
-		Sleep(1000);
+		Sleep(500);
 		int p = rand()%( 5 + 1)*2;   //random but not random ammount of yield mine is...mining? it's ok if this randomness is not really random
 		mineworker->ReportProgress(p);//sometimes it's good day of work sometimes not really but usually amount is the same so in this fake randomness there is some kind of pattern 
 	}
@@ -1632,7 +1639,7 @@ private: System::Void brutalDecibelTherapy_RunWorkerCompleted(System::Object^ se
 private: System::Void feMineWorker_DoWork(System::Object^ sender, System::ComponentModel::DoWorkEventArgs^ e) {
 	while (feMineWorker->CancellationPending==false&&pause==false)
 	{
-		Sleep(1000);
+		Sleep(500);
 		int p = rand() % (8 + 1)+2; 
 		feMineWorker->ReportProgress(p);
 	}
@@ -1644,8 +1651,25 @@ private: System::Void feMineWorker_ProgressChanged(System::Object^ sender, Syste
 private: System::Void feMineWorker_RunWorkerCompleted(System::Object ^ sender, System::ComponentModel::RunWorkerCompletedEventArgs ^ e) {
 }
 private: System::Void SmWorker_DoWork(System::Object ^ sender, System::ComponentModel::DoWorkEventArgs ^ e) {
+	while ((SmWorker->CancellationPending == false && pause == false))
+	{
+		
+		Sleep(500);
+		this->SmWorker->ReportProgress(1);
+	}
 }
 private: System::Void SmWorker_ProgressChanged(System::Object ^ sender, System::ComponentModel::ProgressChangedEventArgs ^ e) {
+	if (avC >= 1 && avFe >= 3)
+	{
+		
+		Storage(-1, -3, e->ProgressPercentage);
+		this->steelProd->Text = avSteel + "Steel Produced";
+	}
+	else
+	{
+		
+		Storage(0, 0, e->ProgressPercentage-1);
+	}
 }
 private: System::Void SmWorker_RunWorkerCompleted(System::Object ^ sender, System::ComponentModel::RunWorkerCompletedEventArgs ^ e) {
 }
