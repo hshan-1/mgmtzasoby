@@ -251,7 +251,7 @@ private: System::Windows::Forms::Button^ steelBuy;
 			this->dollar->Dock = System::Windows::Forms::DockStyle::Right;
 			this->dollar->Font = (gcnew System::Drawing::Font(L"Stencil", 20));
 			this->dollar->ForeColor = System::Drawing::Color::Green;
-			this->dollar->Location = System::Drawing::Point(1512, 0);
+			this->dollar->Location = System::Drawing::Point(1523, 0);
 			this->dollar->Name = L"dollar";
 			this->dollar->Size = System::Drawing::Size(30, 32);
 			this->dollar->TabIndex = 0;
@@ -267,7 +267,7 @@ private: System::Windows::Forms::Button^ steelBuy;
 			this->account->Dock = System::Windows::Forms::DockStyle::Right;
 			this->account->Font = (gcnew System::Drawing::Font(L"Stencil", 20));
 			this->account->ForeColor = System::Drawing::Color::Green;
-			this->account->Location = System::Drawing::Point(1542, 0);
+			this->account->Location = System::Drawing::Point(1553, 0);
 			this->account->Name = L"account";
 			this->account->Size = System::Drawing::Size(0, 32);
 			this->account->TabIndex = 1;
@@ -292,10 +292,11 @@ private: System::Windows::Forms::Button^ steelBuy;
 			this->listBox1->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->listBox1->ForeColor = System::Drawing::Color::Black;
 			this->listBox1->FormattingEnabled = true;
+			this->listBox1->ImeMode = System::Windows::Forms::ImeMode::Off;
 			this->listBox1->Items->AddRange(gcnew cli::array< System::Object^  >(3) { L"sell", L"buy\t ", L"maintain" });
 			this->listBox1->Location = System::Drawing::Point(31, 423);
 			this->listBox1->Name = L"listBox1";
-			this->listBox1->Size = System::Drawing::Size(73, 15);
+			this->listBox1->Size = System::Drawing::Size(46, 41);
 			this->listBox1->TabIndex = 5;
 			// 
 			// listBox3
@@ -304,11 +305,12 @@ private: System::Windows::Forms::Button^ steelBuy;
 			this->listBox3->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->listBox3->ForeColor = System::Drawing::Color::Black;
 			this->listBox3->FormattingEnabled = true;
-			this->listBox3->Items->AddRange(gcnew cli::array< System::Object^  >(3) { L"sell", L"buy\t ", L"maintain" });
+			this->listBox3->ImeMode = System::Windows::Forms::ImeMode::Off;
+			this->listBox3->Items->AddRange(gcnew cli::array< System::Object^  >(3) { L"sell", L"buy", L"maintain" });
 			this->listBox3->Location = System::Drawing::Point(410, 423);
 			this->listBox3->Name = L"listBox3";
-			this->listBox3->Size = System::Drawing::Size(73, 15);
-			this->listBox3->TabIndex = 9;
+			this->listBox3->Size = System::Drawing::Size(46, 41);
+			this->listBox3->TabIndex = 0;
 			// 
 			// checkBox3
 			// 
@@ -320,6 +322,7 @@ private: System::Windows::Forms::Button^ steelBuy;
 			this->checkBox3->Size = System::Drawing::Size(13, 12);
 			this->checkBox3->TabIndex = 8;
 			this->checkBox3->UseVisualStyleBackColor = false;
+			this->checkBox3->CheckedChanged += gcnew System::EventHandler(this, &form::checkBox3_CheckedChanged);
 			this->checkBox3->Click += gcnew System::EventHandler(this, &form::automat);
 			// 
 			// listBox4
@@ -328,10 +331,11 @@ private: System::Windows::Forms::Button^ steelBuy;
 			this->listBox4->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->listBox4->ForeColor = System::Drawing::Color::Black;
 			this->listBox4->FormattingEnabled = true;
+			this->listBox4->ImeMode = System::Windows::Forms::ImeMode::Off;
 			this->listBox4->Items->AddRange(gcnew cli::array< System::Object^  >(3) { L"sell", L"buy\t ", L"maintain" });
 			this->listBox4->Location = System::Drawing::Point(606, 423);
 			this->listBox4->Name = L"listBox4";
-			this->listBox4->Size = System::Drawing::Size(73, 15);
+			this->listBox4->Size = System::Drawing::Size(46, 41);
 			this->listBox4->TabIndex = 13;
 			// 
 			// checkBox4
@@ -351,7 +355,7 @@ private: System::Windows::Forms::Button^ steelBuy;
 			this->sell4->BackColor = System::Drawing::Color::Red;
 			this->sell4->FlatAppearance->BorderSize = 0;
 			this->sell4->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->sell4->Location = System::Drawing::Point(587, 477);
+			this->sell4->Location = System::Drawing::Point(587, 504);
 			this->sell4->Name = L"sell4";
 			this->sell4->Size = System::Drawing::Size(92, 25);
 			this->sell4->TabIndex = 11;
@@ -363,7 +367,7 @@ private: System::Windows::Forms::Button^ steelBuy;
 			this->buy4->BackColor = System::Drawing::Color::Green;
 			this->buy4->FlatAppearance->BorderSize = 0;
 			this->buy4->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->buy4->Location = System::Drawing::Point(587, 446);
+			this->buy4->Location = System::Drawing::Point(587, 473);
 			this->buy4->Name = L"buy4";
 			this->buy4->Size = System::Drawing::Size(92, 25);
 			this->buy4->TabIndex = 10;
@@ -376,10 +380,11 @@ private: System::Windows::Forms::Button^ steelBuy;
 			this->listBox5->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->listBox5->ForeColor = System::Drawing::Color::Black;
 			this->listBox5->FormattingEnabled = true;
+			this->listBox5->ImeMode = System::Windows::Forms::ImeMode::Off;
 			this->listBox5->Items->AddRange(gcnew cli::array< System::Object^  >(3) { L"sell", L"buy\t ", L"maintain" });
 			this->listBox5->Location = System::Drawing::Point(802, 423);
 			this->listBox5->Name = L"listBox5";
-			this->listBox5->Size = System::Drawing::Size(73, 15);
+			this->listBox5->Size = System::Drawing::Size(46, 41);
 			this->listBox5->TabIndex = 17;
 			// 
 			// checkBox5
@@ -399,7 +404,7 @@ private: System::Windows::Forms::Button^ steelBuy;
 			this->sell5->BackColor = System::Drawing::Color::Red;
 			this->sell5->FlatAppearance->BorderSize = 0;
 			this->sell5->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->sell5->Location = System::Drawing::Point(783, 477);
+			this->sell5->Location = System::Drawing::Point(783, 504);
 			this->sell5->Name = L"sell5";
 			this->sell5->Size = System::Drawing::Size(92, 25);
 			this->sell5->TabIndex = 15;
@@ -411,7 +416,7 @@ private: System::Windows::Forms::Button^ steelBuy;
 			this->buy5->BackColor = System::Drawing::Color::Green;
 			this->buy5->FlatAppearance->BorderSize = 0;
 			this->buy5->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->buy5->Location = System::Drawing::Point(783, 446);
+			this->buy5->Location = System::Drawing::Point(783, 473);
 			this->buy5->Name = L"buy5";
 			this->buy5->Size = System::Drawing::Size(92, 25);
 			this->buy5->TabIndex = 14;
@@ -424,10 +429,11 @@ private: System::Windows::Forms::Button^ steelBuy;
 			this->listBox2->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->listBox2->ForeColor = System::Drawing::Color::Black;
 			this->listBox2->FormattingEnabled = true;
+			this->listBox2->ImeMode = System::Windows::Forms::ImeMode::Off;
 			this->listBox2->Items->AddRange(gcnew cli::array< System::Object^  >(3) { L"sell", L"buy\t ", L"maintain" });
 			this->listBox2->Location = System::Drawing::Point(214, 423);
 			this->listBox2->Name = L"listBox2";
-			this->listBox2->Size = System::Drawing::Size(73, 15);
+			this->listBox2->Size = System::Drawing::Size(46, 41);
 			this->listBox2->TabIndex = 21;
 			// 
 			// checkBox2
@@ -448,10 +454,11 @@ private: System::Windows::Forms::Button^ steelBuy;
 			this->listBox6->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->listBox6->ForeColor = System::Drawing::Color::Black;
 			this->listBox6->FormattingEnabled = true;
+			this->listBox6->ImeMode = System::Windows::Forms::ImeMode::Off;
 			this->listBox6->Items->AddRange(gcnew cli::array< System::Object^  >(3) { L"sell", L"buy\t ", L"maintain" });
 			this->listBox6->Location = System::Drawing::Point(998, 423);
 			this->listBox6->Name = L"listBox6";
-			this->listBox6->Size = System::Drawing::Size(73, 15);
+			this->listBox6->Size = System::Drawing::Size(46, 41);
 			this->listBox6->TabIndex = 25;
 			// 
 			// checkBox6
@@ -471,7 +478,7 @@ private: System::Windows::Forms::Button^ steelBuy;
 			this->sell6->BackColor = System::Drawing::Color::Red;
 			this->sell6->FlatAppearance->BorderSize = 0;
 			this->sell6->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->sell6->Location = System::Drawing::Point(979, 477);
+			this->sell6->Location = System::Drawing::Point(979, 504);
 			this->sell6->Name = L"sell6";
 			this->sell6->Size = System::Drawing::Size(92, 25);
 			this->sell6->TabIndex = 23;
@@ -483,7 +490,7 @@ private: System::Windows::Forms::Button^ steelBuy;
 			this->buy6->BackColor = System::Drawing::Color::Green;
 			this->buy6->FlatAppearance->BorderSize = 0;
 			this->buy6->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->buy6->Location = System::Drawing::Point(979, 446);
+			this->buy6->Location = System::Drawing::Point(979, 473);
 			this->buy6->Name = L"buy6";
 			this->buy6->Size = System::Drawing::Size(92, 25);
 			this->buy6->TabIndex = 22;
@@ -569,7 +576,7 @@ private: System::Windows::Forms::Button^ steelBuy;
 			// 
 			this->progressBar1->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
 			this->progressBar1->ForeColor = System::Drawing::Color::Red;
-			this->progressBar1->Location = System::Drawing::Point(12, 512);
+			this->progressBar1->Location = System::Drawing::Point(12, 542);
 			this->progressBar1->Maximum = 7;
 			this->progressBar1->Name = L"progressBar1";
 			this->progressBar1->Size = System::Drawing::Size(1059, 34);
@@ -605,7 +612,7 @@ private: System::Windows::Forms::Button^ steelBuy;
 			this->label1->BackColor = System::Drawing::Color::Transparent;
 			this->label1->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
 			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20));
-			this->label1->Location = System::Drawing::Point(30, 548);
+			this->label1->Location = System::Drawing::Point(30, 578);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(110, 31);
 			this->label1->TabIndex = 34;
@@ -618,7 +625,7 @@ private: System::Windows::Forms::Button^ steelBuy;
 			this->label2->BackColor = System::Drawing::Color::Transparent;
 			this->label2->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
 			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20));
-			this->label2->Location = System::Drawing::Point(176, 549);
+			this->label2->Location = System::Drawing::Point(176, 579);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(119, 31);
 			this->label2->TabIndex = 35;
@@ -631,7 +638,7 @@ private: System::Windows::Forms::Button^ steelBuy;
 			this->label3->BackColor = System::Drawing::Color::Transparent;
 			this->label3->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
 			this->label3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20));
-			this->label3->Location = System::Drawing::Point(313, 549);
+			this->label3->Location = System::Drawing::Point(313, 579);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(157, 31);
 			this->label3->TabIndex = 36;
@@ -645,7 +652,7 @@ private: System::Windows::Forms::Button^ steelBuy;
 			this->label4->BackColor = System::Drawing::Color::Transparent;
 			this->label4->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
 			this->label4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 30, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Pixel));
-			this->label4->Location = System::Drawing::Point(303, 509);
+			this->label4->Location = System::Drawing::Point(303, 539);
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(24, 36);
 			this->label4->TabIndex = 37;
@@ -657,7 +664,7 @@ private: System::Windows::Forms::Button^ steelBuy;
 			this->label5->BackColor = System::Drawing::Color::Transparent;
 			this->label5->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
 			this->label5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 30, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Pixel));
-			this->label5->Location = System::Drawing::Point(151, 509);
+			this->label5->Location = System::Drawing::Point(151, 539);
 			this->label5->Name = L"label5";
 			this->label5->Size = System::Drawing::Size(24, 36);
 			this->label5->TabIndex = 38;
@@ -669,7 +676,7 @@ private: System::Windows::Forms::Button^ steelBuy;
 			this->label6->BackColor = System::Drawing::Color::Transparent;
 			this->label6->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
 			this->label6->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 30, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Pixel));
-			this->label6->Location = System::Drawing::Point(454, 509);
+			this->label6->Location = System::Drawing::Point(454, 539);
 			this->label6->Name = L"label6";
 			this->label6->Size = System::Drawing::Size(24, 36);
 			this->label6->TabIndex = 39;
@@ -681,7 +688,7 @@ private: System::Windows::Forms::Button^ steelBuy;
 			this->label7->BackColor = System::Drawing::Color::Transparent;
 			this->label7->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
 			this->label7->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 30, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Pixel));
-			this->label7->Location = System::Drawing::Point(604, 509);
+			this->label7->Location = System::Drawing::Point(604, 539);
 			this->label7->Name = L"label7";
 			this->label7->Size = System::Drawing::Size(24, 36);
 			this->label7->TabIndex = 40;
@@ -693,7 +700,7 @@ private: System::Windows::Forms::Button^ steelBuy;
 			this->label8->BackColor = System::Drawing::Color::Transparent;
 			this->label8->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
 			this->label8->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 30, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Pixel));
-			this->label8->Location = System::Drawing::Point(756, 509);
+			this->label8->Location = System::Drawing::Point(756, 539);
 			this->label8->Name = L"label8";
 			this->label8->Size = System::Drawing::Size(24, 36);
 			this->label8->TabIndex = 41;
@@ -705,7 +712,7 @@ private: System::Windows::Forms::Button^ steelBuy;
 			this->label9->BackColor = System::Drawing::Color::Transparent;
 			this->label9->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
 			this->label9->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 30, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Pixel));
-			this->label9->Location = System::Drawing::Point(908, 509);
+			this->label9->Location = System::Drawing::Point(908, 539);
 			this->label9->Name = L"label9";
 			this->label9->Size = System::Drawing::Size(24, 36);
 			this->label9->TabIndex = 42;
@@ -718,7 +725,7 @@ private: System::Windows::Forms::Button^ steelBuy;
 			this->label10->BackColor = System::Drawing::Color::Transparent;
 			this->label10->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
 			this->label10->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20));
-			this->label10->Location = System::Drawing::Point(477, 548);
+			this->label10->Location = System::Drawing::Point(477, 578);
 			this->label10->Name = L"label10";
 			this->label10->Size = System::Drawing::Size(128, 31);
 			this->label10->TabIndex = 43;
@@ -732,7 +739,7 @@ private: System::Windows::Forms::Button^ steelBuy;
 			this->label11->BackColor = System::Drawing::Color::Transparent;
 			this->label11->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
 			this->label11->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20));
-			this->label11->Location = System::Drawing::Point(652, 548);
+			this->label11->Location = System::Drawing::Point(652, 578);
 			this->label11->Name = L"label11";
 			this->label11->Size = System::Drawing::Size(90, 31);
 			this->label11->TabIndex = 44;
@@ -746,7 +753,7 @@ private: System::Windows::Forms::Button^ steelBuy;
 			this->label12->BackColor = System::Drawing::Color::Transparent;
 			this->label12->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
 			this->label12->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20));
-			this->label12->Location = System::Drawing::Point(782, 548);
+			this->label12->Location = System::Drawing::Point(782, 578);
 			this->label12->Name = L"label12";
 			this->label12->Size = System::Drawing::Size(123, 31);
 			this->label12->TabIndex = 45;
@@ -760,7 +767,7 @@ private: System::Windows::Forms::Button^ steelBuy;
 			this->label13->BackColor = System::Drawing::Color::Transparent;
 			this->label13->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
 			this->label13->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20));
-			this->label13->Location = System::Drawing::Point(946, 548);
+			this->label13->Location = System::Drawing::Point(946, 578);
 			this->label13->Name = L"label13";
 			this->label13->Size = System::Drawing::Size(106, 31);
 			this->label13->TabIndex = 46;
@@ -775,7 +782,7 @@ private: System::Windows::Forms::Button^ steelBuy;
 			this->button2->FlatAppearance->BorderColor = System::Drawing::Color::Red;
 			this->button2->FlatAppearance->BorderSize = 3;
 			this->button2->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button2->Location = System::Drawing::Point(1077, 509);
+			this->button2->Location = System::Drawing::Point(1077, 539);
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(37, 37);
 			this->button2->TabIndex = 47;
@@ -838,6 +845,7 @@ private: System::Windows::Forms::Button^ steelBuy;
 			this->feMine->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 			this->feMine->TabIndex = 49;
 			this->feMine->TabStop = false;
+			this->feMine->MouseHover += gcnew System::EventHandler(this, &form::feMine_MouseHover);
 			// 
 			// steelMill
 			// 
@@ -850,6 +858,7 @@ private: System::Windows::Forms::Button^ steelBuy;
 			this->steelMill->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 			this->steelMill->TabIndex = 50;
 			this->steelMill->TabStop = false;
+			this->steelMill->MouseHover += gcnew System::EventHandler(this, &form::steelMill_MouseHover);
 			// 
 			// femineStatus
 			// 
@@ -1011,7 +1020,7 @@ private: System::Windows::Forms::Button^ steelBuy;
 			this->FeBuy->BackColor = System::Drawing::Color::Green;
 			this->FeBuy->FlatAppearance->BorderSize = 0;
 			this->FeBuy->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->FeBuy->Location = System::Drawing::Point(195, 446);
+			this->FeBuy->Location = System::Drawing::Point(195, 473);
 			this->FeBuy->Name = L"FeBuy";
 			this->FeBuy->Size = System::Drawing::Size(92, 25);
 			this->FeBuy->TabIndex = 62;
@@ -1024,7 +1033,7 @@ private: System::Windows::Forms::Button^ steelBuy;
 			this->FeSell->BackColor = System::Drawing::Color::Red;
 			this->FeSell->FlatAppearance->BorderSize = 0;
 			this->FeSell->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->FeSell->Location = System::Drawing::Point(195, 477);
+			this->FeSell->Location = System::Drawing::Point(195, 504);
 			this->FeSell->Name = L"FeSell";
 			this->FeSell->Size = System::Drawing::Size(92, 25);
 			this->FeSell->TabIndex = 63;
@@ -1037,7 +1046,7 @@ private: System::Windows::Forms::Button^ steelBuy;
 			this->CSell->BackColor = System::Drawing::Color::Red;
 			this->CSell->FlatAppearance->BorderSize = 0;
 			this->CSell->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->CSell->Location = System::Drawing::Point(12, 477);
+			this->CSell->Location = System::Drawing::Point(12, 504);
 			this->CSell->Name = L"CSell";
 			this->CSell->Size = System::Drawing::Size(92, 25);
 			this->CSell->TabIndex = 65;
@@ -1050,7 +1059,7 @@ private: System::Windows::Forms::Button^ steelBuy;
 			this->CBuy->BackColor = System::Drawing::Color::Green;
 			this->CBuy->FlatAppearance->BorderSize = 0;
 			this->CBuy->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->CBuy->Location = System::Drawing::Point(12, 446);
+			this->CBuy->Location = System::Drawing::Point(12, 473);
 			this->CBuy->Name = L"CBuy";
 			this->CBuy->Size = System::Drawing::Size(92, 25);
 			this->CBuy->TabIndex = 64;
@@ -1063,7 +1072,7 @@ private: System::Windows::Forms::Button^ steelBuy;
 			this->steelSell->BackColor = System::Drawing::Color::Red;
 			this->steelSell->FlatAppearance->BorderSize = 0;
 			this->steelSell->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->steelSell->Location = System::Drawing::Point(391, 477);
+			this->steelSell->Location = System::Drawing::Point(391, 504);
 			this->steelSell->Name = L"steelSell";
 			this->steelSell->Size = System::Drawing::Size(92, 25);
 			this->steelSell->TabIndex = 67;
@@ -1076,7 +1085,7 @@ private: System::Windows::Forms::Button^ steelBuy;
 			this->steelBuy->BackColor = System::Drawing::Color::Green;
 			this->steelBuy->FlatAppearance->BorderSize = 0;
 			this->steelBuy->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->steelBuy->Location = System::Drawing::Point(391, 446);
+			this->steelBuy->Location = System::Drawing::Point(391, 473);
 			this->steelBuy->Name = L"steelBuy";
 			this->steelBuy->Size = System::Drawing::Size(92, 25);
 			this->steelBuy->TabIndex = 66;
@@ -1089,7 +1098,7 @@ private: System::Windows::Forms::Button^ steelBuy;
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::AppWorkspace;
-			this->ClientSize = System::Drawing::Size(1542, 722);
+			this->ClientSize = System::Drawing::Size(1553, 624);
 			this->Controls->Add(this->steelSell);
 			this->Controls->Add(this->steelBuy);
 			this->Controls->Add(this->CSell);
@@ -1410,13 +1419,53 @@ private: void money(int dollar) {
 private: System::Void automat(System::Object^ sender, System::EventArgs^ e)//whenever you click check box it changes it's color
 {
 	CheckBox^ chbx = (CheckBox^)sender;
-	if(chbx->Checked==true)chbx->BackColor = System::Drawing::Color::LimeGreen;
-	else chbx->BackColor = System::Drawing::Color::Red;
+	
+	if (chbx->Checked == true) 
+	{
+		chbx->BackColor = System::Drawing::Color::LimeGreen;
+		/*if (listBox1->Text == "sell")
+		{
+			Beep(1500, 100);
+		}
+		if (listBox1->Text == "buy")
+		{
+			Beep(500, 100);
+		}
+		if (listBox1->Text == "maintain")
+		{
+			Beep(3500, 100);
+		}
+		if (listBox2->Text == "sell")
+		{
+			Beep(1500, 100);
+		}
+		if (listBox2->Text == "buy")
+		{
+			Beep(500, 100);
+		}
+		if (listBox2->Text == "maintain")
+		{
+			Beep(3500, 100);
+		}*/
+
+	}
+	else
+	{
+		chbx->BackColor = System::Drawing::Color::Red;
+	}
 }
-private: System::Void toolTip1_Popup(System::Object^ sender, System::Windows::Forms::PopupEventArgs^ e) {//i don't get it why i need this in my code if it's empty 
+private: System::Void toolTip1_Popup(System::Object^ sender, System::Windows::Forms::PopupEventArgs^ e) {
+
+	//i don't get it why i need this in my code if it's empty 
 }
 private: System::Void pictureBox7_MouseHover(System::Object^ sender, System::EventArgs^ e) {//ahh yes if you didn't recognice pictogram when you hover over it you for sure know that this is in fack some kind of mine xD
 toolTip1->Show("Coal Mine", pictureBox7);
+}
+private: System::Void feMine_MouseHover(System::Object^ sender, System::EventArgs^ e) {
+toolTip1->Show("Ferrum Mine", feMine);
+}
+private: System::Void steelMill_MouseHover(System::Object^ sender, System::EventArgs^ e) {
+toolTip1->Show("Steel Mill", steelMill);
 }
 //why you keep clicking on stuff? to know what it does? chill out with that or there will be consequences
 private: void why()
@@ -1490,7 +1539,7 @@ private: System::Void backgroundWorker1_RunWorkerCompleted(System::Object^ event
 }
 /*NOTE TO MYSELF: pause button*/private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) { 
 	
-	switch (pause)
+	switch (pause)//only issue is with progress bar i don't think i can change that due to restarting process of background worker 
 	{
 		case false:
 		{
@@ -1558,12 +1607,12 @@ private: System::Void buySteel_Click(System::Object^ sender, System::EventArgs^ 
 private: System::Void dollar_Click(System::Object^ sender, System::EventArgs^ e) {
 	if (xdfg==1)
 	{
-		this->ClientSize = System::Drawing::Size(1207, 588);//don't know what i plan with this 
+		this->ClientSize = System::Drawing::Size(1207, 667);//don't know what i plan with this 
 		xdfg--;
 	}
 	else
 	{//what kind of informations can be shown there 
-		this->ClientSize = System::Drawing::Size(1507, 588);
+		this->ClientSize = System::Drawing::Size(1573, 667);
 		xdfg++;
 	}//maybe when i'll start working on automated function for buying and selling there will be informations about these actions expected to be done 
 }
@@ -1609,7 +1658,7 @@ private: System::Void pictureBox1_Click(System::Object^ sender, System::EventArg
 	hiddenoption(1,1,1,3,2);
 }
 private: System::Void form_Load(System::Object^ sender, System::EventArgs^ e) {
-	this->ClientSize = System::Drawing::Size(1207, 588);
+	this->ClientSize = System::Drawing::Size(1173, 667);
 	this->account->Text = revenue + "";
 	/*this->backgroundWorker1->RunWorkerAsync(1);
 	this->mineworker->RunWorkerAsync(1);	don't need it right now 
@@ -1750,6 +1799,27 @@ private: System::Void steelSell_Click(System::Object^ sender, System::EventArgs^
 	{
 		em();
 	}
+}
+private: System::Void checkBox3_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
+	if (checkBox3->Checked == true)
+	{
+		
+		if (listBox3->Text == "sell")
+		{
+			
+		}
+		if (listBox3->Text == "buy")
+		{
+			
+		}
+		if (listBox3->Text == "maintain")
+		{
+			
+		}
+	
+	}
+	else
+	{}
 }
 };
 }
