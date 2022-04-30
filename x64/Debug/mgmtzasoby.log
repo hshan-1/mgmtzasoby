@@ -1,4 +1,4 @@
 ﻿  form.cpp
-D:\ważne\.dev\mgmtzasoby\form.h(1533,1): warning C4965: niejawne rzutowanie liczby całkowitej 0; użyj nullptr lub jawnego rzutowania
+D:\ważne\.dev\mgmtzasoby\form.h(1539,1): warning C4965: niejawne rzutowanie liczby całkowitej 0; użyj nullptr lub jawnego rzutowania
   form.obj : napotkano moduł MSIL; konsolidowanie przyrostowe jest wyłączone dla modułów MSIL; zostanie wykonana pełna konsolidacja
   mgmtzasoby.vcxproj -> D:\ważne\.dev\mgmtzasoby\x64\Debug\mgmtzasoby.exe

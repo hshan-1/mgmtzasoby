@@ -276,12 +276,13 @@ private: System::Windows::Forms::Button^ steelBuy;
 			// 
 			// checkBox1
 			// 
-			this->checkBox1->AutoSize = true;
+			this->checkBox1->Appearance = System::Windows::Forms::Appearance::Button;
 			this->checkBox1->BackColor = System::Drawing::Color::Red;
-			this->checkBox1->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
-			this->checkBox1->Location = System::Drawing::Point(12, 425);
+			this->checkBox1->FlatAppearance->BorderSize = 2;
+			this->checkBox1->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->checkBox1->Location = System::Drawing::Point(14, 425);
 			this->checkBox1->Name = L"checkBox1";
-			this->checkBox1->Size = System::Drawing::Size(13, 12);
+			this->checkBox1->Size = System::Drawing::Size(13, 13);
 			this->checkBox1->TabIndex = 4;
 			this->checkBox1->UseVisualStyleBackColor = false;
 			this->checkBox1->Click += gcnew System::EventHandler(this, &form::automat);
@@ -314,12 +315,13 @@ private: System::Windows::Forms::Button^ steelBuy;
 			// 
 			// checkBox3
 			// 
-			this->checkBox3->AutoSize = true;
+			this->checkBox3->Appearance = System::Windows::Forms::Appearance::Button;
 			this->checkBox3->BackColor = System::Drawing::Color::Red;
-			this->checkBox3->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
-			this->checkBox3->Location = System::Drawing::Point(391, 425);
+			this->checkBox3->FlatAppearance->BorderSize = 2;
+			this->checkBox3->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->checkBox3->Location = System::Drawing::Point(393, 425);
 			this->checkBox3->Name = L"checkBox3";
-			this->checkBox3->Size = System::Drawing::Size(13, 12);
+			this->checkBox3->Size = System::Drawing::Size(13, 13);
 			this->checkBox3->TabIndex = 8;
 			this->checkBox3->UseVisualStyleBackColor = false;
 			this->checkBox3->CheckedChanged += gcnew System::EventHandler(this, &form::checkBox3_CheckedChanged);
@@ -340,12 +342,13 @@ private: System::Windows::Forms::Button^ steelBuy;
 			// 
 			// checkBox4
 			// 
-			this->checkBox4->AutoSize = true;
+			this->checkBox4->Appearance = System::Windows::Forms::Appearance::Button;
 			this->checkBox4->BackColor = System::Drawing::Color::Red;
-			this->checkBox4->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
-			this->checkBox4->Location = System::Drawing::Point(587, 425);
+			this->checkBox4->FlatAppearance->BorderSize = 2;
+			this->checkBox4->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->checkBox4->Location = System::Drawing::Point(589, 425);
 			this->checkBox4->Name = L"checkBox4";
-			this->checkBox4->Size = System::Drawing::Size(13, 12);
+			this->checkBox4->Size = System::Drawing::Size(13, 13);
 			this->checkBox4->TabIndex = 12;
 			this->checkBox4->UseVisualStyleBackColor = false;
 			this->checkBox4->Click += gcnew System::EventHandler(this, &form::automat);
@@ -389,12 +392,13 @@ private: System::Windows::Forms::Button^ steelBuy;
 			// 
 			// checkBox5
 			// 
-			this->checkBox5->AutoSize = true;
+			this->checkBox5->Appearance = System::Windows::Forms::Appearance::Button;
 			this->checkBox5->BackColor = System::Drawing::Color::Red;
-			this->checkBox5->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
-			this->checkBox5->Location = System::Drawing::Point(783, 425);
+			this->checkBox5->FlatAppearance->BorderSize = 2;
+			this->checkBox5->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->checkBox5->Location = System::Drawing::Point(785, 425);
 			this->checkBox5->Name = L"checkBox5";
-			this->checkBox5->Size = System::Drawing::Size(13, 12);
+			this->checkBox5->Size = System::Drawing::Size(13, 13);
 			this->checkBox5->TabIndex = 16;
 			this->checkBox5->UseVisualStyleBackColor = false;
 			this->checkBox5->Click += gcnew System::EventHandler(this, &form::automat);
@@ -438,12 +442,13 @@ private: System::Windows::Forms::Button^ steelBuy;
 			// 
 			// checkBox2
 			// 
-			this->checkBox2->AutoSize = true;
+			this->checkBox2->Appearance = System::Windows::Forms::Appearance::Button;
 			this->checkBox2->BackColor = System::Drawing::Color::Red;
-			this->checkBox2->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
-			this->checkBox2->Location = System::Drawing::Point(195, 425);
+			this->checkBox2->FlatAppearance->BorderSize = 2;
+			this->checkBox2->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->checkBox2->Location = System::Drawing::Point(197, 425);
 			this->checkBox2->Name = L"checkBox2";
-			this->checkBox2->Size = System::Drawing::Size(13, 12);
+			this->checkBox2->Size = System::Drawing::Size(13, 13);
 			this->checkBox2->TabIndex = 20;
 			this->checkBox2->UseVisualStyleBackColor = false;
 			this->checkBox2->Click += gcnew System::EventHandler(this, &form::automat);
@@ -463,12 +468,13 @@ private: System::Windows::Forms::Button^ steelBuy;
 			// 
 			// checkBox6
 			// 
-			this->checkBox6->AutoSize = true;
+			this->checkBox6->Appearance = System::Windows::Forms::Appearance::Button;
 			this->checkBox6->BackColor = System::Drawing::Color::Red;
-			this->checkBox6->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
-			this->checkBox6->Location = System::Drawing::Point(979, 425);
+			this->checkBox6->FlatAppearance->BorderSize = 2;
+			this->checkBox6->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->checkBox6->Location = System::Drawing::Point(981, 425);
 			this->checkBox6->Name = L"checkBox6";
-			this->checkBox6->Size = System::Drawing::Size(13, 12);
+			this->checkBox6->Size = System::Drawing::Size(13, 13);
 			this->checkBox6->TabIndex = 24;
 			this->checkBox6->UseVisualStyleBackColor = false;
 			this->checkBox6->Click += gcnew System::EventHandler(this, &form::automat);
