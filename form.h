@@ -135,6 +135,8 @@ private: System::Windows::Forms::Button^ CBuy;
 private: System::Windows::Forms::Button^ steelSell;
 
 private: System::Windows::Forms::Button^ steelBuy;
+private: System::Windows::Forms::TextBox^ textBox1;
+
 
 
 
@@ -232,6 +234,7 @@ private: System::Windows::Forms::Button^ steelBuy;
 			this->CBuy = (gcnew System::Windows::Forms::Button());
 			this->steelSell = (gcnew System::Windows::Forms::Button());
 			this->steelBuy = (gcnew System::Windows::Forms::Button());
+			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->BeginInit();
@@ -288,29 +291,33 @@ private: System::Windows::Forms::Button^ steelBuy;
 			// 
 			// listBox1
 			// 
-			this->listBox1->BackColor = System::Drawing::SystemColors::InactiveBorder;
-			this->listBox1->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->listBox1->ForeColor = System::Drawing::Color::Black;
+			this->listBox1->BackColor = System::Drawing::SystemColors::Info;
+			this->listBox1->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->listBox1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.5F));
+			this->listBox1->ForeColor = System::Drawing::SystemColors::InfoText;
 			this->listBox1->FormattingEnabled = true;
 			this->listBox1->ImeMode = System::Windows::Forms::ImeMode::Off;
 			this->listBox1->Items->AddRange(gcnew cli::array< System::Object^  >(3) { L"sell", L"buy\t ", L"maintain" });
 			this->listBox1->Location = System::Drawing::Point(31, 423);
 			this->listBox1->Name = L"listBox1";
-			this->listBox1->Size = System::Drawing::Size(46, 41);
+			this->listBox1->Size = System::Drawing::Size(46, 39);
 			this->listBox1->TabIndex = 5;
+			this->listBox1->MouseHover += gcnew System::EventHandler(this, &form::listBox1_MouseHover);
 			// 
 			// listBox3
 			// 
-			this->listBox3->BackColor = System::Drawing::SystemColors::InactiveBorder;
-			this->listBox3->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->listBox3->ForeColor = System::Drawing::Color::Black;
+			this->listBox3->BackColor = System::Drawing::SystemColors::Info;
+			this->listBox3->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->listBox3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.5F));
+			this->listBox3->ForeColor = System::Drawing::SystemColors::InfoText;
 			this->listBox3->FormattingEnabled = true;
 			this->listBox3->ImeMode = System::Windows::Forms::ImeMode::Off;
 			this->listBox3->Items->AddRange(gcnew cli::array< System::Object^  >(3) { L"sell", L"buy", L"maintain" });
 			this->listBox3->Location = System::Drawing::Point(410, 423);
 			this->listBox3->Name = L"listBox3";
-			this->listBox3->Size = System::Drawing::Size(46, 41);
+			this->listBox3->Size = System::Drawing::Size(46, 39);
 			this->listBox3->TabIndex = 0;
+			this->listBox3->MouseHover += gcnew System::EventHandler(this, &form::listBox1_MouseHover);
 			// 
 			// checkBox3
 			// 
@@ -328,16 +335,18 @@ private: System::Windows::Forms::Button^ steelBuy;
 			// 
 			// listBox4
 			// 
-			this->listBox4->BackColor = System::Drawing::SystemColors::InactiveBorder;
-			this->listBox4->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->listBox4->ForeColor = System::Drawing::Color::Black;
+			this->listBox4->BackColor = System::Drawing::SystemColors::Info;
+			this->listBox4->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->listBox4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.5F));
+			this->listBox4->ForeColor = System::Drawing::SystemColors::InfoText;
 			this->listBox4->FormattingEnabled = true;
 			this->listBox4->ImeMode = System::Windows::Forms::ImeMode::Off;
 			this->listBox4->Items->AddRange(gcnew cli::array< System::Object^  >(3) { L"sell", L"buy\t ", L"maintain" });
 			this->listBox4->Location = System::Drawing::Point(606, 423);
 			this->listBox4->Name = L"listBox4";
-			this->listBox4->Size = System::Drawing::Size(46, 41);
+			this->listBox4->Size = System::Drawing::Size(46, 39);
 			this->listBox4->TabIndex = 13;
+			this->listBox4->MouseHover += gcnew System::EventHandler(this, &form::listBox1_MouseHover);
 			// 
 			// checkBox4
 			// 
@@ -378,16 +387,18 @@ private: System::Windows::Forms::Button^ steelBuy;
 			// 
 			// listBox5
 			// 
-			this->listBox5->BackColor = System::Drawing::SystemColors::InactiveBorder;
-			this->listBox5->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->listBox5->ForeColor = System::Drawing::Color::Black;
+			this->listBox5->BackColor = System::Drawing::SystemColors::Info;
+			this->listBox5->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->listBox5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.5F));
+			this->listBox5->ForeColor = System::Drawing::SystemColors::InfoText;
 			this->listBox5->FormattingEnabled = true;
 			this->listBox5->ImeMode = System::Windows::Forms::ImeMode::Off;
 			this->listBox5->Items->AddRange(gcnew cli::array< System::Object^  >(3) { L"sell", L"buy\t ", L"maintain" });
 			this->listBox5->Location = System::Drawing::Point(802, 423);
 			this->listBox5->Name = L"listBox5";
-			this->listBox5->Size = System::Drawing::Size(46, 41);
+			this->listBox5->Size = System::Drawing::Size(46, 39);
 			this->listBox5->TabIndex = 17;
+			this->listBox5->MouseHover += gcnew System::EventHandler(this, &form::listBox1_MouseHover);
 			// 
 			// checkBox5
 			// 
@@ -428,16 +439,18 @@ private: System::Windows::Forms::Button^ steelBuy;
 			// 
 			// listBox2
 			// 
-			this->listBox2->BackColor = System::Drawing::SystemColors::InactiveBorder;
-			this->listBox2->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->listBox2->ForeColor = System::Drawing::Color::Black;
+			this->listBox2->BackColor = System::Drawing::SystemColors::Info;
+			this->listBox2->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->listBox2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.5F));
+			this->listBox2->ForeColor = System::Drawing::SystemColors::InfoText;
 			this->listBox2->FormattingEnabled = true;
 			this->listBox2->ImeMode = System::Windows::Forms::ImeMode::Off;
 			this->listBox2->Items->AddRange(gcnew cli::array< System::Object^  >(3) { L"sell", L"buy\t ", L"maintain" });
 			this->listBox2->Location = System::Drawing::Point(214, 423);
 			this->listBox2->Name = L"listBox2";
-			this->listBox2->Size = System::Drawing::Size(46, 41);
+			this->listBox2->Size = System::Drawing::Size(46, 39);
 			this->listBox2->TabIndex = 21;
+			this->listBox2->MouseHover += gcnew System::EventHandler(this, &form::listBox1_MouseHover);
 			// 
 			// checkBox2
 			// 
@@ -454,16 +467,18 @@ private: System::Windows::Forms::Button^ steelBuy;
 			// 
 			// listBox6
 			// 
-			this->listBox6->BackColor = System::Drawing::SystemColors::InactiveBorder;
-			this->listBox6->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->listBox6->ForeColor = System::Drawing::Color::Black;
+			this->listBox6->BackColor = System::Drawing::SystemColors::Info;
+			this->listBox6->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->listBox6->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.5F));
+			this->listBox6->ForeColor = System::Drawing::SystemColors::InfoText;
 			this->listBox6->FormattingEnabled = true;
 			this->listBox6->ImeMode = System::Windows::Forms::ImeMode::Off;
 			this->listBox6->Items->AddRange(gcnew cli::array< System::Object^  >(3) { L"sell", L"buy\t ", L"maintain" });
 			this->listBox6->Location = System::Drawing::Point(998, 423);
 			this->listBox6->Name = L"listBox6";
-			this->listBox6->Size = System::Drawing::Size(46, 41);
+			this->listBox6->Size = System::Drawing::Size(46, 39);
 			this->listBox6->TabIndex = 25;
+			this->listBox6->MouseHover += gcnew System::EventHandler(this, &form::listBox1_MouseHover);
 			// 
 			// checkBox6
 			// 
@@ -1087,12 +1102,27 @@ private: System::Windows::Forms::Button^ steelBuy;
 			this->steelBuy->UseVisualStyleBackColor = false;
 			this->steelBuy->Click += gcnew System::EventHandler(this, &form::steelBuy_Click);
 			// 
+			// textBox1
+			// 
+			this->textBox1->BackColor = System::Drawing::SystemColors::Window;
+			this->textBox1->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox1->Location = System::Drawing::Point(462, 423);
+			this->textBox1->MaxLength = 4;
+			this->textBox1->Name = L"textBox1";
+			this->textBox1->Size = System::Drawing::Size(67, 13);
+			this->textBox1->TabIndex = 68;
+			this->textBox1->Text = L"how much";
+			this->textBox1->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			this->textBox1->Click += gcnew System::EventHandler(this, &form::textBox1_Click);
+			this->textBox1->TextChanged += gcnew System::EventHandler(this, &form::textBox1_TextChanged);
+			// 
 			// form
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::AppWorkspace;
 			this->ClientSize = System::Drawing::Size(1553, 624);
+			this->Controls->Add(this->textBox1);
 			this->Controls->Add(this->steelSell);
 			this->Controls->Add(this->steelBuy);
 			this->Controls->Add(this->CSell);
@@ -1513,7 +1543,6 @@ private: System::Void backgroundWorker1_RunWorkerCompleted(System::Object^ event
 {
 	if (revenue <= -10000)
 	{
-		MessageBox::Show("test");
 		gameover(1);
 	}
 	Sleep(1);
@@ -1522,9 +1551,48 @@ private: System::Void backgroundWorker1_RunWorkerCompleted(System::Object^ event
 		money(-1000);
 		backgroundWorker1->RunWorkerAsync(1);
 	}
-	
-	//progressBar1->Value = 7;
-	//MessageBox::Show("next"); 
+	///////////////////////////////////////////////////////////end of week automated operations type of shit 
+	if (checkBox3->Checked == true && listBox3->Text == "sell")
+	{
+		int sell;
+		if(textBox1->Text==""|| textBox1->Text == "how much")
+		{
+			sell = 200 * avSteel;
+			money(sell);
+			Storage(0, 0, -avSteel);
+		}
+		else 
+		{
+			if (sell >= avSteel)
+			{
+				sell = Convert::ToInt16(textBox1->Text);
+				money(sell * 200);
+				Storage(0, 0, -sell);
+			}else{/*act natural*/ }
+		}
+	}
+	if (checkBox3->Checked == true && listBox3->Text == "buy")
+	{
+		this->label14->Text = "buy";//why i need this 
+	}
+	if (checkBox3->Checked == true && listBox3->Text == "maintain")
+	{
+
+		this->textBox1->BackColor = System::Drawing::SystemColors::Window;
+		int maintain = Convert::ToInt16(textBox1->Text);//how to deal with the posibility of wrong type of input ??
+		if ((avSteel > maintain) && maintain <= maxS)
+		{
+			int total = (avSteel - maintain) * 200;
+			money(total);
+			Storage(0, 0, -(avSteel - maintain));
+		}
+		if ((avSteel < maintain) && maintain >= 0)
+		{
+			int total = (maintain - avSteel) * 200;
+			money(-total);
+			Storage(0, 0, maintain - avSteel);
+		}
+	}
 }
 /*start work, start from the scratch*/private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {//work start button triggering all background workers
 	gameover(0);
@@ -1645,6 +1713,10 @@ private: System::Void label13_Click(System::Object^ sender, System::EventArgs^ e
 }
 private: System::Void dollar_MouseHover(System::Object^ sender, System::EventArgs^ e) {
 	this->toolTip1->Show("click for more/less details", dollar);
+}
+private: System::Void listBox1_MouseHover(System::Object^ sender, System::EventArgs^ e) {
+	ListBox^ lstbx = (ListBox^)sender;
+	this->toolTip1->Show("Choose weekly action", lstbx);
 }
 private: System::Void pictureBox1_Click(System::Object^ sender, System::EventArgs^ e) {
 	hiddenoption(1,1,1,3,2);
@@ -1793,25 +1865,14 @@ private: System::Void steelSell_Click(System::Object^ sender, System::EventArgs^
 	}
 }
 private: System::Void checkBox3_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
-	if (checkBox3->Checked == true)
-	{
-		
-		if (listBox3->Text == "sell")
-		{
-			
-		}
-		if (listBox3->Text == "buy")
-		{
-			
-		}
-		if (listBox3->Text == "maintain")
-		{
-			
-		}
-	
-	}
-	else
-	{}
+
+}
+private: System::Void textBox1_Click(System::Object^ sender, System::EventArgs^ e) {
+	TextBox^ txbx = (TextBox^) sender;
+	this->toolTip1->Show("insert value\nfor automated process",txbx);
+	this->textBox1->Text = "";
+}
+private: System::Void textBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 }
 };
 }
