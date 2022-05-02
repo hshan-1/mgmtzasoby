@@ -135,7 +135,10 @@ private: System::Windows::Forms::Button^ CBuy;
 private: System::Windows::Forms::Button^ steelSell;
 
 private: System::Windows::Forms::Button^ steelBuy;
+private: System::Windows::Forms::TextBox^ textBox3;
 private: System::Windows::Forms::TextBox^ textBox1;
+private: System::Windows::Forms::TextBox^ textBox2;
+
 
 
 
@@ -234,7 +237,9 @@ private: System::Windows::Forms::TextBox^ textBox1;
 			this->CBuy = (gcnew System::Windows::Forms::Button());
 			this->steelSell = (gcnew System::Windows::Forms::Button());
 			this->steelBuy = (gcnew System::Windows::Forms::Button());
+			this->textBox3 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
+			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->BeginInit();
@@ -1102,19 +1107,43 @@ private: System::Windows::Forms::TextBox^ textBox1;
 			this->steelBuy->UseVisualStyleBackColor = false;
 			this->steelBuy->Click += gcnew System::EventHandler(this, &form::steelBuy_Click);
 			// 
+			// textBox3
+			// 
+			this->textBox3->BackColor = System::Drawing::SystemColors::Window;
+			this->textBox3->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox3->Location = System::Drawing::Point(462, 423);
+			this->textBox3->MaxLength = 4;
+			this->textBox3->Name = L"textBox3";
+			this->textBox3->Size = System::Drawing::Size(67, 13);
+			this->textBox3->TabIndex = 68;
+			this->textBox3->Text = L"how much";
+			this->textBox3->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			this->textBox3->Click += gcnew System::EventHandler(this, &form::txbxC);
+			this->textBox3->TextChanged += gcnew System::EventHandler(this, &form::textBox1_TextChanged);
+			// 
 			// textBox1
 			// 
 			this->textBox1->BackColor = System::Drawing::SystemColors::Window;
 			this->textBox1->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox1->Location = System::Drawing::Point(462, 423);
+			this->textBox1->Location = System::Drawing::Point(83, 423);
 			this->textBox1->MaxLength = 4;
 			this->textBox1->Name = L"textBox1";
 			this->textBox1->Size = System::Drawing::Size(67, 13);
-			this->textBox1->TabIndex = 68;
+			this->textBox1->TabIndex = 69;
 			this->textBox1->Text = L"how much";
 			this->textBox1->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
-			this->textBox1->Click += gcnew System::EventHandler(this, &form::textBox1_Click);
-			this->textBox1->TextChanged += gcnew System::EventHandler(this, &form::textBox1_TextChanged);
+			// 
+			// textBox2
+			// 
+			this->textBox2->BackColor = System::Drawing::SystemColors::Window;
+			this->textBox2->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox2->Location = System::Drawing::Point(266, 423);
+			this->textBox2->MaxLength = 4;
+			this->textBox2->Name = L"textBox2";
+			this->textBox2->Size = System::Drawing::Size(67, 13);
+			this->textBox2->TabIndex = 70;
+			this->textBox2->Text = L"how much";
+			this->textBox2->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			// 
 			// form
 			// 
@@ -1122,7 +1151,9 @@ private: System::Windows::Forms::TextBox^ textBox1;
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::AppWorkspace;
 			this->ClientSize = System::Drawing::Size(1553, 624);
+			this->Controls->Add(this->textBox2);
 			this->Controls->Add(this->textBox1);
+			this->Controls->Add(this->textBox3);
 			this->Controls->Add(this->steelSell);
 			this->Controls->Add(this->steelBuy);
 			this->Controls->Add(this->CSell);
@@ -1397,6 +1428,99 @@ private: System::Void account_Click(System::Object^ sender, System::EventArgs^ e
 	int r = rand()%(69-1);
 	Beep(r * 1000, 100);
 }
+private: void automatik()
+{
+	///////////////////////////////////////
+	//Ferrum
+	//
+	if (checkBox2->Checked == true && listBox2->Text == "sell")
+	{
+		int sell;
+		if (textBox2->Text == "" || textBox2->Text == "how much")
+		{
+			sell = 50 * avFe;
+			money(sell);
+			Storage(0, -avFe, -0);
+		}
+		else
+		{
+			if (sell >= avFe)
+			{
+				sell = Convert::ToInt16(textBox2->Text);
+				money(sell * 50);
+				Storage(0, -sell,0 );
+			}
+			else {/*act natural*/ }
+		}
+	}
+	if (checkBox2->Checked == true && listBox2->Text == "buy")
+	{
+		this->label14->Text = "buy";//why i need this 
+	}
+	if (checkBox2->Checked == true && listBox2->Text == "maintain")
+	{
+
+		this->textBox2->BackColor = System::Drawing::SystemColors::Window;
+		int maintain = Convert::ToInt16(textBox2->Text);//how to deal with the posibility of wrong type of input ??
+		if ((avSteel > maintain) && maintain <= maxS)
+		{
+			int total = (avFe - maintain) * 50;
+			money(total);
+			Storage(0, 0, -(avFe - maintain));
+		}
+		if ((avSteel < maintain) && maintain >= 0)
+		{
+			int total = (maintain - avFe) * 50;
+			money(-total);
+			Storage(0, 0, maintain - avFe);
+		}
+	}
+	//////////////////////////////////////////
+	//Steel
+	//
+	if (checkBox3->Checked == true && listBox3->Text == "sell")
+	{
+		int sell;
+		if (textBox3->Text == "" || textBox3->Text == "how much")
+		{
+			sell = 200 * avSteel;
+			money(sell);
+			Storage(0, 0, -avSteel);
+		}
+		else
+		{
+			if (sell >= avSteel)
+			{
+				sell = Convert::ToInt16(textBox3->Text);
+				money(sell * 200);
+				Storage(0, 0, -sell);
+			}
+			else {/*act natural*/ }
+		}
+	}
+	if (checkBox3->Checked == true && listBox3->Text == "buy")
+	{
+		this->label14->Text = "buy";//why i need this 
+	}
+	if (checkBox3->Checked == true && listBox3->Text == "maintain")
+	{
+
+		this->textBox3->BackColor = System::Drawing::SystemColors::Window;
+		int maintain = Convert::ToInt16(textBox3->Text);//how to deal with the posibility of wrong type of input ??
+		if ((avSteel > maintain) && maintain <= maxS)
+		{
+			int total = (avSteel - maintain) * 200;
+			money(total);
+			Storage(0, 0, -(avSteel - maintain));
+		}
+		if ((avSteel < maintain) && maintain >= 0)
+		{
+			int total = (maintain - avSteel) * 200;
+			money(-total);
+			Storage(0, 0, maintain - avSteel);
+		}
+	}
+}
 private: void Storage(int c,int fe,int steel)
 {
 /////////////////////////////////////
@@ -1546,53 +1670,12 @@ private: System::Void backgroundWorker1_RunWorkerCompleted(System::Object^ event
 		gameover(1);
 	}
 	Sleep(1);
-	if (pause == false&&revenue>-10000)
+	if (pause == false && revenue > -10000)
 	{
 		money(-1000);
 		backgroundWorker1->RunWorkerAsync(1);
 	}
-	///////////////////////////////////////////////////////////end of week automated operations type of shit 
-	if (checkBox3->Checked == true && listBox3->Text == "sell")
-	{
-		int sell;
-		if(textBox1->Text==""|| textBox1->Text == "how much")
-		{
-			sell = 200 * avSteel;
-			money(sell);
-			Storage(0, 0, -avSteel);
-		}
-		else 
-		{
-			if (sell >= avSteel)
-			{
-				sell = Convert::ToInt16(textBox1->Text);
-				money(sell * 200);
-				Storage(0, 0, -sell);
-			}else{/*act natural*/ }
-		}
-	}
-	if (checkBox3->Checked == true && listBox3->Text == "buy")
-	{
-		this->label14->Text = "buy";//why i need this 
-	}
-	if (checkBox3->Checked == true && listBox3->Text == "maintain")
-	{
-
-		this->textBox1->BackColor = System::Drawing::SystemColors::Window;
-		int maintain = Convert::ToInt16(textBox1->Text);//how to deal with the posibility of wrong type of input ??
-		if ((avSteel > maintain) && maintain <= maxS)
-		{
-			int total = (avSteel - maintain) * 200;
-			money(total);
-			Storage(0, 0, -(avSteel - maintain));
-		}
-		if ((avSteel < maintain) && maintain >= 0)
-		{
-			int total = (maintain - avSteel) * 200;
-			money(-total);
-			Storage(0, 0, maintain - avSteel);
-		}
-	}
+	automatik();
 }
 /*start work, start from the scratch*/private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {//work start button triggering all background workers
 	gameover(0);
@@ -1867,10 +1950,10 @@ private: System::Void steelSell_Click(System::Object^ sender, System::EventArgs^
 private: System::Void checkBox3_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
 
 }
-private: System::Void textBox1_Click(System::Object^ sender, System::EventArgs^ e) {
+private: System::Void txbxC(System::Object^ sender, System::EventArgs^ e) {
 	TextBox^ txbx = (TextBox^) sender;
-	this->toolTip1->Show("insert value\nfor automated process",txbx);
-	this->textBox1->Text = "";
+	this->toolTip1->Show("insert value\nfor weekly action",txbx);
+	this->textBox3->Text = "";
 }
 private: System::Void textBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 }
