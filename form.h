@@ -125,7 +125,7 @@ private: System::Windows::Forms::Label^ carbonYield;
 private: System::Windows::Forms::Label^ FeStorage;
 
 	private: System::Windows::Forms::Label^ ferrumYield;
-	private: System::Windows::Forms::Label^ steelProd;
+
 private: System::Windows::Forms::Label^ steelStorage;
 
 private: System::Windows::Forms::Button^ FeBuy;
@@ -225,7 +225,6 @@ private: System::Windows::Forms::Button^ steelBuy;
 			this->brutalDecibelTherapy = (gcnew System::ComponentModel::BackgroundWorker());
 			this->FeStorage = (gcnew System::Windows::Forms::Label());
 			this->ferrumYield = (gcnew System::Windows::Forms::Label());
-			this->steelProd = (gcnew System::Windows::Forms::Label());
 			this->steelStorage = (gcnew System::Windows::Forms::Label());
 			this->FeBuy = (gcnew System::Windows::Forms::Button());
 			this->FeSell = (gcnew System::Windows::Forms::Button());
@@ -1000,17 +999,6 @@ private: System::Windows::Forms::Button^ steelBuy;
 			this->ferrumYield->Text = L"0 units";
 			this->ferrumYield->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
-			// steelProd
-			// 
-			this->steelProd->AutoSize = true;
-			this->steelProd->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Bold));
-			this->steelProd->Location = System::Drawing::Point(386, 171);
-			this->steelProd->Name = L"steelProd";
-			this->steelProd->Size = System::Drawing::Size(76, 25);
-			this->steelProd->TabIndex = 60;
-			this->steelProd->Text = L"0 units";
-			this->steelProd->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
-			// 
 			// steelStorage
 			// 
 			this->steelStorage->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15));
@@ -1113,7 +1101,6 @@ private: System::Windows::Forms::Button^ steelBuy;
 			this->Controls->Add(this->FeBuy);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->steelStorage);
-			this->Controls->Add(this->steelProd);
 			this->Controls->Add(this->ferrumYield);
 			this->Controls->Add(this->FeStorage);
 			this->Controls->Add(this->controlchechlb);
@@ -1236,7 +1223,6 @@ private: void gameover(int control)//or gamenotreallyoverifyoustartforthefirstti
 			this->SmWorker->CancelAsync();
 			this->carbonYield->Text = "";
 			this->ferrumYield->Text = "";
-			this->steelProd->Text = "";
 			mineStatus->Visible = false;
 			femineStatus->Visible = false;
 			steelmillStatus->Visible = false;
@@ -1471,7 +1457,7 @@ private: System::Void feMine_MouseHover(System::Object^ sender, System::EventArg
 toolTip1->Show("Ferrum Mine", feMine);
 }
 private: System::Void steelMill_MouseHover(System::Object^ sender, System::EventArgs^ e) {
-toolTip1->Show("Steel Mill", steelMill);
+toolTip1->Show("Steel Mill\nTakes 3 units of Ferrum and 1 coal producing\n1Steel", steelMill);
 }
 //why you keep clicking on stuff? to know what it does? chill out with that or there will be consequences
 private: void why()
@@ -1536,7 +1522,7 @@ private: System::Void backgroundWorker1_RunWorkerCompleted(System::Object^ event
 		money(-1000);
 		backgroundWorker1->RunWorkerAsync(1);
 	}
-	this->steelProd->Text = 0 + "Steel Produced";
+	
 	//progressBar1->Value = 7;
 	//MessageBox::Show("next"); 
 }
@@ -1718,7 +1704,7 @@ private: System::Void SmWorker_ProgressChanged(System::Object ^ sender, System::
 	{
 		
 		Storage(-1, -3, e->ProgressPercentage);
-		this->steelProd->Text = avSteel + "Steel Produced";
+		
 	}
 	else
 	{
