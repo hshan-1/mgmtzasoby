@@ -141,6 +141,18 @@ private: System::Windows::Forms::TextBox^ textBox2;
 private: System::Windows::Forms::PictureBox^ cUpgrade;
 private: System::Windows::Forms::PictureBox^ feUpgrade;
 private: System::Windows::Forms::PictureBox^ steelUpgrade;
+private: System::Windows::Forms::PictureBox^ upgrade1forC;
+private: System::Windows::Forms::PictureBox^ upgrade2forC;
+private: System::Windows::Forms::PictureBox^ upgrade3forC;
+private: System::Windows::Forms::PictureBox^ upgrade4forC;
+private: System::Windows::Forms::PictureBox^ upgrade4fe;
+private: System::Windows::Forms::PictureBox^ upgrade3fe;
+private: System::Windows::Forms::PictureBox^ upgrade2fe;
+private: System::Windows::Forms::PictureBox^ upgrade1fe;
+private: System::Windows::Forms::PictureBox^ upgrade4steel;
+private: System::Windows::Forms::PictureBox^ upgrade3steel;
+private: System::Windows::Forms::PictureBox^ upgrade2steel;
+private: System::Windows::Forms::PictureBox^ upgrade1steel;
 
 
 
@@ -246,6 +258,18 @@ private: System::Windows::Forms::PictureBox^ steelUpgrade;
 			this->cUpgrade = (gcnew System::Windows::Forms::PictureBox());
 			this->feUpgrade = (gcnew System::Windows::Forms::PictureBox());
 			this->steelUpgrade = (gcnew System::Windows::Forms::PictureBox());
+			this->upgrade1forC = (gcnew System::Windows::Forms::PictureBox());
+			this->upgrade2forC = (gcnew System::Windows::Forms::PictureBox());
+			this->upgrade3forC = (gcnew System::Windows::Forms::PictureBox());
+			this->upgrade4forC = (gcnew System::Windows::Forms::PictureBox());
+			this->upgrade4fe = (gcnew System::Windows::Forms::PictureBox());
+			this->upgrade3fe = (gcnew System::Windows::Forms::PictureBox());
+			this->upgrade2fe = (gcnew System::Windows::Forms::PictureBox());
+			this->upgrade1fe = (gcnew System::Windows::Forms::PictureBox());
+			this->upgrade4steel = (gcnew System::Windows::Forms::PictureBox());
+			this->upgrade3steel = (gcnew System::Windows::Forms::PictureBox());
+			this->upgrade2steel = (gcnew System::Windows::Forms::PictureBox());
+			this->upgrade1steel = (gcnew System::Windows::Forms::PictureBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->BeginInit();
@@ -258,6 +282,18 @@ private: System::Windows::Forms::PictureBox^ steelUpgrade;
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->cUpgrade))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->feUpgrade))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->steelUpgrade))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->upgrade1forC))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->upgrade2forC))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->upgrade3forC))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->upgrade4forC))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->upgrade4fe))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->upgrade3fe))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->upgrade2fe))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->upgrade1fe))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->upgrade4steel))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->upgrade3steel))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->upgrade2steel))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->upgrade1steel))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// dollar
@@ -1196,12 +1232,149 @@ private: System::Windows::Forms::PictureBox^ steelUpgrade;
 			this->steelUpgrade->Click += gcnew System::EventHandler(this, &form::steelUpgrade_Click);
 			this->steelUpgrade->MouseHover += gcnew System::EventHandler(this, &form::steelUpgrade_MouseHover);
 			// 
+			// upgrade1forC
+			// 
+			this->upgrade1forC->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"upgrade1forC.BackgroundImage")));
+			this->upgrade1forC->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
+			this->upgrade1forC->Location = System::Drawing::Point(162, 12);
+			this->upgrade1forC->Name = L"upgrade1forC";
+			this->upgrade1forC->Size = System::Drawing::Size(25, 25);
+			this->upgrade1forC->TabIndex = 74;
+			this->upgrade1forC->TabStop = false;
+			this->upgrade1forC->Click += gcnew System::EventHandler(this, &form::upgrade1forC_Click);
+			this->upgrade1forC->MouseHover += gcnew System::EventHandler(this, &form::upgrade1forC_MouseHover);
+			// 
+			// upgrade2forC
+			// 
+			this->upgrade2forC->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"upgrade2forC.BackgroundImage")));
+			this->upgrade2forC->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
+			this->upgrade2forC->Location = System::Drawing::Point(162, 43);
+			this->upgrade2forC->Name = L"upgrade2forC";
+			this->upgrade2forC->Size = System::Drawing::Size(25, 25);
+			this->upgrade2forC->TabIndex = 75;
+			this->upgrade2forC->TabStop = false;
+			// 
+			// upgrade3forC
+			// 
+			this->upgrade3forC->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"upgrade3forC.BackgroundImage")));
+			this->upgrade3forC->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
+			this->upgrade3forC->Location = System::Drawing::Point(162, 74);
+			this->upgrade3forC->Name = L"upgrade3forC";
+			this->upgrade3forC->Size = System::Drawing::Size(25, 25);
+			this->upgrade3forC->TabIndex = 76;
+			this->upgrade3forC->TabStop = false;
+			// 
+			// upgrade4forC
+			// 
+			this->upgrade4forC->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"upgrade4forC.BackgroundImage")));
+			this->upgrade4forC->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
+			this->upgrade4forC->Location = System::Drawing::Point(162, 105);
+			this->upgrade4forC->Name = L"upgrade4forC";
+			this->upgrade4forC->Size = System::Drawing::Size(25, 25);
+			this->upgrade4forC->TabIndex = 77;
+			this->upgrade4forC->TabStop = false;
+			// 
+			// upgrade4fe
+			// 
+			this->upgrade4fe->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"upgrade4fe.BackgroundImage")));
+			this->upgrade4fe->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
+			this->upgrade4fe->Location = System::Drawing::Point(345, 105);
+			this->upgrade4fe->Name = L"upgrade4fe";
+			this->upgrade4fe->Size = System::Drawing::Size(25, 25);
+			this->upgrade4fe->TabIndex = 81;
+			this->upgrade4fe->TabStop = false;
+			// 
+			// upgrade3fe
+			// 
+			this->upgrade3fe->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"upgrade3fe.BackgroundImage")));
+			this->upgrade3fe->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
+			this->upgrade3fe->Location = System::Drawing::Point(345, 74);
+			this->upgrade3fe->Name = L"upgrade3fe";
+			this->upgrade3fe->Size = System::Drawing::Size(25, 25);
+			this->upgrade3fe->TabIndex = 80;
+			this->upgrade3fe->TabStop = false;
+			// 
+			// upgrade2fe
+			// 
+			this->upgrade2fe->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"upgrade2fe.BackgroundImage")));
+			this->upgrade2fe->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
+			this->upgrade2fe->Location = System::Drawing::Point(345, 43);
+			this->upgrade2fe->Name = L"upgrade2fe";
+			this->upgrade2fe->Size = System::Drawing::Size(25, 25);
+			this->upgrade2fe->TabIndex = 79;
+			this->upgrade2fe->TabStop = false;
+			// 
+			// upgrade1fe
+			// 
+			this->upgrade1fe->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"upgrade1fe.BackgroundImage")));
+			this->upgrade1fe->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
+			this->upgrade1fe->Location = System::Drawing::Point(345, 12);
+			this->upgrade1fe->Name = L"upgrade1fe";
+			this->upgrade1fe->Size = System::Drawing::Size(25, 25);
+			this->upgrade1fe->TabIndex = 78;
+			this->upgrade1fe->TabStop = false;
+			this->upgrade1fe->Click += gcnew System::EventHandler(this, &form::upgrade1fe_Click);
+			this->upgrade1fe->MouseHover += gcnew System::EventHandler(this, &form::upgrade1fe_MouseHover);
+			// 
+			// upgrade4steel
+			// 
+			this->upgrade4steel->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"upgrade4steel.BackgroundImage")));
+			this->upgrade4steel->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
+			this->upgrade4steel->Location = System::Drawing::Point(541, 105);
+			this->upgrade4steel->Name = L"upgrade4steel";
+			this->upgrade4steel->Size = System::Drawing::Size(25, 25);
+			this->upgrade4steel->TabIndex = 85;
+			this->upgrade4steel->TabStop = false;
+			// 
+			// upgrade3steel
+			// 
+			this->upgrade3steel->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"upgrade3steel.BackgroundImage")));
+			this->upgrade3steel->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
+			this->upgrade3steel->Location = System::Drawing::Point(541, 74);
+			this->upgrade3steel->Name = L"upgrade3steel";
+			this->upgrade3steel->Size = System::Drawing::Size(25, 25);
+			this->upgrade3steel->TabIndex = 84;
+			this->upgrade3steel->TabStop = false;
+			// 
+			// upgrade2steel
+			// 
+			this->upgrade2steel->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"upgrade2steel.BackgroundImage")));
+			this->upgrade2steel->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
+			this->upgrade2steel->Location = System::Drawing::Point(541, 43);
+			this->upgrade2steel->Name = L"upgrade2steel";
+			this->upgrade2steel->Size = System::Drawing::Size(25, 25);
+			this->upgrade2steel->TabIndex = 83;
+			this->upgrade2steel->TabStop = false;
+			// 
+			// upgrade1steel
+			// 
+			this->upgrade1steel->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"upgrade1steel.BackgroundImage")));
+			this->upgrade1steel->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
+			this->upgrade1steel->Location = System::Drawing::Point(541, 12);
+			this->upgrade1steel->Name = L"upgrade1steel";
+			this->upgrade1steel->Size = System::Drawing::Size(25, 25);
+			this->upgrade1steel->TabIndex = 82;
+			this->upgrade1steel->TabStop = false;
+			this->upgrade1steel->MouseHover += gcnew System::EventHandler(this, &form::upgrade1steel_MouseHover);
+			// 
 			// form
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::AppWorkspace;
 			this->ClientSize = System::Drawing::Size(1553, 624);
+			this->Controls->Add(this->upgrade4steel);
+			this->Controls->Add(this->upgrade3steel);
+			this->Controls->Add(this->upgrade2steel);
+			this->Controls->Add(this->upgrade1steel);
+			this->Controls->Add(this->upgrade4fe);
+			this->Controls->Add(this->upgrade3fe);
+			this->Controls->Add(this->upgrade2fe);
+			this->Controls->Add(this->upgrade1fe);
+			this->Controls->Add(this->upgrade4forC);
+			this->Controls->Add(this->upgrade3forC);
+			this->Controls->Add(this->upgrade2forC);
+			this->Controls->Add(this->upgrade1forC);
 			this->Controls->Add(this->steelUpgrade);
 			this->Controls->Add(this->feUpgrade);
 			this->Controls->Add(this->cUpgrade);
@@ -1290,6 +1463,18 @@ private: System::Windows::Forms::PictureBox^ steelUpgrade;
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->cUpgrade))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->feUpgrade))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->steelUpgrade))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->upgrade1forC))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->upgrade2forC))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->upgrade3forC))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->upgrade4forC))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->upgrade4fe))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->upgrade3fe))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->upgrade2fe))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->upgrade1fe))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->upgrade4steel))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->upgrade3steel))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->upgrade2steel))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->upgrade1steel))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -1309,6 +1494,8 @@ private: System::Windows::Forms::PictureBox^ steelUpgrade;
 		int asC=0; //AddStorageCarbon
 		int asFe=0;//   ---||---
 		int asSteel=0;//   ---||---
+		int up1c = 1;//upgrade 1 for c 
+		int up1fe = 1;
 
 //----------------------(here is and idea: start saving that^ to external file so everytime you start the program you begin work with values from previous session) -----------------------------------------------------------------//yea right 
 
@@ -1774,6 +1961,16 @@ toolTip1->Show("Ferrum Mine", feMine);
 private: System::Void steelMill_MouseHover(System::Object^ sender, System::EventArgs^ e) {
 toolTip1->Show("Steel Mill\nTakes 3 units of Ferrum and 1 coal producing\n1Steel", steelMill);
 }
+private: System::Void upgrade1forC_MouseHover(System::Object^ sender, System::EventArgs^ e) {
+	this->toolTip1->Show("Automize mine\nfor 10000$,\nEfficiency rise up to 300%", upgrade1forC);
+}
+private: System::Void upgrade1fe_MouseHover(System::Object^ sender, System::EventArgs^ e) {
+this->toolTip1->Show("Automize mine\nfor 15000$,\nEfficiency rise up to 300%", upgrade1fe);
+}
+private: System::Void upgrade1steel_MouseHover(System::Object^ sender, System::EventArgs^ e)
+{
+	this->toolTip1->Show("Buy another blast furnace\nfor 5000$,\ndouble production", upgrade1steel);
+}
 //why you keep clicking on stuff? to know what it does? chill out with that or there will be consequences
 private: void why()
 {
@@ -1896,8 +2093,8 @@ private: System::Void mineworker_DoWork(System::Object^ sender, System::Componen
 	}
 }
 private: System::Void mineworker_ProgressChanged(System::Object^ sender, System::ComponentModel::ProgressChangedEventArgs^ e) {
-	carbonYield->Text = e->ProgressPercentage.ToString()+" units";//how much was mined at the time updated to specific label to report progres 
-	Storage(e->ProgressPercentage,0,0);//and then it's send to storage
+	carbonYield->Text = (e->ProgressPercentage*up1c)+" units";//how much was mined at the time updated to specific label to report progres 
+	Storage((e->ProgressPercentage)*up1c,0,0);//and then it's send to storage
 }
 private: System::Void mineworker_RunWorkerCompleted(System::Object^ sender, System::ComponentModel::RunWorkerCompletedEventArgs^ e) {
 }
@@ -2011,8 +2208,8 @@ private: System::Void feMineWorker_DoWork(System::Object^ sender, System::Compon
 	}
 }
 private: System::Void feMineWorker_ProgressChanged(System::Object^ sender, System::ComponentModel::ProgressChangedEventArgs^ e) {
-	ferrumYield->Text = e->ProgressPercentage.ToString() + " units";//how much was mined at the time updated to specific label to report progres 
-	Storage(0,e->ProgressPercentage,0);
+	ferrumYield->Text =( e->ProgressPercentage)*up1fe + " units";//how much was mined at the time updated to specific label to report progres 
+	Storage(0,(e->ProgressPercentage*up1fe),0);
 }
 private: System::Void feMineWorker_RunWorkerCompleted(System::Object ^ sender, System::ComponentModel::RunWorkerCompletedEventArgs ^ e) {
 }
@@ -2146,6 +2343,22 @@ private: System::Void steelUpgrade_Click(System::Object^ sender, System::EventAr
 		Storage(3);
 	}
 	else inf();
+}
+private: System::Void upgrade1forC_Click(System::Object^ sender, System::EventArgs^ e) {
+	if (revenue >= 10000)
+	{
+		money(-10000);
+		up1c = 3;
+		this->upgrade1forC->Visible == false;
+	}
+}
+private: System::Void upgrade1fe_Click(System::Object^ sender, System::EventArgs^ e) { //am i genius or am i genius? 
+	if (revenue >= 15000)
+	{
+		money(-15000);
+		up1fe = 3;
+		this->upgrade1fe->Visible == false;
+	}
 }
 };
 }
