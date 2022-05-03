@@ -1785,6 +1785,45 @@
   <metadata name="brutalDecibelTherapy.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>1206, 14</value>
   </metadata>
+  <data name="cUpgrade.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        vQAADr0BR/uQrQAAAZpJREFUeF7t1WFqAkEQBWHP4nm8bE64YQOCyCNq4nRXr1XwDjD9/ZjTZqgEgSUI
+        LEFgCQJLEFiCwBIEliCwBIElCCxBYAkCSxBYgsASBJYgsMaDnL8uPztKo0GuGEdCGQtyj3Hd9EaCJIjb
+        Te6QIPumNg4kHT9taqNA0uF/28TGgKSDP7NpjQBJh35lk8KDpAP/ZVNCg6TD/mcTwoKkg75j9D4OZB85
+        JEg64jtHDgeSDrhi1FAg6XArRwwDkg5WMVoIkHSoypFqB0kH6hilVpB0mM4REuRu3bWBpGMQ1l0LSDoE
+        aZ2Vg6QDENdVKUh6OHkdlYGkB09YdSUg6aGTVtlykPTAiatKkBdWUemn/qh0hJUjhgLZS4dbMWqCwBIE
+        liCwBIElCCxBYAkCSxBYgsASBJYgsASBJQgsQWAJAksQWILAEgSWILAEgSUILEFgCQJLEFiCwBIEliCw
+        BIElCCxBYAkCSxBYgsASBBYO5NMTBJYgsASBJQgsQWAJAksQWILAEgSWILAEgSUILEFgCQJLEFiCwBIE
+        1bZ9AyAqNvpvoJOXAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="feUpgrade.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        vQAADr0BR/uQrQAAAZpJREFUeF7t1WFqAkEQBWHP4nm8bE64YQOCyCNq4nRXr1XwDjD9/ZjTZqgEgSUI
+        LEFgCQJLEFiCwBIEliCwBIElCCxBYAkCSxBYgsASBJYgsMaDnL8uPztKo0GuGEdCGQtyj3Hd9EaCJIjb
+        Te6QIPumNg4kHT9taqNA0uF/28TGgKSDP7NpjQBJh35lk8KDpAP/ZVNCg6TD/mcTwoKkg75j9D4OZB85
+        JEg64jtHDgeSDrhi1FAg6XArRwwDkg5WMVoIkHSoypFqB0kH6hilVpB0mM4REuRu3bWBpGMQ1l0LSDoE
+        aZ2Vg6QDENdVKUh6OHkdlYGkB09YdSUg6aGTVtlykPTAiatKkBdWUemn/qh0hJUjhgLZS4dbMWqCwBIE
+        liCwBIElCCxBYAkCSxBYgsASBJYgsASBJQgsQWAJAksQWILAEgSWILAEgSUILEFgCQJLEFiCwBIEliCw
+        BIElCCxBYAkCSxBYgsASBBYO5NMTBJYgsASBJQgsQWAJAksQWILAEgSWILAEgSUILEFgCQJLEFiCwBIE
+        1bZ9AyAqNvpvoJOXAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="steelUpgrade.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        vQAADr0BR/uQrQAAAZpJREFUeF7t1WFqAkEQBWHP4nm8bE64YQOCyCNq4nRXr1XwDjD9/ZjTZqgEgSUI
+        LEFgCQJLEFiCwBIEliCwBIElCCxBYAkCSxBYgsASBJYgsMaDnL8uPztKo0GuGEdCGQtyj3Hd9EaCJIjb
+        Te6QIPumNg4kHT9taqNA0uF/28TGgKSDP7NpjQBJh35lk8KDpAP/ZVNCg6TD/mcTwoKkg75j9D4OZB85
+        JEg64jtHDgeSDrhi1FAg6XArRwwDkg5WMVoIkHSoypFqB0kH6hilVpB0mM4REuRu3bWBpGMQ1l0LSDoE
+        aZ2Vg6QDENdVKUh6OHkdlYGkB09YdSUg6aGTVtlykPTAiatKkBdWUemn/qh0hJUjhgLZS4dbMWqCwBIE
+        liCwBIElCCxBYAkCSxBYgsASBJYgsASBJQgsQWAJAksQWILAEgSWILAEgSUILEFgCQJLEFiCwBIEliCw
+        BIElCCxBYAkCSxBYgsASBBYO5NMTBJYgsASBJQgsQWAJAksQWILAEgSWILAEgSUILEFgCQJLEFiCwBIE
+        1bZ9AyAqNvpvoJOXAAAAAElFTkSuQmCC
+</value>
+  </data>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>46</value>
   </metadata>

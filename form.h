@@ -138,6 +138,9 @@ private: System::Windows::Forms::Button^ steelBuy;
 private: System::Windows::Forms::TextBox^ textBox3;
 private: System::Windows::Forms::TextBox^ textBox1;
 private: System::Windows::Forms::TextBox^ textBox2;
+private: System::Windows::Forms::PictureBox^ cUpgrade;
+private: System::Windows::Forms::PictureBox^ feUpgrade;
+private: System::Windows::Forms::PictureBox^ steelUpgrade;
 
 
 
@@ -240,6 +243,9 @@ private: System::Windows::Forms::TextBox^ textBox2;
 			this->textBox3 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
+			this->cUpgrade = (gcnew System::Windows::Forms::PictureBox());
+			this->feUpgrade = (gcnew System::Windows::Forms::PictureBox());
+			this->steelUpgrade = (gcnew System::Windows::Forms::PictureBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->BeginInit();
@@ -249,6 +255,9 @@ private: System::Windows::Forms::TextBox^ textBox2;
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox7))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->feMine))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->steelMill))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->cUpgrade))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->feUpgrade))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->steelUpgrade))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// dollar
@@ -1151,12 +1160,48 @@ private: System::Windows::Forms::TextBox^ textBox2;
 			this->textBox2->Click += gcnew System::EventHandler(this, &form::txbxC);
 			this->textBox2->TextChanged += gcnew System::EventHandler(this, &form::textBox1_TextChanged);
 			// 
+			// cUpgrade
+			// 
+			this->cUpgrade->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"cUpgrade.BackgroundImage")));
+			this->cUpgrade->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
+			this->cUpgrade->Location = System::Drawing::Point(162, 254);
+			this->cUpgrade->Name = L"cUpgrade";
+			this->cUpgrade->Size = System::Drawing::Size(25, 25);
+			this->cUpgrade->TabIndex = 71;
+			this->cUpgrade->TabStop = false;
+			this->cUpgrade->Click += gcnew System::EventHandler(this, &form::cUpgrade_Click);
+			// 
+			// feUpgrade
+			// 
+			this->feUpgrade->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"feUpgrade.BackgroundImage")));
+			this->feUpgrade->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
+			this->feUpgrade->Location = System::Drawing::Point(345, 254);
+			this->feUpgrade->Name = L"feUpgrade";
+			this->feUpgrade->Size = System::Drawing::Size(25, 25);
+			this->feUpgrade->TabIndex = 72;
+			this->feUpgrade->TabStop = false;
+			this->feUpgrade->Click += gcnew System::EventHandler(this, &form::feUpgrade_Click);
+			// 
+			// steelUpgrade
+			// 
+			this->steelUpgrade->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"steelUpgrade.BackgroundImage")));
+			this->steelUpgrade->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
+			this->steelUpgrade->Location = System::Drawing::Point(541, 254);
+			this->steelUpgrade->Name = L"steelUpgrade";
+			this->steelUpgrade->Size = System::Drawing::Size(25, 25);
+			this->steelUpgrade->TabIndex = 73;
+			this->steelUpgrade->TabStop = false;
+			this->steelUpgrade->Click += gcnew System::EventHandler(this, &form::steelUpgrade_Click);
+			// 
 			// form
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::AppWorkspace;
 			this->ClientSize = System::Drawing::Size(1553, 624);
+			this->Controls->Add(this->steelUpgrade);
+			this->Controls->Add(this->feUpgrade);
+			this->Controls->Add(this->cUpgrade);
 			this->Controls->Add(this->textBox2);
 			this->Controls->Add(this->textBox1);
 			this->Controls->Add(this->textBox3);
@@ -1239,6 +1284,9 @@ private: System::Windows::Forms::TextBox^ textBox2;
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox7))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->feMine))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->steelMill))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->cUpgrade))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->feUpgrade))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->steelUpgrade))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -1252,20 +1300,20 @@ private: System::Windows::Forms::TextBox^ textBox2;
 		int avC = 0;//Availalbe carbon at start in "warehouse"
 		int avFe = 0;
 		int avSteel = 0;
-		int maxS = 500;//max storage is 500. 
-		int biggerstorageforC=0;
-		int biggerstorageforFe=0;    //in my vision of this app every workarea will be able to improve itself and these values add more space for storage 
-		int biggerstorageforSteel=0;
-		/*int biggerstorageforC;
-		int biggerstorageforC;
-		int biggerstorageforC;*/
+		int CmaxS=500; //you start with 500 storage and expand it later 
+		int FemaxS = 500;
+		int SteelmaxS = 500;
+		int asC=0; //AddStorageCarbon
+		int asFe=0;//   ---||---
+		int asSteel=0;//   ---||---
 
 //----------------------(here is and idea: start saving that^ to external file so everytime you start the program you begin work with values from previous session) -----------------------------------------------------------------//yea right 
 
-			int passwrd=0;
-			int control=0;
-			int c89 = 0;
-			int gameover_ctrl = 0;
+		int passwrd=0;
+		int control=0;
+		int c89 = 0;
+		int gameover_ctrl = 0;
+		 
 private: void nm()//No Money
 {
 	MessageBox::Show("insufficient funds");
@@ -1277,6 +1325,10 @@ private: void em()//empty
 private: void fl()//full
 {
 	MessageBox::Show("Storage is full");
+}
+private: void inf()
+{
+	MessageBox::Show("Insuficient funds\n for upgrade");
 }
 private: void gameover(int control)//or gamenotreallyoverifyoustartforthefirsttime
 {
@@ -1315,9 +1367,9 @@ private: void gameover(int control)//or gamenotreallyoverifyoustartforthefirstti
 		case 0:
 		{
 			int revenue = 1000;
-			this->cStorage->Text = avC + "/" + maxS;
-			this->FeStorage->Text = avFe + "/" + maxS;
-			this->steelStorage->Text = avSteel + "/" + maxS;
+			this->cStorage->Text = avC + "/" + CmaxS;
+			this->FeStorage->Text = avFe + "/" + FemaxS;
+			this->steelStorage->Text = avSteel + "/" + SteelmaxS;
 			this->account->Text = revenue + "";
 			mineStatus->Visible = true;
 			femineStatus->Visible = true;
@@ -1472,7 +1524,7 @@ private: void automatik()
 
 		this->textBox1->BackColor = System::Drawing::SystemColors::Window;
 		int maintain = Convert::ToInt16(textBox1->Text);
-		if ((avC > maintain) && maintain <= maxS)
+		if ((avC > maintain) && maintain <= CmaxS)
 		{
 			int total = (avC - maintain) * 50;
 			money(total);
@@ -1521,7 +1573,7 @@ private: void automatik()
 
 		this->textBox2->BackColor = System::Drawing::SystemColors::Window;
 		int maintain = Convert::ToInt16(textBox2->Text);
-		if ((avFe > maintain) && maintain <= maxS)
+		if ((avFe > maintain) && maintain <= FemaxS)
 		{
 			int total = (avFe - maintain) * 50;
 			money(total);
@@ -1570,7 +1622,7 @@ private: void automatik()
 
 		this->textBox3->BackColor = System::Drawing::SystemColors::Window;
 		int maintain = Convert::ToInt16(textBox3->Text);//how to deal with the posibility of wrong type of input ??
-		if ((avSteel > maintain) && maintain <= maxS)
+		if ((avSteel > maintain) && maintain <= SteelmaxS)
 		{
 			int total = (avSteel - maintain) * 200;
 			money(total);
@@ -1585,7 +1637,30 @@ private: void automatik()
 	}
 }
 
-
+private: void Storage(int storage)
+{
+	switch (storage)
+	{
+		case 1:
+		{
+			CmaxS += 500;
+			if (CmaxS == 1500)this->cUpgrade->Visible = false;
+			break;
+		}
+		case 2:
+		{
+			FemaxS += 500;
+			if (FemaxS == 1500)this->feUpgrade->Visible = false;
+			break;
+		}
+		case 3:
+		{
+			SteelmaxS += 500;
+			if (SteelmaxS == 1500)this->steelUpgrade->Visible = false;
+			break;
+		}
+	}
+}
 private: void Storage(int c,int fe,int steel)
 {
 /////////////////////////////////////
@@ -1593,32 +1668,32 @@ private: void Storage(int c,int fe,int steel)
 	avFe += fe;
 	avSteel += steel;
 ////////////////////////////////////
-	if (avC != maxS)
+	if (avC != CmaxS)
 	{
-		this->cStorage->Text = avC + "/" + maxS;
+		this->cStorage->Text = avC + "/" + CmaxS;
 	}
-	if (avC >= maxS)
+	if (avC >= CmaxS)
 	{
-		avC = maxS;
-		this->cStorage->Text = avC + "/" + maxS;
+		avC = CmaxS;
+		this->cStorage->Text = avC + "/" + CmaxS;
 	}
-	if (avFe != maxS)
+	if (avFe != FemaxS)
 	{
-		this->FeStorage->Text = avFe + "/" + maxS;
+		this->FeStorage->Text = avFe + "/" + FemaxS;
 	}
-	if (avFe >= maxS)
+	if (avFe >= FemaxS)
 	{
-		avFe = maxS;
-		this->FeStorage->Text = avFe + "/" + maxS;
+		avFe = FemaxS;
+		this->FeStorage->Text = avFe + "/" + FemaxS;
 	}
-	if (avSteel !=maxS)
+	if (avSteel !=SteelmaxS)
 	{
-		this->steelStorage->Text = avSteel + "/" + maxS;
+		this->steelStorage->Text = avSteel + "/" + SteelmaxS;
 	}
-	if (avSteel >= maxS)
+	if (avSteel >= SteelmaxS)
 	{
-		avSteel = maxS;
-		this->steelStorage->Text = avSteel + "/" + maxS;
+		avSteel = SteelmaxS;
+		this->steelStorage->Text = avSteel + "/" + SteelmaxS;
 	}
 }
 private: void money(int dollar) {
@@ -1936,7 +2011,7 @@ private: System::Void SmWorker_RunWorkerCompleted(System::Object ^ sender, Syste
 }
 private: System::Void CBuy_Click(System::Object^ sender, System::EventArgs^ e)
 {
-	if (revenue >= 250 && avC != maxS)
+	if (revenue >= 250 && avC != CmaxS)
 	{
 		money(-250);
 		Storage(10, 0, 0);
@@ -1962,7 +2037,7 @@ private: System::Void FeBuy_Click(System::Object^ sender, System::EventArgs^ e)
 {
 	if (revenue >= 500)
 	{
-		if (avFe != maxS)
+		if (avFe != FemaxS)
 		{
 			money(-500);
 			Storage(0, 10, 0);
@@ -1991,7 +2066,7 @@ private: System::Void FeSell_Click(System::Object^ sender, System::EventArgs^ e)
 	}
 }
 private: System::Void steelBuy_Click(System::Object^ sender, System::EventArgs^ e) {
-	if (revenue >= 3000 && avC != maxS)
+	if (revenue >= 3000 && avC != CmaxS)
 	{
 		money(-3000);
 		Storage(0, 0, 10);
@@ -2016,12 +2091,35 @@ private: System::Void checkBox3_CheckedChanged(System::Object^ sender, System::E
 }
 private: System::Void txbxC(System::Object^ sender, System::EventArgs^ e) {
 	TextBox^ txbx = (TextBox^) sender;
-	this->textBox1->Text = "";
-	this->textBox2->Text = "";
-	this->textBox3->Text = "";
+	
 	this->toolTip1->Show("insert value\nfor weekly action",txbx);
 }
 private: System::Void textBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void cUpgrade_Click(System::Object^ sender, System::EventArgs^ e) {
+	
+	if (revenue > 5000)
+	{
+		Storage(1);
+		money(-5000);
+	}
+	else inf();
+}
+private: System::Void feUpgrade_Click(System::Object^ sender, System::EventArgs^ e) {
+	if (revenue > 5000)
+	{
+		Storage(2);
+		money(-5000);
+	}
+	else inf();
+}
+private: System::Void steelUpgrade_Click(System::Object^ sender, System::EventArgs^ e) {
+	if (revenue > 5000)
+	{
+		money(-5000);
+		Storage(3);
+	}
+	else inf();
 }
 };
 }
