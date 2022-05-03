@@ -307,6 +307,7 @@ private: System::Windows::Forms::TextBox^ textBox2;
 			this->listBox1->Name = L"listBox1";
 			this->listBox1->Size = System::Drawing::Size(46, 39);
 			this->listBox1->TabIndex = 5;
+			this->listBox1->Click += gcnew System::EventHandler(this, &form::txbxC);
 			this->listBox1->MouseHover += gcnew System::EventHandler(this, &form::listBox1_MouseHover);
 			// 
 			// listBox3
@@ -455,6 +456,7 @@ private: System::Windows::Forms::TextBox^ textBox2;
 			this->listBox2->Name = L"listBox2";
 			this->listBox2->Size = System::Drawing::Size(46, 39);
 			this->listBox2->TabIndex = 21;
+			this->listBox2->Click += gcnew System::EventHandler(this, &form::txbxC);
 			this->listBox2->MouseHover += gcnew System::EventHandler(this, &form::listBox1_MouseHover);
 			// 
 			// checkBox2
@@ -1132,6 +1134,8 @@ private: System::Windows::Forms::TextBox^ textBox2;
 			this->textBox1->TabIndex = 69;
 			this->textBox1->Text = L"how much";
 			this->textBox1->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			this->textBox1->Click += gcnew System::EventHandler(this, &form::txbxC);
+			this->textBox1->TextChanged += gcnew System::EventHandler(this, &form::textBox1_TextChanged);
 			// 
 			// textBox2
 			// 
@@ -1144,6 +1148,8 @@ private: System::Windows::Forms::TextBox^ textBox2;
 			this->textBox2->TabIndex = 70;
 			this->textBox2->Text = L"how much";
 			this->textBox2->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			this->textBox2->Click += gcnew System::EventHandler(this, &form::txbxC);
+			this->textBox2->TextChanged += gcnew System::EventHandler(this, &form::textBox1_TextChanged);
 			// 
 			// form
 			// 
@@ -1430,9 +1436,62 @@ private: System::Void account_Click(System::Object^ sender, System::EventArgs^ e
 }
 private: void automatik()
 {
+
+
+	////////////////////////////
+	//Carbon
+	//
+
+
+	if (checkBox1->Checked == true && listBox1->Text == "sell")
+	{
+		int sell;
+		if (textBox1->Text == "" || textBox1->Text == "how much")
+		{
+			sell = 50 * avC;
+			money(sell);
+			Storage(-avC, 0, -0);
+		}
+		else
+		{
+			if (sell >= avC)
+			{
+				sell = Convert::ToInt16(textBox1->Text);
+				money(sell * 50);
+				Storage(-sell, 0, 0);
+			}
+			else {/*act natural*/ }
+		}
+	}
+	if (checkBox1->Checked == true && listBox1->Text == "buy")
+	{
+		this->label14->Text = "buy";//why i need this 
+	}
+	if (checkBox1->Checked == true && listBox1->Text == "maintain")
+	{
+
+		this->textBox1->BackColor = System::Drawing::SystemColors::Window;
+		int maintain = Convert::ToInt16(textBox1->Text);
+		if ((avC > maintain) && maintain <= maxS)
+		{
+			int total = (avC - maintain) * 50;
+			money(total);
+			Storage(-(avC - maintain), 0, 0);
+		}
+		if ((avSteel < maintain) && maintain >= 0)
+		{
+			int total = (maintain - avC) * 50;
+			money(-total);
+			Storage(maintain - avC,0, 0);
+		}
+	}
+
+
 	///////////////////////////////////////
 	//Ferrum
 	//
+
+
 	if (checkBox2->Checked == true && listBox2->Text == "sell")
 	{
 		int sell;
@@ -1461,23 +1520,27 @@ private: void automatik()
 	{
 
 		this->textBox2->BackColor = System::Drawing::SystemColors::Window;
-		int maintain = Convert::ToInt16(textBox2->Text);//how to deal with the posibility of wrong type of input ??
-		if ((avSteel > maintain) && maintain <= maxS)
+		int maintain = Convert::ToInt16(textBox2->Text);
+		if ((avFe > maintain) && maintain <= maxS)
 		{
 			int total = (avFe - maintain) * 50;
 			money(total);
-			Storage(0, 0, -(avFe - maintain));
+			Storage(0, -(avFe - maintain),0 );
 		}
 		if ((avSteel < maintain) && maintain >= 0)
 		{
 			int total = (maintain - avFe) * 50;
 			money(-total);
-			Storage(0, 0, maintain - avFe);
+			Storage(0, maintain - avFe,0);
 		}
 	}
+
+
 	//////////////////////////////////////////
 	//Steel
 	//
+
+
 	if (checkBox3->Checked == true && listBox3->Text == "sell")
 	{
 		int sell;
@@ -1521,6 +1584,8 @@ private: void automatik()
 		}
 	}
 }
+
+
 private: void Storage(int c,int fe,int steel)
 {
 /////////////////////////////////////
@@ -1948,12 +2013,13 @@ private: System::Void steelSell_Click(System::Object^ sender, System::EventArgs^
 	}
 }
 private: System::Void checkBox3_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
-
 }
 private: System::Void txbxC(System::Object^ sender, System::EventArgs^ e) {
 	TextBox^ txbx = (TextBox^) sender;
-	this->toolTip1->Show("insert value\nfor weekly action",txbx);
+	this->textBox1->Text = "";
+	this->textBox2->Text = "";
 	this->textBox3->Text = "";
+	this->toolTip1->Show("insert value\nfor weekly action",txbx);
 }
 private: System::Void textBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 }
