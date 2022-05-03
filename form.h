@@ -1355,6 +1355,7 @@ private: System::Windows::Forms::PictureBox^ upgrade1steel;
 			this->upgrade1steel->Size = System::Drawing::Size(25, 25);
 			this->upgrade1steel->TabIndex = 82;
 			this->upgrade1steel->TabStop = false;
+			this->upgrade1steel->Click += gcnew System::EventHandler(this, &form::upgrade1steel_Click);
 			this->upgrade1steel->MouseHover += gcnew System::EventHandler(this, &form::upgrade1steel_MouseHover);
 			// 
 			// form
@@ -1496,6 +1497,7 @@ private: System::Windows::Forms::PictureBox^ upgrade1steel;
 		int asSteel=0;//   ---||---
 		int up1c = 1;//upgrade 1 for c 
 		int up1fe = 1;
+		int up1st = 1;
 
 //----------------------(here is and idea: start saving that^ to external file so everytime you start the program you begin work with values from previous session) -----------------------------------------------------------------//yea right 
 
@@ -2222,16 +2224,29 @@ private: System::Void SmWorker_DoWork(System::Object ^ sender, System::Component
 	}
 }
 private: System::Void SmWorker_ProgressChanged(System::Object ^ sender, System::ComponentModel::ProgressChangedEventArgs ^ e) {
-	if (avC >= 1 && avFe >= 3)
+	if (avSteel < SteelmaxS)
 	{
-		
-		Storage(-1, -3, e->ProgressPercentage);
-		
+		if (avC >= 1 && avFe >= 3 && avC < 2 && avFe < 6)
+		{
+
+			Storage(-1, -3, e->ProgressPercentage);
+
+		}
+		if (avC >= 2 && avFe >= 6 && up1st == 2)
+		{
+
+			Storage(-2, -6, e->ProgressPercentage * up1st);
+
+		}
+		else
+		{
+
+			Storage(0, 0, e->ProgressPercentage - 1);
+		}
 	}
 	else
 	{
-		
-		Storage(0, 0, e->ProgressPercentage-1);
+		this->steelStorage->Text = "Storage full";
 	}
 }
 private: System::Void SmWorker_RunWorkerCompleted(System::Object ^ sender, System::ComponentModel::RunWorkerCompletedEventArgs ^ e) {
@@ -2349,7 +2364,7 @@ private: System::Void upgrade1forC_Click(System::Object^ sender, System::EventAr
 	{
 		money(-10000);
 		up1c = 3;
-		this->upgrade1forC->Visible == false;
+		this->upgrade1forC->Visible = false;
 	}
 }
 private: System::Void upgrade1fe_Click(System::Object^ sender, System::EventArgs^ e) { //am i genius or am i genius? 
@@ -2357,8 +2372,17 @@ private: System::Void upgrade1fe_Click(System::Object^ sender, System::EventArgs
 	{
 		money(-15000);
 		up1fe = 3;
-		this->upgrade1fe->Visible == false;
+		this->upgrade1fe->Visible = false;
 	}
+}
+private: System::Void upgrade1steel_Click(System::Object^ sender, System::EventArgs^ e) {
+	if (revenue >= 5000)
+	{
+		money(-5000);
+		up1st = 2;
+		this->upgrade1steel->Visible = false;
+	}
+
 }
 };
 }
