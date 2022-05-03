@@ -1170,6 +1170,7 @@ private: System::Windows::Forms::PictureBox^ steelUpgrade;
 			this->cUpgrade->TabIndex = 71;
 			this->cUpgrade->TabStop = false;
 			this->cUpgrade->Click += gcnew System::EventHandler(this, &form::cUpgrade_Click);
+			this->cUpgrade->MouseHover += gcnew System::EventHandler(this, &form::cUpgrade_MouseHover);
 			// 
 			// feUpgrade
 			// 
@@ -1181,6 +1182,7 @@ private: System::Windows::Forms::PictureBox^ steelUpgrade;
 			this->feUpgrade->TabIndex = 72;
 			this->feUpgrade->TabStop = false;
 			this->feUpgrade->Click += gcnew System::EventHandler(this, &form::feUpgrade_Click);
+			this->feUpgrade->MouseHover += gcnew System::EventHandler(this, &form::feUpgrade_MouseHover);
 			// 
 			// steelUpgrade
 			// 
@@ -1192,6 +1194,7 @@ private: System::Windows::Forms::PictureBox^ steelUpgrade;
 			this->steelUpgrade->TabIndex = 73;
 			this->steelUpgrade->TabStop = false;
 			this->steelUpgrade->Click += gcnew System::EventHandler(this, &form::steelUpgrade_Click);
+			this->steelUpgrade->MouseHover += gcnew System::EventHandler(this, &form::steelUpgrade_MouseHover);
 			// 
 			// form
 			// 
@@ -1500,19 +1503,22 @@ private: void automatik()
 		int sell;
 		if (textBox1->Text == "" || textBox1->Text == "how much")
 		{
-			sell = 50 * avC;
+			sell = 20 * avC;
 			money(sell);
-			Storage(-avC, 0, -0);
+			Storage(-avC, 0, 0);
 		}
 		else
 		{
 			if (sell >= avC)
 			{
-				sell = Convert::ToInt16(textBox1->Text);
-				money(sell * 50);
+				int sell = Convert::ToInt16(textBox1->Text);
+				money(sell * 20);
 				Storage(-sell, 0, 0);
 			}
-			else {/*act natural*/ }
+			else {
+				money(avC*20);
+				Storage(-avC, 0, 0);
+			}
 		}
 	}
 	if (checkBox1->Checked == true && listBox1->Text == "buy")
@@ -1526,15 +1532,22 @@ private: void automatik()
 		int maintain = Convert::ToInt16(textBox1->Text);
 		if ((avC > maintain) && maintain <= CmaxS)
 		{
-			int total = (avC - maintain) * 50;
+			int total = (avC - maintain) * 20;
 			money(total);
 			Storage(-(avC - maintain), 0, 0);
 		}
-		if ((avSteel < maintain) && maintain >= 0)
+		if ((avC < maintain) && maintain >= 0)
 		{
-			int total = (maintain - avC) * 50;
-			money(-total);
-			Storage(maintain - avC,0, 0);
+			int total = (maintain - avC) * 25;
+			if (total <= revenue)
+			{
+				money(-total);
+				Storage(maintain - avC, 0, 0);
+			}
+			else
+			{
+				this->textBox1->BackColor = System::Drawing::Color::Red;
+			}
 		}
 	}
 
@@ -1549,19 +1562,23 @@ private: void automatik()
 		int sell;
 		if (textBox2->Text == "" || textBox2->Text == "how much")
 		{
-			sell = 50 * avFe;
+			sell = 42 * avFe;
 			money(sell);
-			Storage(0, -avFe, -0);
+			Storage(0, -avFe, 0);
 		}
 		else
 		{
+			int sell = Convert::ToInt16(textBox2->Text);
 			if (sell >= avFe)
 			{
-				sell = Convert::ToInt16(textBox2->Text);
-				money(sell * 50);
+				money(sell * 42);
 				Storage(0, -sell,0 );
 			}
-			else {/*act natural*/ }
+			else
+			{
+				money(avFe *42);
+				Storage(0, -avFe, 0);
+			}
 		}
 	}
 	if (checkBox2->Checked == true && listBox2->Text == "buy")
@@ -1575,7 +1592,7 @@ private: void automatik()
 		int maintain = Convert::ToInt16(textBox2->Text);
 		if ((avFe > maintain) && maintain <= FemaxS)
 		{
-			int total = (avFe - maintain) * 50;
+			int total = (avFe - maintain) * 42;
 			money(total);
 			Storage(0, -(avFe - maintain),0 );
 		}
@@ -1606,11 +1623,15 @@ private: void automatik()
 		{
 			if (sell >= avSteel)
 			{
-				sell = Convert::ToInt16(textBox3->Text);
+				int sell = Convert::ToInt16(textBox3->Text);
 				money(sell * 200);
 				Storage(0, 0, -sell);
 			}
-			else {/*act natural*/ }
+			else 
+			{
+				money(avSteel*200);
+				Storage(0, 0, -avSteel);
+			}
 		}
 	}
 	if (checkBox3->Checked == true && listBox3->Text == "buy")
@@ -1630,7 +1651,7 @@ private: void automatik()
 		}
 		if ((avSteel < maintain) && maintain >= 0)
 		{
-			int total = (maintain - avSteel) * 200;
+			int total = (maintain - avSteel) * 150;
 			money(-total);
 			Storage(0, 0, maintain - avSteel);
 		}
@@ -1937,6 +1958,15 @@ private: System::Void label13_Click(System::Object^ sender, System::EventArgs^ e
 private: System::Void dollar_MouseHover(System::Object^ sender, System::EventArgs^ e) {
 	this->toolTip1->Show("click for more/less details", dollar);
 }
+private: System::Void cUpgrade_MouseHover(System::Object^ sender, System::EventArgs^ e) {
+	this->toolTip1->Show("add 500 more space\nfor5000$", cUpgrade);
+}
+private: System::Void feUpgrade_MouseHover(System::Object^ sender, System::EventArgs^ e) {
+	this->toolTip1->Show("add 500 more space\nfor5000$", feUpgrade);
+}
+private: System::Void steelUpgrade_MouseHover(System::Object^ sender, System::EventArgs^ e) {
+	this->toolTip1->Show("add 500 more space\nfor5000$", steelUpgrade);
+}
 private: System::Void listBox1_MouseHover(System::Object^ sender, System::EventArgs^ e) {
 	ListBox^ lstbx = (ListBox^)sender;
 	this->toolTip1->Show("Choose weekly action", lstbx);
@@ -2090,14 +2120,10 @@ private: System::Void steelSell_Click(System::Object^ sender, System::EventArgs^
 private: System::Void checkBox3_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void txbxC(System::Object^ sender, System::EventArgs^ e) {
-	TextBox^ txbx = (TextBox^) sender;
-	
-	this->toolTip1->Show("insert value\nfor weekly action",txbx);
 }
 private: System::Void textBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void cUpgrade_Click(System::Object^ sender, System::EventArgs^ e) {
-	
 	if (revenue > 5000)
 	{
 		Storage(1);
