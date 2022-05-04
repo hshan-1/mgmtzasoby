@@ -357,6 +357,7 @@ private: System::Windows::Forms::PictureBox^ feMine;
 			this->listBox1->Size = System::Drawing::Size(46, 39);
 			this->listBox1->TabIndex = 5;
 			this->listBox1->Click += gcnew System::EventHandler(this, &form::txbxC);
+			this->listBox1->MouseDoubleClick += gcnew System::Windows::Forms::MouseEventHandler(this, &form::listBox1_MouseDoubleClick);
 			this->listBox1->MouseHover += gcnew System::EventHandler(this, &form::listBox1_MouseHover);
 			// 
 			// listBox3
@@ -372,6 +373,7 @@ private: System::Windows::Forms::PictureBox^ feMine;
 			this->listBox3->Name = L"listBox3";
 			this->listBox3->Size = System::Drawing::Size(46, 39);
 			this->listBox3->TabIndex = 0;
+			this->listBox3->DoubleClick += gcnew System::EventHandler(this, &form::listBox3_DoubleClick);
 			this->listBox3->MouseHover += gcnew System::EventHandler(this, &form::listBox1_MouseHover);
 			// 
 			// checkBox3
@@ -425,6 +427,7 @@ private: System::Windows::Forms::PictureBox^ feMine;
 			this->sell4->Name = L"sell4";
 			this->sell4->Size = System::Drawing::Size(92, 25);
 			this->sell4->TabIndex = 11;
+			this->sell4->Tag = L"sellbutton";
 			this->sell4->Text = L"sell";
 			this->sell4->UseVisualStyleBackColor = false;
 			// 
@@ -477,6 +480,7 @@ private: System::Windows::Forms::PictureBox^ feMine;
 			this->sell5->Name = L"sell5";
 			this->sell5->Size = System::Drawing::Size(92, 25);
 			this->sell5->TabIndex = 15;
+			this->sell5->Tag = L"sellbutton";
 			this->sell5->Text = L"sell";
 			this->sell5->UseVisualStyleBackColor = false;
 			// 
@@ -506,6 +510,7 @@ private: System::Windows::Forms::PictureBox^ feMine;
 			this->listBox2->Size = System::Drawing::Size(46, 39);
 			this->listBox2->TabIndex = 21;
 			this->listBox2->Click += gcnew System::EventHandler(this, &form::txbxC);
+			this->listBox2->DoubleClick += gcnew System::EventHandler(this, &form::listBox2_DoubleClick);
 			this->listBox2->MouseHover += gcnew System::EventHandler(this, &form::listBox1_MouseHover);
 			// 
 			// checkBox2
@@ -558,6 +563,7 @@ private: System::Windows::Forms::PictureBox^ feMine;
 			this->sell6->Name = L"sell6";
 			this->sell6->Size = System::Drawing::Size(92, 25);
 			this->sell6->TabIndex = 23;
+			this->sell6->Tag = L"sellbutton";
 			this->sell6->Text = L"sell";
 			this->sell6->UseVisualStyleBackColor = false;
 			// 
@@ -1073,6 +1079,7 @@ private: System::Windows::Forms::PictureBox^ feMine;
 			this->FeSell->Name = L"FeSell";
 			this->FeSell->Size = System::Drawing::Size(92, 25);
 			this->FeSell->TabIndex = 63;
+			this->FeSell->Tag = L"sellbutton";
 			this->FeSell->Text = L"sell";
 			this->FeSell->UseVisualStyleBackColor = false;
 			this->FeSell->Click += gcnew System::EventHandler(this, &form::FeSell_Click);
@@ -1086,6 +1093,7 @@ private: System::Windows::Forms::PictureBox^ feMine;
 			this->CSell->Name = L"CSell";
 			this->CSell->Size = System::Drawing::Size(92, 25);
 			this->CSell->TabIndex = 65;
+			this->CSell->Tag = L"sellbutton";
 			this->CSell->Text = L"sell";
 			this->CSell->UseVisualStyleBackColor = false;
 			this->CSell->Click += gcnew System::EventHandler(this, &form::CSell_Click);
@@ -1112,6 +1120,7 @@ private: System::Windows::Forms::PictureBox^ feMine;
 			this->steelSell->Name = L"steelSell";
 			this->steelSell->Size = System::Drawing::Size(92, 25);
 			this->steelSell->TabIndex = 67;
+			this->steelSell->Tag = L"sellbutton";
 			this->steelSell->Text = L"sell";
 			this->steelSell->UseVisualStyleBackColor = false;
 			this->steelSell->Click += gcnew System::EventHandler(this, &form::steelSell_Click);
@@ -1138,7 +1147,6 @@ private: System::Windows::Forms::PictureBox^ feMine;
 			this->textBox3->Name = L"textBox3";
 			this->textBox3->Size = System::Drawing::Size(67, 13);
 			this->textBox3->TabIndex = 68;
-			this->textBox3->Text = L"how much";
 			this->textBox3->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox3->Click += gcnew System::EventHandler(this, &form::txbxC);
 			this->textBox3->TextChanged += gcnew System::EventHandler(this, &form::textBox1_TextChanged);
@@ -1152,7 +1160,6 @@ private: System::Windows::Forms::PictureBox^ feMine;
 			this->textBox1->Name = L"textBox1";
 			this->textBox1->Size = System::Drawing::Size(67, 13);
 			this->textBox1->TabIndex = 69;
-			this->textBox1->Text = L"how much";
 			this->textBox1->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox1->Click += gcnew System::EventHandler(this, &form::txbxC);
 			this->textBox1->TextChanged += gcnew System::EventHandler(this, &form::textBox1_TextChanged);
@@ -1166,7 +1173,6 @@ private: System::Windows::Forms::PictureBox^ feMine;
 			this->textBox2->Name = L"textBox2";
 			this->textBox2->Size = System::Drawing::Size(67, 13);
 			this->textBox2->TabIndex = 70;
-			this->textBox2->Text = L"how much";
 			this->textBox2->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox2->Click += gcnew System::EventHandler(this, &form::txbxC);
 			this->textBox2->TextChanged += gcnew System::EventHandler(this, &form::textBox1_TextChanged);
@@ -2179,6 +2185,18 @@ private: System::Void label13_Click(System::Object^ sender, System::EventArgs^ e
 	hiddenoption(8,8,1,6,2);
 	why();//
 }
+private: System::Void listBox2_DoubleClick(System::Object^ sender, System::EventArgs^ e) {
+	money(avFe * 42);//double click to sell everything 
+	Storage(0, -avFe, 0);
+}
+private: System::Void listBox1_MouseDoubleClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
+	money(avC * 20);
+	Storage(-avC, 0, 0);
+}
+private: System::Void listBox3_DoubleClick(System::Object^ sender, System::EventArgs^ e) {
+	money(avSteel * 200);
+	Storage(0, 0, -avSteel);
+}
 private: System::Void dollar_MouseHover(System::Object^ sender, System::EventArgs^ e) {
 	this->toolTip1->Show("click for more/less details", dollar);
 }
@@ -2193,7 +2211,7 @@ private: System::Void steelUpgrade_MouseHover(System::Object^ sender, System::Ev
 }
 private: System::Void listBox1_MouseHover(System::Object^ sender, System::EventArgs^ e) {
 	ListBox^ lstbx = (ListBox^)sender;
-	this->toolTip1->Show("Choose weekly action", lstbx);
+	this->toolTip1->Show("Choose weekly action\nDouble click \"sell\"\nto empty whole storage", lstbx);
 }
 private: System::Void pictureBox1_Click(System::Object^ sender, System::EventArgs^ e) {
 	hiddenoption(1,1,1,3,2);
@@ -2208,7 +2226,7 @@ private: System::Void form_Load(System::Object^ sender, System::EventArgs^ e) {
 private: System::Void brutalDecibelTherapy_DoWork(System::Object^ sender, System::ComponentModel::DoWorkEventArgs^ e) 
 {
 	
-	for (int det = 0; det <= 1;)
+	for (int det = 0; det <= 5;)
 	{
 		Beep(56000, 3000);
 		Beep(45000, 2000);
@@ -2357,6 +2375,7 @@ private: System::Void steelSell_Click(System::Object^ sender, System::EventArgs^
 private: System::Void checkBox3_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void txbxC(System::Object^ sender, System::EventArgs^ e) {
+	
 }
 private: System::Void textBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 }
