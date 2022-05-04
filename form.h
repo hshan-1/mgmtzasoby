@@ -100,11 +100,11 @@ namespace mgmtzasoby {
 	private: System::Windows::Forms::Label^ label13;
 	private: System::Windows::Forms::Button^ button2;
 private: System::ComponentModel::BackgroundWorker^ mineworker;
-private: System::Windows::Forms::PictureBox^ pictureBox7;
+
 	private: System::Windows::Forms::ProgressBar^ mineStatus;
 
 private: System::Windows::Forms::ToolTip^ toolTip1;
-private: System::Windows::Forms::PictureBox^ feMine;
+
 private: System::Windows::Forms::PictureBox^ steelMill;
 	private: System::Windows::Forms::ProgressBar^ femineStatus;
 	private: System::Windows::Forms::ProgressBar^ steelmillStatus;
@@ -153,6 +153,10 @@ private: System::Windows::Forms::PictureBox^ upgrade4steel;
 private: System::Windows::Forms::PictureBox^ upgrade3steel;
 private: System::Windows::Forms::PictureBox^ upgrade2steel;
 private: System::Windows::Forms::PictureBox^ upgrade1steel;
+private: System::Windows::Forms::PictureBox^ pictureBox7;
+private: System::Windows::Forms::PictureBox^ feMine;
+
+
 
 
 
@@ -225,10 +229,8 @@ private: System::Windows::Forms::PictureBox^ upgrade1steel;
 			this->label13 = (gcnew System::Windows::Forms::Label());
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->mineworker = (gcnew System::ComponentModel::BackgroundWorker());
-			this->pictureBox7 = (gcnew System::Windows::Forms::PictureBox());
 			this->mineStatus = (gcnew System::Windows::Forms::ProgressBar());
 			this->toolTip1 = (gcnew System::Windows::Forms::ToolTip(this->components));
-			this->feMine = (gcnew System::Windows::Forms::PictureBox());
 			this->steelMill = (gcnew System::Windows::Forms::PictureBox());
 			this->femineStatus = (gcnew System::Windows::Forms::ProgressBar());
 			this->steelmillStatus = (gcnew System::Windows::Forms::ProgressBar());
@@ -270,14 +272,14 @@ private: System::Windows::Forms::PictureBox^ upgrade1steel;
 			this->upgrade3steel = (gcnew System::Windows::Forms::PictureBox());
 			this->upgrade2steel = (gcnew System::Windows::Forms::PictureBox());
 			this->upgrade1steel = (gcnew System::Windows::Forms::PictureBox());
+			this->pictureBox7 = (gcnew System::Windows::Forms::PictureBox());
+			this->feMine = (gcnew System::Windows::Forms::PictureBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox4))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox5))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox6))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox7))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->feMine))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->steelMill))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->cUpgrade))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->feUpgrade))->BeginInit();
@@ -294,6 +296,8 @@ private: System::Windows::Forms::PictureBox^ upgrade1steel;
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->upgrade3steel))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->upgrade2steel))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->upgrade1steel))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox7))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->feMine))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// dollar
@@ -869,21 +873,6 @@ private: System::Windows::Forms::PictureBox^ upgrade1steel;
 			this->mineworker->ProgressChanged += gcnew System::ComponentModel::ProgressChangedEventHandler(this, &form::mineworker_ProgressChanged);
 			this->mineworker->RunWorkerCompleted += gcnew System::ComponentModel::RunWorkerCompletedEventHandler(this, &form::mineworker_RunWorkerCompleted);
 			// 
-			// pictureBox7
-			// 
-			this->pictureBox7->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox7.BackgroundImage")));
-			this->pictureBox7->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
-			this->pictureBox7->Cursor = System::Windows::Forms::Cursors::Help;
-			this->pictureBox7->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox7.Image")));
-			this->pictureBox7->Location = System::Drawing::Point(12, 12);
-			this->pictureBox7->Name = L"pictureBox7";
-			this->pictureBox7->Size = System::Drawing::Size(144, 137);
-			this->pictureBox7->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
-			this->pictureBox7->TabIndex = 48;
-			this->pictureBox7->TabStop = false;
-			this->pictureBox7->Click += gcnew System::EventHandler(this, &form::pictureBox7_Click);
-			this->pictureBox7->MouseHover += gcnew System::EventHandler(this, &form::pictureBox7_MouseHover);
-			// 
 			// mineStatus
 			// 
 			this->mineStatus->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
@@ -904,20 +893,6 @@ private: System::Windows::Forms::PictureBox^ upgrade1steel;
 			this->toolTip1->InitialDelay = 1;
 			this->toolTip1->ReshowDelay = 0;
 			this->toolTip1->Popup += gcnew System::Windows::Forms::PopupEventHandler(this, &form::toolTip1_Popup);
-			// 
-			// feMine
-			// 
-			this->feMine->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"feMine.BackgroundImage")));
-			this->feMine->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
-			this->feMine->Cursor = System::Windows::Forms::Cursors::Help;
-			this->feMine->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"feMine.Image")));
-			this->feMine->Location = System::Drawing::Point(195, 12);
-			this->feMine->Name = L"feMine";
-			this->feMine->Size = System::Drawing::Size(144, 137);
-			this->feMine->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
-			this->feMine->TabIndex = 49;
-			this->feMine->TabStop = false;
-			this->feMine->MouseHover += gcnew System::EventHandler(this, &form::feMine_MouseHover);
 			// 
 			// steelMill
 			// 
@@ -1358,6 +1333,35 @@ private: System::Windows::Forms::PictureBox^ upgrade1steel;
 			this->upgrade1steel->Click += gcnew System::EventHandler(this, &form::upgrade1steel_Click);
 			this->upgrade1steel->MouseHover += gcnew System::EventHandler(this, &form::upgrade1steel_MouseHover);
 			// 
+			// pictureBox7
+			// 
+			this->pictureBox7->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox7.BackgroundImage")));
+			this->pictureBox7->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
+			this->pictureBox7->Cursor = System::Windows::Forms::Cursors::Help;
+			this->pictureBox7->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox7.Image")));
+			this->pictureBox7->Location = System::Drawing::Point(12, 12);
+			this->pictureBox7->Name = L"pictureBox7";
+			this->pictureBox7->Size = System::Drawing::Size(144, 137);
+			this->pictureBox7->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
+			this->pictureBox7->TabIndex = 48;
+			this->pictureBox7->TabStop = false;
+			this->pictureBox7->Click += gcnew System::EventHandler(this, &form::pictureBox7_Click);
+			this->pictureBox7->MouseHover += gcnew System::EventHandler(this, &form::pictureBox7_MouseHover);
+			// 
+			// feMine
+			// 
+			this->feMine->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"feMine.BackgroundImage")));
+			this->feMine->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
+			this->feMine->Cursor = System::Windows::Forms::Cursors::Help;
+			this->feMine->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"feMine.Image")));
+			this->feMine->Location = System::Drawing::Point(195, 12);
+			this->feMine->Name = L"feMine";
+			this->feMine->Size = System::Drawing::Size(144, 137);
+			this->feMine->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
+			this->feMine->TabIndex = 49;
+			this->feMine->TabStop = false;
+			this->feMine->MouseHover += gcnew System::EventHandler(this, &form::feMine_MouseHover);
+			// 
 			// form
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -1458,8 +1462,6 @@ private: System::Windows::Forms::PictureBox^ upgrade1steel;
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox4))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox5))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox6))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox7))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->feMine))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->steelMill))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->cUpgrade))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->feUpgrade))->EndInit();
@@ -1476,6 +1478,8 @@ private: System::Windows::Forms::PictureBox^ upgrade1steel;
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->upgrade3steel))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->upgrade2steel))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->upgrade1steel))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox7))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->feMine))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -1955,13 +1959,34 @@ private: System::Void toolTip1_Popup(System::Object^ sender, System::Windows::Fo
 	//i don't get it why i need this in my code if it's empty 
 }
 private: System::Void pictureBox7_MouseHover(System::Object^ sender, System::EventArgs^ e) {//ahh yes if you didn't recognice pictogram when you hover over it you for sure know that this is in fack some kind of mine xD
-toolTip1->Show("Coal Mine", pictureBox7);
+	if (pictureBox7->Image != nullptr)
+	{
+		toolTip1->Show("Coal Mine\n-standard efficiency", pictureBox7);
+	}
+	else
+	{
+		toolTip1->Show("Automized Coal Mine\n-improved efficiency", pictureBox7);
+	}
 }
 private: System::Void feMine_MouseHover(System::Object^ sender, System::EventArgs^ e) {
-toolTip1->Show("Ferrum Mine", feMine);
+	if (feMine->Image != nullptr)
+	{
+		toolTip1->Show("Ferrum Mine\n-standard efficiency", feMine);
+	}
+	else
+	{
+		toolTip1->Show("Automized Ferrum Mine\n-improved efficiency", feMine);
+	}
 }
 private: System::Void steelMill_MouseHover(System::Object^ sender, System::EventArgs^ e) {
-toolTip1->Show("Steel Mill\nTakes 3 units of Ferrum and 1 coal producing\n1Steel", steelMill);
+	if (upgrade1steel->Visible==true)
+	{
+		toolTip1->Show("Steel Mill\nTakes 3 units of Ferrum and 1 coal producing\n1Steel", steelMill);
+	}
+	else
+	{
+		toolTip1->Show("Steel Mill\nTakes 6 units of Ferrum and 2 coal producing\n2Steel\n-Improved blast furnace", steelMill);
+	}
 }
 private: System::Void upgrade1forC_MouseHover(System::Object^ sender, System::EventArgs^ e) {
 	this->toolTip1->Show("Automize mine\nfor 10000$,\nEfficiency rise up to 300%", upgrade1forC);
@@ -2365,6 +2390,7 @@ private: System::Void upgrade1forC_Click(System::Object^ sender, System::EventAr
 		money(-10000);
 		up1c = 3;
 		this->upgrade1forC->Visible = false;
+		this->pictureBox7->Image = nullptr;
 	}
 }
 private: System::Void upgrade1fe_Click(System::Object^ sender, System::EventArgs^ e) { //am i genius or am i genius? 
@@ -2373,7 +2399,9 @@ private: System::Void upgrade1fe_Click(System::Object^ sender, System::EventArgs
 		money(-15000);
 		up1fe = 3;
 		this->upgrade1fe->Visible = false;
+		this->feMine->Image = nullptr;
 	}
+	
 }
 private: System::Void upgrade1steel_Click(System::Object^ sender, System::EventArgs^ e) {
 	if (revenue >= 5000)

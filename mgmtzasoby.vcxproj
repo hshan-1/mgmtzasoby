@@ -128,11 +128,18 @@
     <ClInclude Include="form.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="form.resx">
       <DependentUpon>form.h</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="mgmtzasoby.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="pictures\amine.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
