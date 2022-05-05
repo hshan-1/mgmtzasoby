@@ -155,6 +155,7 @@ private: System::Windows::Forms::PictureBox^ upgrade2steel;
 private: System::Windows::Forms::PictureBox^ upgrade1steel;
 private: System::Windows::Forms::PictureBox^ pictureBox7;
 private: System::Windows::Forms::PictureBox^ feMine;
+private: System::Windows::Forms::Label^ nonamelabel;
 
 
 
@@ -274,6 +275,7 @@ private: System::Windows::Forms::PictureBox^ feMine;
 			this->upgrade1steel = (gcnew System::Windows::Forms::PictureBox());
 			this->pictureBox7 = (gcnew System::Windows::Forms::PictureBox());
 			this->feMine = (gcnew System::Windows::Forms::PictureBox());
+			this->nonamelabel = (gcnew System::Windows::Forms::Label());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->BeginInit();
@@ -994,7 +996,7 @@ private: System::Windows::Forms::PictureBox^ feMine;
 			// label14
 			// 
 			this->label14->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 22));
-			this->label14->Location = System::Drawing::Point(1226, 280);
+			this->label14->Location = System::Drawing::Point(1284, 148);
 			this->label14->Name = L"label14";
 			this->label14->Size = System::Drawing::Size(269, 262);
 			this->label14->TabIndex = 55;
@@ -1003,20 +1005,22 @@ private: System::Windows::Forms::PictureBox^ feMine;
 			// 
 			// pass
 			// 
+			this->pass->BackColor = System::Drawing::SystemColors::ButtonShadow;
 			this->pass->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 22));
-			this->pass->Location = System::Drawing::Point(1209, 237);
+			this->pass->Location = System::Drawing::Point(323, 628);
 			this->pass->Name = L"pass";
 			this->pass->Size = System::Drawing::Size(269, 40);
 			this->pass->TabIndex = 56;
-			this->pass->TextAlign = System::Drawing::ContentAlignment::MiddleRight;
+			this->pass->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
 			// controlchechlb
 			// 
-			this->controlchechlb->AutoSize = true;
+			this->controlchechlb->BackColor = System::Drawing::SystemColors::AppWorkspace;
 			this->controlchechlb->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 22));
-			this->controlchechlb->Location = System::Drawing::Point(1231, 144);
+			this->controlchechlb->ForeColor = System::Drawing::SystemColors::AppWorkspace;
+			this->controlchechlb->Location = System::Drawing::Point(12, 628);
 			this->controlchechlb->Name = L"controlchechlb";
-			this->controlchechlb->Size = System::Drawing::Size(0, 36);
+			this->controlchechlb->Size = System::Drawing::Size(269, 40);
 			this->controlchechlb->TabIndex = 57;
 			this->controlchechlb->TextAlign = System::Drawing::ContentAlignment::MiddleRight;
 			// 
@@ -1368,12 +1372,23 @@ private: System::Windows::Forms::PictureBox^ feMine;
 			this->feMine->TabStop = false;
 			this->feMine->MouseHover += gcnew System::EventHandler(this, &form::feMine_MouseHover);
 			// 
+			// nonamelabel
+			// 
+			this->nonamelabel->BackColor = System::Drawing::SystemColors::ButtonShadow;
+			this->nonamelabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 22));
+			this->nonamelabel->Location = System::Drawing::Point(48, 628);
+			this->nonamelabel->Name = L"nonamelabel";
+			this->nonamelabel->Size = System::Drawing::Size(269, 40);
+			this->nonamelabel->TabIndex = 86;
+			this->nonamelabel->Text = L"Cheat:";
+			this->nonamelabel->TextAlign = System::Drawing::ContentAlignment::MiddleRight;
+			// 
 			// form
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
-			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::None;
 			this->BackColor = System::Drawing::SystemColors::AppWorkspace;
-			this->ClientSize = System::Drawing::Size(1553, 624);
+			this->ClientSize = System::Drawing::Size(1553, 617);
+			this->Controls->Add(this->nonamelabel);
 			this->Controls->Add(this->upgrade4steel);
 			this->Controls->Add(this->upgrade3steel);
 			this->Controls->Add(this->upgrade2steel);
@@ -1462,6 +1477,7 @@ private: System::Windows::Forms::PictureBox^ feMine;
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"Resource Managment Demo";
 			this->Load += gcnew System::EventHandler(this, &form::form_Load);
+			this->DoubleClick += gcnew System::EventHandler(this, &form::cheatsheet);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->EndInit();
@@ -1507,6 +1523,9 @@ private: System::Windows::Forms::PictureBox^ feMine;
 		int asSteel=0;//   ---||---
 		int up1c = 1;//upgrade 1 for c 
 		int up1fe = 1;
+		int cMine$;
+		int feMine$; //variables to describe weekly cost of each depending on upgrades 
+		int stm$;
 		int up1st = 1;
 
 //----------------------(here is and idea: start saving that^ to external file so everytime you start the program you begin work with values from previous session) -----------------------------------------------------------------//yea right 
@@ -2141,12 +2160,12 @@ private: System::Void buySteel_Click(System::Object^ sender, System::EventArgs^ 
 private: System::Void dollar_Click(System::Object^ sender, System::EventArgs^ e) {
 	if (xdfg==1)
 	{
-		this->ClientSize = System::Drawing::Size(1207, 667);//don't know what i plan with this 
+		this->ClientSize = System::Drawing::Size(1207, 635);//don't know what i plan with this 
 		xdfg--;
 	}
 	else
 	{//what kind of informations can be shown there 
-		this->ClientSize = System::Drawing::Size(1573, 667);
+		this->ClientSize = System::Drawing::Size(1573, 635);
 		xdfg++;
 	}//maybe when i'll start working on automated function for buying and selling there will be informations about these actions expected to be done 
 }
@@ -2217,7 +2236,7 @@ private: System::Void pictureBox1_Click(System::Object^ sender, System::EventArg
 	hiddenoption(1,1,1,3,2);
 }
 private: System::Void form_Load(System::Object^ sender, System::EventArgs^ e) {
-	this->ClientSize = System::Drawing::Size(1173, 667);
+	this->ClientSize = System::Drawing::Size(1203, 635);
 	this->account->Text = revenue + "";
 	/*this->backgroundWorker1->RunWorkerAsync(1);
 	this->mineworker->RunWorkerAsync(1);	don't need it right now 
@@ -2430,6 +2449,27 @@ private: System::Void upgrade1steel_Click(System::Object^ sender, System::EventA
 		this->upgrade1steel->Visible = false;
 	}
 
+}
+private: System::Void cheatsheet(System::Object^ sender, System::EventArgs^ e) {
+
+	if (xdfg == 1|| ClientSize == System::Drawing::Size(1207, 667))
+	{
+		this->ClientSize = System::Drawing::Size(1207, 1067);
+		xdfg--;
+	}
+	if(xdfg==1 || ClientSize==System::Drawing::Size(1507, 667))
+	{
+		this->ClientSize = System::Drawing::Size(1573, 1067);
+		xdfg++;
+	}
+	if (xdfg != 1 || ClientSize == System::Drawing::Size(1207, 767))
+	{
+		this->ClientSize = System::Drawing::Size(1207, 667);
+	}
+	if (xdfg != 1 || ClientSize == System::Drawing::Size(1507, 767))
+	{
+		this->ClientSize = System::Drawing::Size(1573, 667);
+	}
 }
 };
 }
