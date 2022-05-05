@@ -1523,9 +1523,9 @@ private: System::Windows::Forms::Label^ nonamelabel;
 		int asSteel=0;//   ---||---
 		int up1c = 1;//upgrade 1 for c 
 		int up1fe = 1;
-		int cMine$;
-		int feMine$; //variables to describe weekly cost of each depending on upgrades 
-		int stm$;
+		int cMine$=600;
+		int feMine$=600; //variables to describe weekly cost of each depending on upgrades 
+		int stm$=1000;
 		int up1st = 1;
 
 //----------------------(here is and idea: start saving that^ to external file so everytime you start the program you begin work with values from previous session) -----------------------------------------------------------------//yea right 
@@ -1986,31 +1986,31 @@ private: System::Void toolTip1_Popup(System::Object^ sender, System::Windows::Fo
 private: System::Void pictureBox7_MouseHover(System::Object^ sender, System::EventArgs^ e) {//ahh yes if you didn't recognice pictogram when you hover over it you for sure know that this is in fack some kind of mine xD
 	if (pictureBox7->Image != nullptr)
 	{
-		toolTip1->Show("Coal Mine\n-standard efficiency", pictureBox7);
+		toolTip1->Show("Coal Mine\n-standard efficiency\nmaintenance cost "+cMine$, pictureBox7);
 	}
 	else
 	{
-		toolTip1->Show("Automized Coal Mine\n-improved efficiency", pictureBox7);
+		toolTip1->Show("Automized Coal Mine\n-improved efficiency\nmaintenance cost " + cMine$, pictureBox7);
 	}
 }
 private: System::Void feMine_MouseHover(System::Object^ sender, System::EventArgs^ e) {
 	if (feMine->Image != nullptr)
 	{
-		toolTip1->Show("Ferrum Mine\n-standard efficiency", feMine);
+		toolTip1->Show("Ferrum Mine\n-standard efficiency\nmaintenance cost "+feMine$, feMine);
 	}
 	else
 	{
-		toolTip1->Show("Automized Ferrum Mine\n-improved efficiency", feMine);
+		toolTip1->Show("Automized Ferrum Mine\n-improved efficiency\nmaintenance cost " + feMine$, feMine);
 	}
 }
 private: System::Void steelMill_MouseHover(System::Object^ sender, System::EventArgs^ e) {
 	if (upgrade1steel->Visible==true)
 	{
-		toolTip1->Show("Steel Mill\nTakes 3 units of Ferrum and 1 coal producing\n1Steel", steelMill);
+		toolTip1->Show("Steel Mill\nTakes 3 units of Ferrum\nand 1 coal producing 1Steel\nmaintenance cost " + stm$, steelMill);
 	}
 	else
 	{
-		toolTip1->Show("Steel Mill\nTakes 6 units of Ferrum and 2 coal producing\n2Steel\n-Improved blast furnace", steelMill);
+		toolTip1->Show("Steel Mill\nTakes 6 units of Ferrum and 2 coal producing\n2Steel\n-Improved blast furnace\nmaintenance cost " + stm$, steelMill);
 	}
 }
 private: System::Void upgrade1forC_MouseHover(System::Object^ sender, System::EventArgs^ e) {
@@ -2082,7 +2082,7 @@ private: System::Void backgroundWorker1_RunWorkerCompleted(System::Object^ event
 	Sleep(1);
 	if (pause == false && revenue > -10000)
 	{
-		money(-1000);
+		money(-(cMine$+feMine$+stm$));
 		backgroundWorker1->RunWorkerAsync(1);
 	}
 	automatik();
@@ -2427,6 +2427,7 @@ private: System::Void upgrade1forC_Click(System::Object^ sender, System::EventAr
 	{
 		money(-10000);
 		up1c = 3;
+		cMine$ +=400;
 		this->upgrade1forC->Visible = false;
 		this->pictureBox7->Image = nullptr;
 	}
@@ -2436,6 +2437,7 @@ private: System::Void upgrade1fe_Click(System::Object^ sender, System::EventArgs
 	{
 		money(-15000);
 		up1fe = 3;
+		feMine$ += 500;
 		this->upgrade1fe->Visible = false;
 		this->feMine->Image = nullptr;
 	}
@@ -2445,6 +2447,7 @@ private: System::Void upgrade1steel_Click(System::Object^ sender, System::EventA
 	if (revenue >= 5000)
 	{
 		money(-5000);
+		stm$ += 1000;
 		up1st = 2;
 		this->upgrade1steel->Visible = false;
 	}
