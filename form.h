@@ -6,7 +6,7 @@ int revenue;
 
 namespace mgmtzasoby {
 
-	//using namespace System;
+	using namespace System;
 	using namespace System::ComponentModel;
 	using namespace System::Collections;
 	using namespace System::Windows::Forms;
@@ -1604,6 +1604,27 @@ private: void gameover(int control)//or gamenotreallyoverifyoustartforthefirstti
 		}
 	}
 }
+private: System::Void cheatsheet(System::Object^ sender, System::EventArgs^ e) {
+
+	if (xdfg == 1 || ClientSize == System::Drawing::Size(1207, 667))
+	{
+		this->ClientSize = System::Drawing::Size(1207, 1067);
+		xdfg--;
+	}
+	if (xdfg == 1 || ClientSize == System::Drawing::Size(1507, 667))
+	{
+		this->ClientSize = System::Drawing::Size(1573, 1067);
+		xdfg++;
+	}
+	if (xdfg != 1 || ClientSize == System::Drawing::Size(1207, 767))
+	{
+		this->ClientSize = System::Drawing::Size(1207, 667);
+	}
+	if (xdfg != 1 || ClientSize == System::Drawing::Size(1507, 767))
+	{
+		this->ClientSize = System::Drawing::Size(1573, 667);
+	}
+}
 private:void cheat(int passwrd)
 {
 	this->controlchechlb->Text += passwrd + "";
@@ -1700,9 +1721,10 @@ private: void hiddenoption(int a,int b,int c,int d,int e)//yes indeed this is hi
 	}
 	/*here!!!!*/	W:;//so yea i used goto 
 	cheat(passwrd);
-}//it leaves seat up at your bathroom when you are not home 
-//and eats your last bag of chips 
-//and wears your underwear*/
+										//it leaves seat up at your bathroom when you are not home 
+										//and eats your last bag of chips 
+									//and wears your underwear*/
+}
 private: System::Void account_Click(System::Object^ sender, System::EventArgs^ e) {
 	int r = rand()%(69-1);
 	Beep(r * 1000, 100);
@@ -1719,7 +1741,7 @@ private: void automatik()
 	if (checkBox1->Checked == true && listBox1->Text == "sell")
 	{
 		int sell;
-		if (textBox1->Text == "" || textBox1->Text == "how much")
+		if (textBox1->Text == "" || textBox1->Text == "how much")//something is not right here with selling specific ammount 
 		{
 			sell = 20 * avC;
 			money(sell);
@@ -1786,7 +1808,7 @@ private: void automatik()
 		}
 		else
 		{
-			int sell = Convert::ToInt16(textBox2->Text);
+			int sell = Convert::ToInt16(textBox2->Text);//something is wrong here but now sure 
 			if (sell >= avFe)
 			{
 				money(sell * 42);
@@ -1876,7 +1898,7 @@ private: void automatik()
 	}
 }
 
-private: void Storage(int storage)
+private: void Storage(int storage)//storage capacity upgrade 
 {
 	switch (storage)
 	{
@@ -1986,7 +2008,7 @@ private: System::Void toolTip1_Popup(System::Object^ sender, System::Windows::Fo
 private: System::Void pictureBox7_MouseHover(System::Object^ sender, System::EventArgs^ e) {//ahh yes if you didn't recognice pictogram when you hover over it you for sure know that this is in fack some kind of mine xD
 	if (pictureBox7->Image != nullptr)
 	{
-		toolTip1->Show("Coal Mine\n-standard efficiency\nmaintenance cost "+cMine$, pictureBox7);
+		toolTip1->Show("Coal Mine\n-standard efficiency\nmaintenance cost "+cMine$, pictureBox7);//some changes in tooltip 
 	}
 	else
 	{
@@ -1996,7 +2018,7 @@ private: System::Void pictureBox7_MouseHover(System::Object^ sender, System::Eve
 private: System::Void feMine_MouseHover(System::Object^ sender, System::EventArgs^ e) {
 	if (feMine->Image != nullptr)
 	{
-		toolTip1->Show("Ferrum Mine\n-standard efficiency\nmaintenance cost "+feMine$, feMine);
+		toolTip1->Show("Ferrum Mine\n-standard efficiency\nmaintenance cost "+feMine$, feMine);//more info maybe next upgrades could be added to tooltip from string or smth
 	}
 	else
 	{
@@ -2006,7 +2028,7 @@ private: System::Void feMine_MouseHover(System::Object^ sender, System::EventArg
 private: System::Void steelMill_MouseHover(System::Object^ sender, System::EventArgs^ e) {
 	if (upgrade1steel->Visible==true)
 	{
-		toolTip1->Show("Steel Mill\nTakes 3 units of Ferrum\nand 1 coal producing 1Steel\nmaintenance cost " + stm$, steelMill);
+		toolTip1->Show("Steel Mill\nTakes 3 units of Ferrum\nand 1 coal producing 1Steel\nmaintenance cost " + stm$, steelMill);//right now just weekly cost is updating 
 	}
 	else
 	{
@@ -2288,12 +2310,12 @@ private: System::Void SmWorker_DoWork(System::Object ^ sender, System::Component
 private: System::Void SmWorker_ProgressChanged(System::Object ^ sender, System::ComponentModel::ProgressChangedEventArgs ^ e) {
 	if (avSteel < SteelmaxS)
 	{
-		if (avC >= 1 && avFe >= 3 && avC < 2 && avFe < 6)
+		if (avC >= 1 && avFe >= 3 && avC < 2 && avFe < 6)//<-or this 
 		{
 
-			Storage(-1, -3, e->ProgressPercentage);
+			Storage(-1, -3, e->ProgressPercentage);//NOTE TO MYSELF:
 
-		}
+		}										//					<-this is not working 
 		if (avC >= 2 && avFe >= 6 && up1st == 2)
 		{
 
@@ -2303,8 +2325,8 @@ private: System::Void SmWorker_ProgressChanged(System::Object ^ sender, System::
 		else
 		{
 
-			Storage(0, 0, e->ProgressPercentage - 1);
-		}
+			Storage(0, 0, e->ProgressPercentage - 1);//what is this math 1-1=0 
+		}													// who would have guessed 
 	}
 	else
 	{
@@ -2318,7 +2340,7 @@ private: System::Void CBuy_Click(System::Object^ sender, System::EventArgs^ e)
 	if (revenue >= 250 && avC != CmaxS)
 	{
 		money(-250);
-		Storage(10, 0, 0);
+		Storage(10, 0, 0);//right now these buttons are pretty much useless wit automated selling and buying 
 	}
 	else
 	{
@@ -2452,27 +2474,6 @@ private: System::Void upgrade1steel_Click(System::Object^ sender, System::EventA
 		this->upgrade1steel->Visible = false;
 	}
 
-}
-private: System::Void cheatsheet(System::Object^ sender, System::EventArgs^ e) {
-
-	if (xdfg == 1|| ClientSize == System::Drawing::Size(1207, 667))
-	{
-		this->ClientSize = System::Drawing::Size(1207, 1067);
-		xdfg--;
-	}
-	if(xdfg==1 || ClientSize==System::Drawing::Size(1507, 667))
-	{
-		this->ClientSize = System::Drawing::Size(1573, 1067);
-		xdfg++;
-	}
-	if (xdfg != 1 || ClientSize == System::Drawing::Size(1207, 767))
-	{
-		this->ClientSize = System::Drawing::Size(1207, 667);
-	}
-	if (xdfg != 1 || ClientSize == System::Drawing::Size(1507, 767))
-	{
-		this->ClientSize = System::Drawing::Size(1573, 667);
-	}
 }
 };
 }
