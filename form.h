@@ -156,6 +156,7 @@ private: System::Windows::Forms::PictureBox^ upgrade1steel;
 private: System::Windows::Forms::PictureBox^ pictureBox7;
 private: System::Windows::Forms::PictureBox^ feMine;
 private: System::Windows::Forms::Label^ nonamelabel;
+private: System::Windows::Forms::Label^ label15;
 
 
 
@@ -276,6 +277,7 @@ private: System::Windows::Forms::Label^ nonamelabel;
 			this->pictureBox7 = (gcnew System::Windows::Forms::PictureBox());
 			this->feMine = (gcnew System::Windows::Forms::PictureBox());
 			this->nonamelabel = (gcnew System::Windows::Forms::Label());
+			this->label15 = (gcnew System::Windows::Forms::Label());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->BeginInit();
@@ -307,11 +309,11 @@ private: System::Windows::Forms::Label^ nonamelabel;
 			this->dollar->AutoSize = true;
 			this->dollar->BackColor = System::Drawing::Color::Transparent;
 			this->dollar->Dock = System::Windows::Forms::DockStyle::Right;
-			this->dollar->Font = (gcnew System::Drawing::Font(L"Stencil", 20));
+			this->dollar->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20));
 			this->dollar->ForeColor = System::Drawing::Color::Green;
-			this->dollar->Location = System::Drawing::Point(1523, 0);
+			this->dollar->Location = System::Drawing::Point(1524, 0);
 			this->dollar->Name = L"dollar";
-			this->dollar->Size = System::Drawing::Size(30, 32);
+			this->dollar->Size = System::Drawing::Size(29, 31);
 			this->dollar->TabIndex = 0;
 			this->dollar->Text = L"$";
 			this->dollar->TextAlign = System::Drawing::ContentAlignment::MiddleRight;
@@ -323,11 +325,11 @@ private: System::Windows::Forms::Label^ nonamelabel;
 			this->account->AutoSize = true;
 			this->account->BackColor = System::Drawing::Color::Transparent;
 			this->account->Dock = System::Windows::Forms::DockStyle::Right;
-			this->account->Font = (gcnew System::Drawing::Font(L"Stencil", 20));
+			this->account->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20));
 			this->account->ForeColor = System::Drawing::Color::Green;
 			this->account->Location = System::Drawing::Point(1553, 0);
 			this->account->Name = L"account";
-			this->account->Size = System::Drawing::Size(0, 32);
+			this->account->Size = System::Drawing::Size(0, 31);
 			this->account->TabIndex = 1;
 			this->account->TextAlign = System::Drawing::ContentAlignment::MiddleRight;
 			this->account->Click += gcnew System::EventHandler(this, &form::account_Click);
@@ -1383,11 +1385,22 @@ private: System::Windows::Forms::Label^ nonamelabel;
 			this->nonamelabel->Text = L"Cheat:";
 			this->nonamelabel->TextAlign = System::Drawing::ContentAlignment::MiddleRight;
 			// 
+			// label15
+			// 
+			this->label15->BackColor = System::Drawing::SystemColors::MenuHighlight;
+			this->label15->Location = System::Drawing::Point(933, 9);
+			this->label15->Name = L"label15";
+			this->label15->Size = System::Drawing::Size(331, 125);
+			this->label15->TabIndex = 87;
+			this->label15->Text = L"is it working or not? \\n i don\'t know man fuck kys";
+			this->label15->Click += gcnew System::EventHandler(this, &form::label15_Click);
+			// 
 			// form
 			// 
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::None;
 			this->BackColor = System::Drawing::SystemColors::AppWorkspace;
 			this->ClientSize = System::Drawing::Size(1553, 617);
+			this->Controls->Add(this->label15);
 			this->Controls->Add(this->nonamelabel);
 			this->Controls->Add(this->upgrade4steel);
 			this->Controls->Add(this->upgrade3steel);
@@ -2474,6 +2487,8 @@ private: System::Void upgrade1steel_Click(System::Object^ sender, System::EventA
 		this->upgrade1steel->Visible = false;
 	}
 
+}
+private: System::Void label15_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 };
 }

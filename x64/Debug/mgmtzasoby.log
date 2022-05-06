@@ -1,1 +1,1 @@
-﻿D:\Programy\VStudio2022\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets(1220,5): error MSB3644: Nie znaleziono zestawów odwołań dla elementu .NETFramework,Version=v4.6.1. Aby rozwiązać ten problem, zainstaluj pakiet Developer Pack (SDK/Targeting Pack) dla tej wersji platformy lub zmień platformę docelową aplikacji. Pakiety .NET Framework Developer Pack można pobrać pod adresem https://aka.ms/msbuild/developerpacks
+﻿  mgmtzasoby.vcxproj -> D:\.dev\mgmt\x64\Debug\mgmtzasoby.exe
