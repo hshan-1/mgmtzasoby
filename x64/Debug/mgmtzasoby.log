@@ -1,5 +1,5 @@
 ﻿  form.cpp
-D:\.dev\mgmt\form.h(1753): warning C4700: użycie niezainicjowanej zmiennej lokalnej "sell"
-D:\.dev\mgmt\form.h(1865): warning C4700: użycie niezainicjowanej zmiennej lokalnej "sell"
+D:\.dev\mgmt\form.h(1756): warning C4700: użycie niezainicjowanej zmiennej lokalnej "sell"
+D:\.dev\mgmt\form.h(1868): warning C4700: użycie niezainicjowanej zmiennej lokalnej "sell"
   form.obj : napotkano moduł MSIL; konsolidowanie przyrostowe jest wyłączone dla modułów MSIL; zostanie wykonana pełna konsolidacja
   mgmtzasoby.vcxproj -> D:\.dev\mgmt\x64\Debug\mgmtzasoby.exe

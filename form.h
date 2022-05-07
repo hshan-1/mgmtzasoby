@@ -117,8 +117,9 @@ private: System::ComponentModel::BackgroundWorker^ backgroundWorker5;
 private: System::ComponentModel::BackgroundWorker^ backgroundWorker6;
 private: System::Windows::Forms::Label^ carbonYield;
 	private: System::Windows::Forms::Label^ cStorage;
+	private: System::Windows::Forms::Label^ weeksum;
 
-	private: System::Windows::Forms::Label^ label14;
+
 	private: System::Windows::Forms::Label^ pass;
 	private: System::Windows::Forms::Label^ controlchechlb;
 	private: System::ComponentModel::BackgroundWorker^ brutalDecibelTherapy;
@@ -243,7 +244,7 @@ private: System::Windows::Forms::Label^ nonamelabel;
 			this->backgroundWorker6 = (gcnew System::ComponentModel::BackgroundWorker());
 			this->carbonYield = (gcnew System::Windows::Forms::Label());
 			this->cStorage = (gcnew System::Windows::Forms::Label());
-			this->label14 = (gcnew System::Windows::Forms::Label());
+			this->weeksum = (gcnew System::Windows::Forms::Label());
 			this->pass = (gcnew System::Windows::Forms::Label());
 			this->controlchechlb = (gcnew System::Windows::Forms::Label());
 			this->brutalDecibelTherapy = (gcnew System::ComponentModel::BackgroundWorker());
@@ -994,14 +995,14 @@ private: System::Windows::Forms::Label^ nonamelabel;
 			this->cStorage->Text = L"0/0";
 			this->cStorage->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
-			// label14
+			// weeksum
 			// 
-			this->label14->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 22));
-			this->label14->Location = System::Drawing::Point(1284, 148);
-			this->label14->Name = L"label14";
-			this->label14->Size = System::Drawing::Size(269, 262);
-			this->label14->TabIndex = 55;
-			this->label14->Text = L"here you can see some stuff not much of it at the moment just some text probably "
+			this->weeksum->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 22));
+			this->weeksum->Location = System::Drawing::Point(1223, 200);
+			this->weeksum->Name = L"weeksum";
+			this->weeksum->Size = System::Drawing::Size(269, 262);
+			this->weeksum->TabIndex = 55;
+			this->weeksum->Text = L"here you can see some stuff not much of it at the moment just some text probably "
 				L"with spelling errors and some bad grammar ";
 			// 
 			// pass
@@ -1239,6 +1240,8 @@ private: System::Windows::Forms::Label^ nonamelabel;
 			this->upgrade2forC->Size = System::Drawing::Size(25, 25);
 			this->upgrade2forC->TabIndex = 75;
 			this->upgrade2forC->TabStop = false;
+			this->upgrade2forC->Click += gcnew System::EventHandler(this, &form::upgrade2forC_Click);
+			this->upgrade2forC->MouseHover += gcnew System::EventHandler(this, &form::upgrade2forC_MouseHover);
 			// 
 			// upgrade3forC
 			// 
@@ -1420,7 +1423,7 @@ private: System::Windows::Forms::Label^ nonamelabel;
 			this->Controls->Add(this->FeStorage);
 			this->Controls->Add(this->controlchechlb);
 			this->Controls->Add(this->pass);
-			this->Controls->Add(this->label14);
+			this->Controls->Add(this->weeksum);
 			this->Controls->Add(this->cStorage);
 			this->Controls->Add(this->carbonYield);
 			this->Controls->Add(this->steelmillStatus);
@@ -1764,7 +1767,7 @@ private: void automatik()
 	}
 	if (checkBox1->Checked == true && listBox1->Text == "buy")
 	{
-		this->label14->Text = "buy";//why i need this 
+		//this->label14->Text = "buy";//why i need this 
 	}
 	if (checkBox1->Checked == true && listBox1->Text == "maintain")
 	{
@@ -1824,7 +1827,7 @@ private: void automatik()
 	}
 	if (checkBox2->Checked == true && listBox2->Text == "buy")
 	{
-		this->label14->Text = "buy";//why i need this 
+		//this->label14->Text = "buy";//why i need this 
 	}
 	if (checkBox2->Checked == true && listBox2->Text == "maintain")
 	{
@@ -1877,7 +1880,7 @@ private: void automatik()
 	}
 	if (checkBox3->Checked == true && listBox3->Text == "buy")
 	{
-		this->label14->Text = "buy";//why i need this 
+		//this->label14->Text = "buy";//why i need this 
 	}
 	if (checkBox3->Checked == true && listBox3->Text == "maintain")
 	{
@@ -1963,6 +1966,7 @@ private: void money(int dollar) {
 	revenue += dollar; //state of bank account updated with gains over time 
 
 	this->account->Text = revenue+"";
+	this->weeksum->Text +=dollar+"\n"; //should add to another line but nooooo
 }
 private: System::Void automat(System::Object^ sender, System::EventArgs^ e)//whenever you click check box it changes it's color
 {
@@ -2109,6 +2113,7 @@ private: System::Void backgroundWorker1_RunWorkerCompleted(System::Object^ event
 		backgroundWorker1->RunWorkerAsync(1);
 	}
 	automatik();
+
 }
 /*start work, start from the scratch*/private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {//work start button triggering all background workers
 	gameover(0);
@@ -2478,5 +2483,17 @@ private: System::Void upgrade1steel_Click(System::Object^ sender, System::EventA
 }
 private: System::Void label15_Click(System::Object^ sender, System::EventArgs^ e) {
 }
+private: System::Void upgrade2forC_Click(System::Object^ sender, System::EventArgs^ e) {
+	if (revenue > 0)
+	{
+		money(-0);
+		//do some upgrade i dont care 
+	}
+	this->upgrade2forC->Visible = false;
+}
+private: System::Void upgrade2forC_MouseHover(System::Object^ sender, System::EventArgs^ e) {
+	this->toolTip1->Show("another upgrade for something idk", upgrade2forC);//how many upgrades can i think of for mine really 
+}
+
 };
 }
