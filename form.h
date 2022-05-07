@@ -156,7 +156,7 @@ private: System::Windows::Forms::PictureBox^ upgrade1steel;
 private: System::Windows::Forms::PictureBox^ pictureBox7;
 private: System::Windows::Forms::PictureBox^ feMine;
 private: System::Windows::Forms::Label^ nonamelabel;
-private: System::Windows::Forms::Label^ label15;
+
 
 
 
@@ -277,7 +277,6 @@ private: System::Windows::Forms::Label^ label15;
 			this->pictureBox7 = (gcnew System::Windows::Forms::PictureBox());
 			this->feMine = (gcnew System::Windows::Forms::PictureBox());
 			this->nonamelabel = (gcnew System::Windows::Forms::Label());
-			this->label15 = (gcnew System::Windows::Forms::Label());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->BeginInit();
@@ -1009,7 +1008,7 @@ private: System::Windows::Forms::Label^ label15;
 			// 
 			this->pass->BackColor = System::Drawing::SystemColors::ButtonShadow;
 			this->pass->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 22));
-			this->pass->Location = System::Drawing::Point(323, 628);
+			this->pass->Location = System::Drawing::Point(12, 684);
 			this->pass->Name = L"pass";
 			this->pass->Size = System::Drawing::Size(269, 40);
 			this->pass->TabIndex = 56;
@@ -1017,10 +1016,10 @@ private: System::Windows::Forms::Label^ label15;
 			// 
 			// controlchechlb
 			// 
-			this->controlchechlb->BackColor = System::Drawing::SystemColors::AppWorkspace;
+			this->controlchechlb->BackColor = System::Drawing::SystemColors::ButtonShadow;
 			this->controlchechlb->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 22));
-			this->controlchechlb->ForeColor = System::Drawing::SystemColors::AppWorkspace;
-			this->controlchechlb->Location = System::Drawing::Point(12, 628);
+			this->controlchechlb->ForeColor = System::Drawing::SystemColors::ActiveCaptionText;
+			this->controlchechlb->Location = System::Drawing::Point(324, 628);
 			this->controlchechlb->Name = L"controlchechlb";
 			this->controlchechlb->Size = System::Drawing::Size(269, 40);
 			this->controlchechlb->TabIndex = 57;
@@ -1378,29 +1377,18 @@ private: System::Windows::Forms::Label^ label15;
 			// 
 			this->nonamelabel->BackColor = System::Drawing::SystemColors::ButtonShadow;
 			this->nonamelabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 22));
-			this->nonamelabel->Location = System::Drawing::Point(48, 628);
+			this->nonamelabel->Location = System::Drawing::Point(18, 628);
 			this->nonamelabel->Name = L"nonamelabel";
 			this->nonamelabel->Size = System::Drawing::Size(269, 40);
 			this->nonamelabel->TabIndex = 86;
 			this->nonamelabel->Text = L"Cheat:";
 			this->nonamelabel->TextAlign = System::Drawing::ContentAlignment::MiddleRight;
 			// 
-			// label15
-			// 
-			this->label15->BackColor = System::Drawing::SystemColors::MenuHighlight;
-			this->label15->Location = System::Drawing::Point(933, 9);
-			this->label15->Name = L"label15";
-			this->label15->Size = System::Drawing::Size(331, 125);
-			this->label15->TabIndex = 87;
-			this->label15->Text = L"is it working or not? \\n i don\'t know man fuck kys";
-			this->label15->Click += gcnew System::EventHandler(this, &form::label15_Click);
-			// 
 			// form
 			// 
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::None;
 			this->BackColor = System::Drawing::SystemColors::AppWorkspace;
-			this->ClientSize = System::Drawing::Size(1553, 617);
-			this->Controls->Add(this->label15);
+			this->ClientSize = System::Drawing::Size(1553, 752);
 			this->Controls->Add(this->nonamelabel);
 			this->Controls->Add(this->upgrade4steel);
 			this->Controls->Add(this->upgrade3steel);
@@ -2108,7 +2096,7 @@ private: System::Void backgroundWorker1_ProgressChanged(System::Object^ event, S
 	this->progressBar1->Value = e->ProgressPercentage;//hell yea boy  //just found this comment i don't know what i meant by that but ok 
 
 }
-private: System::Void backgroundWorker1_RunWorkerCompleted(System::Object^ event, System::ComponentModel::RunWorkerCompletedEventArgs^ e)//after whole week it goes back to monday and starts again 
+private: System::Void backgroundWorker1_RunWorkerCompleted(System::Object^ event, System::ComponentModel::RunWorkerCompletedEventArgs^ e)//after whole week it goes back to monday and starts again //duh?
 {
 	if (revenue <= -10000)
 	{
@@ -2203,7 +2191,7 @@ private: System::Void dollar_Click(System::Object^ sender, System::EventArgs^ e)
 		this->ClientSize = System::Drawing::Size(1573, 635);
 		xdfg++;
 	}//maybe when i'll start working on automated function for buying and selling there will be informations about these actions expected to be done 
-}
+}//or maybe not 
 private: System::Void pictureBox2_Click(System::Object^ sender, System::EventArgs^ e) {
 	why();
 }
@@ -2270,7 +2258,7 @@ private: System::Void listBox1_MouseHover(System::Object^ sender, System::EventA
 private: System::Void pictureBox1_Click(System::Object^ sender, System::EventArgs^ e) {
 	hiddenoption(1,1,1,3,2);
 }
-private: System::Void form_Load(System::Object^ sender, System::EventArgs^ e) {
+private: System::Void form_Load(System::Object^ sender, System::EventArgs^ e) {//form looked metter on win 8.1 tbh... i dont know 
 	this->ClientSize = System::Drawing::Size(1203, 635);
 	this->account->Text = revenue + "";
 	/*this->backgroundWorker1->RunWorkerAsync(1);
@@ -2323,13 +2311,13 @@ private: System::Void SmWorker_DoWork(System::Object ^ sender, System::Component
 private: System::Void SmWorker_ProgressChanged(System::Object ^ sender, System::ComponentModel::ProgressChangedEventArgs ^ e) {
 	if (avSteel < SteelmaxS)
 	{
-		if (avC >= 1 && avFe >= 3 && avC < 2 && avFe < 6)//<-or this 
+		if (avC >= 1 && avFe >= 3 && upgrade1steel->Visible == true)//<-both working 
 		{
 
 			Storage(-1, -3, e->ProgressPercentage);//NOTE TO MYSELF:
 
-		}										//					<-this is not working 
-		if (avC >= 2 && avFe >= 6 && up1st == 2)
+		}										//					<-this is now working 
+		if (avC >= 2 && avFe >= 6 && upgrade1steel->Visible == false)
 		{
 
 			Storage(-2, -6, e->ProgressPercentage * up1st);
