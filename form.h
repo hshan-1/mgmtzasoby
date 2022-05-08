@@ -14,7 +14,7 @@ namespace mgmtzasoby {
 	using namespace System::Drawing;
 
 	/// <summary>
-	/// Podsumowanie informacji o form
+	/// 
 	/// </summary>
 	public ref class form : public System::Windows::Forms::Form
 	{
@@ -23,13 +23,13 @@ namespace mgmtzasoby {
 		{
 			InitializeComponent();
 			//
-			//TODO: W tym miejscu dodaj kod konstruktora
+			//TODO: 
 			//
 		}
 
 	protected:
 		/// <summary>
-		/// Wyczy�� wszystkie u�ywane zasoby.
+		/// 
 		/// </summary>
 		~form()
 		{
@@ -1753,9 +1753,10 @@ private: void automatik()
 		}
 		else
 		{
+			int sell = Convert::ToInt16(textBox1->Text);
 			if (sell >= avC)
 			{
-				int sell = Convert::ToInt16(textBox1->Text);
+				
 				money(sell * 20);
 				Storage(-sell, 0, 0);
 			}
@@ -1831,20 +1832,26 @@ private: void automatik()
 	}
 	if (checkBox2->Checked == true && listBox2->Text == "maintain")
 	{
-
-		this->textBox2->BackColor = System::Drawing::SystemColors::Window;
-		int maintain = Convert::ToInt16(textBox2->Text);
-		if ((avFe > maintain) && maintain <= FemaxS)
+		if(textBox2->Text!=""&& System::Text::RegularExpressions::Regex::IsMatch(textBox2->Text, "[ ^ 0-9]"))
 		{
-			int total = (avFe - maintain) * 42;
-			money(total);
-			Storage(0, -(avFe - maintain),0 );
+			this->textBox2->BackColor = System::Drawing::SystemColors::Window;
+			int maintain = Convert::ToInt16(textBox2->Text);
+			if ((avFe > maintain) && maintain <= FemaxS)
+			{
+				int total = (avFe - maintain) * 42;
+				money(total);
+				Storage(0, -(avFe - maintain), 0);
+			}
+			if ((avSteel < maintain) && maintain >= 0)
+			{
+				int total = (maintain - avFe) * 50;
+				money(-total);
+				Storage(0, maintain - avFe, 0);
+			}
 		}
-		if ((avSteel < maintain) && maintain >= 0)
+		else
 		{
-			int total = (maintain - avFe) * 50;
-			money(-total);
-			Storage(0, maintain - avFe,0);
+			this->textBox2->BackColor = System::Drawing::Color::Red;
 		}
 	}
 
@@ -1865,9 +1872,9 @@ private: void automatik()
 		}
 		else
 		{
+			int sell = Convert::ToInt16(textBox3->Text);
 			if (sell >= avSteel)
 			{
-				int sell = Convert::ToInt16(textBox3->Text);
 				money(sell * 200);
 				Storage(0, 0, -sell);
 			}
@@ -1899,6 +1906,10 @@ private: void automatik()
 			money(-total);
 			Storage(0, 0, maintain - avSteel);
 		}
+		else
+		{
+			this->textBox3->BackColor = System::Drawing::Color::Red;
+		}
 	}
 }
 
@@ -1926,7 +1937,7 @@ private: void Storage(int storage)//storage capacity upgrade
 		}
 	}
 }
-private: void Storage(int c,int fe,int steel)
+private: void Storage(int c,int fe,int steel)//storage storage 
 {
 /////////////////////////////////////
 	avC += c;
@@ -1965,8 +1976,16 @@ private: void money(int dollar) {
 	
 	revenue += dollar; //state of bank account updated with gains over time 
 
-	this->account->Text = revenue+"";
-	this->weeksum->Text +=dollar+"\n"; //should add to another line but nooooo
+	this->account->Text = revenue.ToString();   //revenue.ToString(); ||  revenue+"";
+	if (dollar > 0)
+	{
+		this->weeksum->Text ="+"+dollar + "\n"; //should add to another line but nooooo
+	}
+	else
+	{
+		
+		this->weeksum->Text = dollar + "\n";
+	}
 }
 private: System::Void automat(System::Object^ sender, System::EventArgs^ e)//whenever you click check box it changes it's color
 {

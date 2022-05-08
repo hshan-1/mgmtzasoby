@@ -1,7 +1,7 @@
 #include "form.h"
 
 using namespace System;
-using namespace System ::Windows::Forms;
+using namespace System::Windows::Forms;
 using namespace mgmtzasoby;
 
 [STAThreadAttribute]
