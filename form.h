@@ -1375,6 +1375,7 @@ private: System::Windows::Forms::Label^ nonamelabel;
 			this->feMine->TabIndex = 49;
 			this->feMine->TabStop = false;
 			this->feMine->MouseHover += gcnew System::EventHandler(this, &form::feMine_MouseHover);
+			this->feMine->Click += gcnew System::EventHandler(this, &form::feMine_Click);
 			// 
 			// nonamelabel
 			// 
@@ -1541,7 +1542,7 @@ private: System::Windows::Forms::Label^ nonamelabel;
 		 
 private: void nm()//No Money
 {
-	MessageBox::Show("insufficient funds");
+	MessageBox::Show("Insufficient funds");
 }
 private: void em()//empty
 {
@@ -1979,12 +1980,12 @@ private: void money(int dollar) {
 	this->account->Text = revenue.ToString();   //revenue.ToString(); ||  revenue+"";
 	if (dollar > 0)
 	{
-		this->weeksum->Text ="+"+dollar + "\n"; //should add to another line but nooooo
+		this->weeksum->Text +="+"+dollar.Tostring() + "\n"; //should add to another line but nooooo
 	}
 	else
 	{
 		
-		this->weeksum->Text = dollar + "\n";
+		this->weeksum->Text += dollar.ToString() + "\n";//is it adding up? idk
 	}
 }
 private: System::Void automat(System::Object^ sender, System::EventArgs^ e)//whenever you click check box it changes it's color
@@ -2513,6 +2514,21 @@ private: System::Void upgrade2forC_Click(System::Object^ sender, System::EventAr
 private: System::Void upgrade2forC_MouseHover(System::Object^ sender, System::EventArgs^ e) {
 	this->toolTip1->Show("another upgrade for something idk", upgrade2forC);//how many upgrades can i think of for mine really 
 }
-
+private: System::Void feMine_Click(System::Object^ sender, system::EventArgs^ e)
+{
+	bool thispause=0;
+	if(thispause==0)
+	{
+		this->feMineWorker->CancelAsync();
+		//this->feMine->Image=   //make image disapear when stoped 
+		thispause=1;
+	}
+	else//no idea if this works i can't compile right now 
+	{		//edditing this through browser so...
+							//HERE make image visable again
+		this->feMineWorker->RunWorkerAsync();
+		thispause=0;
+	}
+}
 };
 }
