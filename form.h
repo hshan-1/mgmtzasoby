@@ -2,7 +2,7 @@
 
 #include<Windows.h>
 
-int revenue; 
+ 
 
 namespace mgmtzasoby {
 
@@ -307,11 +307,11 @@ private: System::Windows::Forms::Label^ nonamelabel;
 			this->dollar->AutoSize = true;
 			this->dollar->BackColor = System::Drawing::Color::Transparent;
 			this->dollar->Dock = System::Windows::Forms::DockStyle::Right;
-			this->dollar->Font = (gcnew System::Drawing::Font(L"Stencil", 20));
+			this->dollar->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20));
 			this->dollar->ForeColor = System::Drawing::Color::Green;
-			this->dollar->Location = System::Drawing::Point(1523, 0);
+			this->dollar->Location = System::Drawing::Point(1524, 0);
 			this->dollar->Name = L"dollar";
-			this->dollar->Size = System::Drawing::Size(30, 32);
+			this->dollar->Size = System::Drawing::Size(29, 31);
 			this->dollar->TabIndex = 0;
 			this->dollar->Text = L"$";
 			this->dollar->TextAlign = System::Drawing::ContentAlignment::MiddleRight;
@@ -323,11 +323,11 @@ private: System::Windows::Forms::Label^ nonamelabel;
 			this->account->AutoSize = true;
 			this->account->BackColor = System::Drawing::Color::Transparent;
 			this->account->Dock = System::Windows::Forms::DockStyle::Right;
-			this->account->Font = (gcnew System::Drawing::Font(L"Stencil", 20));
+			this->account->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20));
 			this->account->ForeColor = System::Drawing::Color::Green;
 			this->account->Location = System::Drawing::Point(1553, 0);
 			this->account->Name = L"account";
-			this->account->Size = System::Drawing::Size(0, 32);
+			this->account->Size = System::Drawing::Size(0, 31);
 			this->account->TabIndex = 1;
 			this->account->TextAlign = System::Drawing::ContentAlignment::MiddleRight;
 			this->account->Click += gcnew System::EventHandler(this, &form::account_Click);
@@ -1527,6 +1527,8 @@ private: System::Windows::Forms::Label^ nonamelabel;
 		int feMine$=600; //variables to describe weekly cost of each depending on upgrades 
 		int stm$=1000;
 		int up1st = 1;
+		Random^ rand = gcnew Random;
+		int p = rand->Next(5, 16);
 
 //----------------------(here is and idea: start saving that^ to external file so everytime you start the program you begin work with values from previous session) -----------------------------------------------------------------//yea right 
 
@@ -1689,13 +1691,13 @@ private: void hiddenoption(int a,int b,int c,int d,int e)//yes indeed this is hi
 		}
 		else
 		{
-			passwrd = rand() % (4 - 1);
+			passwrd = p;
 			this->pass->Text += passwrd+"";
 		}
 	}
 	else
 	{
-		passwrd = rand()%(8-0);
+		passwrd = p;
 		this->pass->Text += passwrd + "";
 	}
 	/*here!!!!*/	W:;//so yea i used goto 
@@ -1704,8 +1706,8 @@ private: void hiddenoption(int a,int b,int c,int d,int e)//yes indeed this is hi
 //and eats your last bag of chips 
 //and wears your underwear*/
 private: System::Void account_Click(System::Object^ sender, System::EventArgs^ e) {
-	int r = rand()%(69-1);
-	Beep(r * 1000, 100);
+	
+	Beep(p * 1000, 100);
 }
 private: void automatik()
 {
@@ -2109,7 +2111,7 @@ private: System::Void backgroundWorker1_RunWorkerCompleted(System::Object^ event
 		}
 		case true:
 		{
-			Sleep(1000);//otherwise with quick clicking there can be problem syncing   //works just fine now 
+			Sleep(1000);//otherwise with quick clicking there can be problem syncing   //works just fine now //not really so don't click it to quick 
 			this->mineStatus->Style = System::Windows::Forms::ProgressBarStyle::Marquee;
 			this->femineStatus->Style = System::Windows::Forms::ProgressBarStyle::Marquee;
 			this->steelmillStatus->Style = System::Windows::Forms::ProgressBarStyle::Marquee;
@@ -2140,7 +2142,7 @@ private: System::Void mineworker_DoWork(System::Object^ sender, System::Componen
 	while (mineworker->CancellationPending==false&&pause==false)//NOW it works 
 	{
 		Sleep(500);
-		int p = rand()%( 5 + 1)*2;   //random but not random ammount of yield mine is...mining? it's ok if this randomness is not really random
+	    //random but not random ammount of yield mine is...mining? it's ok if this randomness is not really random
 		mineworker->ReportProgress(p);//sometimes it's good day of work sometimes not really but usually amount is the same so in this fake randomness there is some kind of pattern 
 	}
 }
@@ -2238,14 +2240,15 @@ private: System::Void pictureBox1_Click(System::Object^ sender, System::EventArg
 private: System::Void form_Load(System::Object^ sender, System::EventArgs^ e) {
 	this->ClientSize = System::Drawing::Size(1203, 635);
 	this->account->Text = revenue + "";
-	/*this->backgroundWorker1->RunWorkerAsync(1);
-	this->mineworker->RunWorkerAsync(1);	don't need it right now 
-	this->feMineWorker->RunWorkerAsync(1);*/
+	this->button1->Visible = false;
+	this->backgroundWorker1->RunWorkerAsync(1);
+	this->mineworker->RunWorkerAsync(1);	//yesn't need it right now 
+	this->feMineWorker->RunWorkerAsync(1);
 }
 private: System::Void brutalDecibelTherapy_DoWork(System::Object^ sender, System::ComponentModel::DoWorkEventArgs^ e) 
 {
 	
-	for (int det = 0; det <= 5;)
+	/*for (int det = 0; det <= 5;)
 	{
 		Beep(56000, 3000);
 		Beep(45000, 2000);
@@ -2255,19 +2258,19 @@ private: System::Void brutalDecibelTherapy_DoWork(System::Object^ sender, System
 		Beep(45000, 3000);
 		det++;
 		brutalDecibelTherapy->ReportProgress(det);
-	}
+	}*/
 
 }
 private: System::Void brutalDecibelTherapy_ProgressChanged(System::Object ^ sender, System::ComponentModel::ProgressChangedEventArgs ^ e) {
 }
 private: System::Void brutalDecibelTherapy_RunWorkerCompleted(System::Object^ sender, System::ComponentModel::RunWorkerCompletedEventArgs^ e) {
-	MessageBox::Show("you asked for it, be nice now");
+	//MessageBox::Show("you asked for it, be nice now");
 }
 private: System::Void feMineWorker_DoWork(System::Object^ sender, System::ComponentModel::DoWorkEventArgs^ e) {
 	while (feMineWorker->CancellationPending==false&&pause==false)
 	{
 		Sleep(500);
-		int p = rand() % (8 + 1)+2; 
+		 
 		feMineWorker->ReportProgress(p);
 	}
 }

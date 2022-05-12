@@ -2,3 +2,7 @@ D:\ważne\.dev\mgmtzasoby\x64\Debug\mgmtzasoby.vcxproj.AssemblyReference.cache
 D:\ważne\.dev\mgmtzasoby\x64\Debug\mgmtzasoby.exe
 D:\ważne\.dev\mgmtzasoby\x64\Debug\mgmtzasoby.form.resources
 D:\ważne\.dev\mgmtzasoby\x64\Debug\mgmtzasoby.vcxproj.GenerateResource.cache
+D:\.dev\repos\hshan-1\mgmtzasoby\x64\Debug\mgmtzasoby.vcxproj.AssemblyReference.cache
+D:\.dev\repos\hshan-1\mgmtzasoby\x64\Debug\mgmtzasoby.form.resources
+D:\.dev\repos\hshan-1\mgmtzasoby\x64\Debug\mgmtzasoby.vcxproj.GenerateResource.cache
+D:\.dev\repos\hshan-1\mgmtzasoby\x64\Debug\mgmtzasoby.exe
