@@ -1374,8 +1374,8 @@ private: System::Windows::Forms::Label^ nonamelabel;
 			this->feMine->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 			this->feMine->TabIndex = 49;
 			this->feMine->TabStop = false;
-			this->feMine->MouseHover += gcnew System::EventHandler(this, &form::feMine_MouseHover);
 			this->feMine->Click += gcnew System::EventHandler(this, &form::feMine_Click);
+			this->feMine->MouseHover += gcnew System::EventHandler(this, &form::feMine_MouseHover);
 			// 
 			// nonamelabel
 			// 
@@ -1532,7 +1532,7 @@ private: System::Windows::Forms::Label^ nonamelabel;
 		int feMine$=600; //variables to describe weekly cost of each depending on upgrades 
 		int stm$=1000;
 		int up1st = 1;
-
+		bool FEpause = 0;
 //----------------------(here is and idea: start saving that^ to external file so everytime you start the program you begin work with values from previous session) -----------------------------------------------------------------//yea right 
 
 		int passwrd=0;
@@ -1980,7 +1980,7 @@ private: void money(int dollar) {
 	this->account->Text = revenue.ToString();   //revenue.ToString(); ||  revenue+"";
 	if (dollar > 0)
 	{
-		this->weeksum->Text +="+"+dollar.Tostring() + "\n"; //should add to another line but nooooo
+		this->weeksum->Text +="+"+dollar.ToString() + "\n"; //should add to another line but nooooo
 	}
 	else
 	{
@@ -2149,10 +2149,11 @@ private: System::Void backgroundWorker1_RunWorkerCompleted(System::Object^ event
 			this->mineStatus->Style = System::Windows::Forms::ProgressBarStyle::Continuous;
 			this->femineStatus->Style = System::Windows::Forms::ProgressBarStyle::Continuous;
 			this->steelmillStatus->Style = System::Windows::Forms::ProgressBarStyle::Continuous;
-			backgroundWorker1->CancelAsync();
-			mineworker->CancelAsync();
-			feMineWorker->CancelAsync();
-			SmWorker->CancelAsync();
+			if(backgroundWorker1->CancellationPending==true) backgroundWorker1->CancelAsync();
+			if(mineworker->CancellationPending==true)	mineworker->CancelAsync();
+			if (feMineWorker->CancellationPending == true)	feMineWorker->CancelAsync();
+			if (SmWorker->CancellationPending == true)	SmWorker->CancelAsync();
+			
 			break;
 		}
 		case true:
@@ -2514,20 +2515,24 @@ private: System::Void upgrade2forC_Click(System::Object^ sender, System::EventAr
 private: System::Void upgrade2forC_MouseHover(System::Object^ sender, System::EventArgs^ e) {
 	this->toolTip1->Show("another upgrade for something idk", upgrade2forC);//how many upgrades can i think of for mine really 
 }
-private: System::Void feMine_Click(System::Object^ sender, system::EventArgs^ e)
+private: System::Void feMine_Click(System::Object^ sender, System::EventArgs^ e)
 {
-	bool thispause=0;
-	if(thispause==0)
+
+	if(FEpause==0)
 	{
-		this->feMineWorker->CancelAsync();
-		//this->feMine->Image=   //make image disapear when stoped 
-		thispause=1;
+		if (feMineWorker->CancellationPending == false) {//not exactly what i wanted 
+			this->feMineWorker->CancelAsync();
+			this->femineStatus->Visible = false;//not working 
+			//this->feMine->Image=   //make image disapear when stoped 
+			FEpause = 1;
+		}
 	}
 	else//no idea if this works i can't compile right now 
 	{		//edditing this through browser so...
 							//HERE make image visable again
 		this->feMineWorker->RunWorkerAsync();
-		thispause=0;
+		this->femineStatus->Visible = true;//working and you can see that :o
+		FEpause=0;
 	}
 }
 };

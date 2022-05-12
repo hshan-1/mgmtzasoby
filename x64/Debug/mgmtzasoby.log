@@ -1,1 +1,3 @@
-﻿  mgmtzasoby.vcxproj -> D:\.dev\mgmt\x64\Debug\mgmtzasoby.exe
+﻿  form.cpp
+  form.obj : MSIL module encountered; incremental linking is disabled for MSIL; performing full link
+  mgmtzasoby.vcxproj -> D:\.dev\repos\hshan-1\mgmtzasoby\x64\Debug\mgmtzasoby.exe
